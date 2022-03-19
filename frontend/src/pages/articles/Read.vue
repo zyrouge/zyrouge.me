@@ -27,18 +27,6 @@ const isUnknownArticle = computed(
     () => state.value === States.failed && hTitle.value === "404"
 );
 
-const writtenAt = computed(() =>
-    article.value
-        ? sugar.Date.relative(new Date(article.value.meta.writtenAt))
-        : null
-);
-
-const updatedAt = computed(() =>
-    article.value?.meta.updatedAt
-        ? sugar.Date.relative(new Date(article.value.meta.updatedAt))
-        : null
-);
-
 const fetchArticle = async () => {
     hTitle.value = "Loading...";
 
@@ -147,12 +135,7 @@ onUnmounted(() => {
                         {{ article.meta.tags.map((x) => `#${x}`).join(" ") }}
                     </p>
                     <p class="text-xs text-primary-500">
-                        <span>
-                            {{ writtenAt }}
-                        </span>
-                        <span v-if="updatedAt && writtenAt !== updatedAt">
-                            ({{ updatedAt }})
-                        </span>
+                        {{ sugar.Date.relative(new Date(article.meta.time)) }}
                     </p>
                 </div>
 

@@ -2,6 +2,7 @@
 import { ref, onMounted, onUnmounted } from "vue";
 
 import NavBar from "./components/NavBar.vue";
+import Fade from "./components/transitions/Fade.vue";
 
 const scrollToTop = () => {
     window.scrollTo({
@@ -32,7 +33,11 @@ onUnmounted(() => {
     <NavBar />
 
     <main>
-        <router-view></router-view>
+        <router-view v-slot="{ Component }">
+            <Fade>
+                <component :is="Component" />
+            </Fade>
+        </router-view>
     </main>
 
     <div class="flex justify-end" v-if="isScrollBarVisible">

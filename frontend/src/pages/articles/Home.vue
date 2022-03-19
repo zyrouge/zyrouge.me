@@ -29,22 +29,18 @@ const fetchArticles = async () => {
 };
 
 const SortBy = [
-    "Recently Created",
-    "Recently Updated",
-    "Ascending",
-    "Descending",
+    "Recent (Ascending)",
+    "Recent (Descending)",
+    "A-Z (Ascending)",
+    "A-Z (Descending)",
 ] as const;
 type SortByType = typeof SortBy[number];
 
 const sortBy = ref<SortByType>(SortBy[0]);
 const sortedArticles = computed(() => {
     return [
-        () => articles.value.sort((a, b) => a.writtenAt - b.writtenAt),
-        () =>
-            articles.value.sort(
-                (a, b) =>
-                    (a.updatedAt ?? a.writtenAt) - (b.updatedAt ?? b.writtenAt)
-            ),
+        () => articles.value.sort((a, b) => a.time - b.time),
+        () => articles.value.sort((a, b) => b.time - a.time),
         () => articles.value.sort((a, b) => a.title.localeCompare(b.title)),
         () => articles.value.sort((a, b) => b.title.localeCompare(a.title)),
     ][SortBy.indexOf(sortBy.value)]();
@@ -109,11 +105,7 @@ onMounted(fetchArticles);
                     <p
                         class="text-xs text-primary-500 group-hover:text-white pb-0.5"
                     >
-                        {{
-                            sugar.Date.relative(
-                                new Date(x.updatedAt ?? x.writtenAt)
-                            )
-                        }}
+                        {{ sugar.Date.relative(new Date(x.time)) }}
                     </p>
 
                     <p>{{ x.title }}</p>
