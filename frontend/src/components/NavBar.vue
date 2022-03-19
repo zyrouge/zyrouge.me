@@ -7,8 +7,10 @@ const routes = rRoutes.filter((x) => x.name);
 
 <template>
     <nav>
-        <div class="sticky py-6">
-            <div class="u-flex !justify-around gap-8">
+        <div class="sticky py-4 md:py-6">
+            <div
+                class="u-flex !flex-col md:!flex-row !justify-around gap-4 md:gap-8"
+            >
                 <router-link class="s-link font-bold" :to="logoLinkTo">
                     <span class="opacity-50">{</span> zyrouge
                     <span class="opacity-50">}</span>

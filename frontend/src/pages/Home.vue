@@ -1,9 +1,6 @@
 <script setup lang="ts">
-import { onMounted, ref } from "vue";
 import { useHead } from "../core/head";
-import { IProjectsResponse, Projects } from "../core/api/projects";
 import { SiteMetadata, StaticAssets } from "../tools/constants";
-import { Stated, States } from "../tools/stated";
 import { Utils } from "../tools/utils";
 
 import Hero from "../components/Hero.vue";
@@ -18,26 +15,38 @@ const langs: [string, string, string][] = [
     ["HTML", StaticAssets.html, "Language"],
     ["CSS", StaticAssets.css, "Language"],
     ["Dart", StaticAssets.dart, "Language"],
+    ["Electron", StaticAssets.electron, "App Framework"],
+    ["Flutter", StaticAssets.flutter, "App Framework"],
     ["Vue", StaticAssets.vue, "UI Framework"],
-    ["Flutter", StaticAssets.flutter, "UI Framework"],
     ["Tailwind CSS", StaticAssets.tailwindcss, "CSS Framework"],
     ["MongoDB", StaticAssets.mongodb, "Database"],
     ["SQL", StaticAssets.sqlite, "Database"],
 ];
 
-type IProjectsState = IProjectsResponse | null;
-const projects = ref(Stated.processing<IProjectsState>());
-
-const fetchProjects = async () => {
-    try {
-        projects.value = Stated.processing();
-        projects.value = Stated.done<IProjectsState>(await Projects.getAll());
-    } catch (_) {
-        projects.value = Stated.fail<IProjectsState>(undefined);
-    }
-};
-
-onMounted(fetchProjects);
+const projects: {
+    name: string;
+    href: string;
+    description: string;
+    image: string;
+    tags: string[];
+}[] = [
+    {
+        name: "Genius Lyrics",
+        href: "https://genius-lyrics.js.org",
+        description:
+            "Just a simple lyrics fetcher that uses Genius. Also has official API implementations.",
+        image: StaticAssets.genius,
+        tags: ["typescript"],
+    },
+    // {
+    //     name: "Canvacord",
+    //     href: "https://canvacord.js.org/",
+    //     description:
+    //         "Powerful image manipulation tool to manipulate images easily.",
+    //     image: "",
+    //     tags: ["typescript"],
+    // },
+];
 </script>
 
 <template>
@@ -75,8 +84,7 @@ onMounted(fetchProjects);
                 <div
                     class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
                 >
-                    <div v-if="projects.state !== States.done"></div>
-                    <div v-for="x in projects.data!.apps" v-else>
+                    <div v-for="x in projects">
                         <a
                             class="block group bg-secondary-900 hover:bg-primary-500"
                             :href="x.href"

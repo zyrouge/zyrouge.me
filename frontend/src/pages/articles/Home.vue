@@ -57,18 +57,21 @@ onMounted(fetchArticles);
         <hr />
 
         <div class="u-container u-container-h">
-            <div class="u-flex !justify-between">
-                <p class="text-lg">Recent Articles</p>
+            <div class="flex flex-col sm:flex-row justify-between">
+                <p class="text-lg pb-1 sm:pb-0">Recent Articles</p>
 
-                <select
-                    class="bg-secondary-900 px-1 outline-none"
-                    v-model="sortBy"
-                    :disabled="state !== States.done"
-                >
-                    <option v-for="x in SortBy" :value="x">
-                        {{ x }}
-                    </option>
-                </select>
+                <div class="u-flex !justify-start">
+                    <p class="mr-2 sm:hidden text-secondary-500">Sort by:</p>
+                    <select
+                        class="bg-secondary-900 px-1 outline-none"
+                        v-model="sortBy"
+                        :disabled="state !== States.done"
+                    >
+                        <option v-for="x in SortBy" :value="x">
+                            {{ x }}
+                        </option>
+                    </select>
+                </div>
             </div>
 
             <div class="u-flex py-10 min-h-[50vh]" v-if="state !== States.done">

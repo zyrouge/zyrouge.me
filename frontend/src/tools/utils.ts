@@ -42,8 +42,8 @@ export class Utils {
         }, ${date.getDate()} ${date.getFullYear()}`;
     }
 
-    static getSafeHtml(html: string) {
-        return sanitizeHtml(html);
+    static getSafeHtml(html: string, options?: sanitizeHtml.IOptions) {
+        return sanitizeHtml(html, options);
     }
 
     static renderSimpleMarkdown(content: string) {
