@@ -1,3 +1,4 @@
+import { EOL } from "os";
 import { promises as fs } from "fs";
 import markdown from "markdown-it";
 import path from "path";
@@ -12,7 +13,7 @@ export const RenderArticle = async (
     const raw = (await fs.readFile(file)).toString();
     const md = markdown();
 
-    const [rMeta, rContent] = raw.split("\n---\r\n");
+    const [rMeta, rContent] = raw.split(`${EOL}---${EOL}`);
     if (!rMeta || !rContent) {
         throw new Error(`Invalid content in ${file}`);
     }
