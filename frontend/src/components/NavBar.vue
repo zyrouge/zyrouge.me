@@ -1,0 +1,36 @@
+<script setup lang="ts">
+import { RoutePaths, routes as rRoutes, routesMap } from "../core/router";
+
+const logoLinkTo = routesMap[RoutePaths.home];
+const routes = rRoutes.filter((x) => x.name);
+</script>
+
+<template>
+    <nav>
+        <div class="sticky py-6">
+            <div class="u-flex !justify-around gap-8">
+                <router-link class="s-link font-bold" :to="logoLinkTo">
+                    <span class="opacity-50">{</span> zyrouge
+                    <span class="opacity-50">}</span>
+                </router-link>
+
+                <button class="u-flex gap-8">
+                    <router-link
+                        class="s-link"
+                        active-class="text-primary-500 hover:text-white"
+                        :to="x.path"
+                        v-for="x in routes"
+                    >
+                        {{ x.name }}
+                    </router-link>
+                </button>
+            </div>
+        </div>
+    </nav>
+</template>
+
+<style scoped>
+.s-link {
+    @apply hover:bg-primary-500 px-1;
+}
+</style>

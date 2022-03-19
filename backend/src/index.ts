@@ -1,0 +1,31 @@
+import { promises as fs } from "fs";
+import path from "path";
+import { GetAllArticle } from "./core/articles/exports";
+import { Paths } from "./constants";
+
+const start = async () => {
+    await fs.rm(Paths.output, {
+        force: true,
+        recursive: true,
+    });
+    await fs.mkdir(Paths.output);
+
+    const articles = await GetAllArticle();
+
+    await fs.writeFile(
+        path.join(Paths.output, "articles.json"),
+        JSON.stringify(articles.map((x) => x.meta))
+    );
+
+    const articlesOutputDir = path.join(Paths.output, "articles");
+    await fs.mkdir(articlesOutputDir);
+    for (let i = 0; i < articles.length; i++) {
+        const x = articles[i]!;
+        await fs.writeFile(
+            path.join(articlesOutputDir, `${x.meta.slug}.json`),
+            JSON.stringify(x)
+        );
+    }
+};
+
+start();
