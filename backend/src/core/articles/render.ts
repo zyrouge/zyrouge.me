@@ -23,16 +23,18 @@ export const RenderArticle = async (
     const pMeta = yaml.parse(rMeta);
     if (pMeta.draft === true) return;
 
+    const pTime = sugar.Date.create(pMeta.time);
+    if (isNaN(pTime.getTime())) {
+        throw new Error(`Invalid time in ${file}`);
+    }
+
     const meta: ArticleMetadata = {
         slug: path.relative(Paths.articles, file).replace(/\.md$/, ""),
         title: pMeta.title.trim(),
         description: md.renderInline(pMeta.description).trim(),
         tags: pMeta.tags.split(",").map((x: string) => x.trim()),
-        time: sugar.Date.create(pMeta.time).getTime(),
+        time: pTime.toISOString(),
     };
-    if (isNaN(meta.time)) {
-        throw new Error(`Invalid time in ${file}`);
-    }
 
     const content = md.render(rContent).trim();
 

@@ -39,8 +39,14 @@ type SortByType = typeof SortBy[number];
 const sortBy = ref<SortByType>(SortBy[0]);
 const sortedArticles = computed(() => {
     return [
-        () => articles.value.sort((a, b) => a.time - b.time),
-        () => articles.value.sort((a, b) => b.time - a.time),
+        () =>
+            articles.value.sort(
+                (a, b) => new Date(a.time).getTime() - new Date(b.time)
+            ),
+        () =>
+            articles.value.sort(
+                (a, b) => new Date(b.time).getTime() - new Date(a.time)
+            ),
         () => articles.value.sort((a, b) => a.title.localeCompare(b.title)),
         () => articles.value.sort((a, b) => b.title.localeCompare(a.title)),
     ][SortBy.indexOf(sortBy.value)]();

@@ -3,7 +3,7 @@ export interface IArticleMetadata {
     title: string;
     description: string;
     tags: string[];
-    time: number;
+    time: string;
 }
 
 export interface IArticle {
