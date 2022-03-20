@@ -37,6 +37,7 @@ const start = async () => {
         path.join(pOutput, "index.html"),
         path.join(pOutput, "404.html")
     );
+    await fs.writeFile(path.join(pOutput, ".nojekyll"), "");
     console.log("main: Build succeeded");
 };
 
