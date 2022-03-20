@@ -6,6 +6,7 @@
     "license": "MIT",
     "private": true,
     "scripts": {
+        "dev": "yarn build && yarn run serve dist -l 8080 --cors",
         "build": "ts-node ./src/index.ts"
     },
     "devDependencies": {

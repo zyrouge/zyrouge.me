@@ -96,6 +96,32 @@ hr {
     @apply border-secondary-900;
 }
 
-.u-stylify :is(h1, h2, h3, h4, h5, h6, p, table, hr) {
+.u-stylify blockquote {
+    @apply border-l-2 border-primary-500 pl-4;
+}
+
+.u-stylify ol {
+    @apply list-inside list-decimal;
+}
+
+.u-stylify ul {
+    @apply list-inside list-disc;
+}
+
+.u-stylify :is(h1, h2, h3, h4, h5, h6) {
+    @apply relative mt-8;
+}
+
+.u-stylify :is(h1, h2, h3, h4, h5, h6)::before {
+    content: "#";
+
+    @apply absolute -left-7 text-transparent cursor-pointer;
+}
+
+.u-stylify :is(h1, h2, h3, h4, h5, h6):hover::before {
+    @apply text-primary-500;
+}
+
+.u-stylify :is(h1, h2, h3, h4, h5, h6, p, table, hr, ol, ul, blockquote) {
     @apply mb-4;
 }

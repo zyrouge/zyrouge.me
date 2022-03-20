@@ -11,7 +11,9 @@ export const RenderArticle = async (
     file: string
 ): Promise<Article | undefined> => {
     const raw = (await fs.readFile(file)).toString();
-    const md = markdown();
+    const md = markdown({
+        linkify: true,
+    });
 
     const [rMeta, rContent] = raw.split(`${EOL}---${EOL}`);
     if (!rMeta || !rContent) {

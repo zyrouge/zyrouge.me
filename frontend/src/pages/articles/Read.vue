@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { computed, reactive, ref, onUnmounted, onMounted } from "vue";
+import { computed, reactive, ref, onMounted, onUnmounted } from "vue";
 import sugar from "sugar";
 import { IArticle, Articles } from "../../core/api/articles";
 import { HeadAttrs, useHead, resetHeadMeta } from "../../core/head";
@@ -64,6 +64,54 @@ const fetchArticle = async () => {
     }
 };
 
+interface ITocElement {
+    id: string;
+    title: string;
+}
+
+const toc = reactive<ITocElement[]>([]);
+
+const getRenderedHtml = (content: string) => {
+    toc.splice(0, Infinity);
+
+    const element = document.createElement("div");
+    element.id = `ac-${Utils.random(8).join("")}`;
+    element.innerHTML = Utils.getSafeHtml(content);
+
+    for (const x of Array.from(
+        element.querySelectorAll(":is(h1, h2, h3, h4, h5, h6)")
+    )) {
+        const cTitle = x.textContent!;
+        const cId = `h-${Utils.getHtmlSafeId(cTitle)}`;
+
+        x.id = cId;
+        x.setAttribute(
+            "onclick",
+            `history.pushState(null, null, "#${cId}"); this.scrollIntoView({ behavior: "smooth" });`
+        );
+        toc.push({
+            id: cId,
+            title: cTitle,
+        });
+    }
+
+    lookOutForContent(element.id);
+    return element.outerHTML;
+};
+
+const lookOutForContent = (id: string) => {
+    const watcher = setInterval(() => {
+        const element = document.getElementById(id);
+        if (element) {
+            const hashElement = document.getElementById(location.hash.slice(1));
+            hashElement?.scrollIntoView({
+                behavior: "smooth",
+            });
+            clearInterval(watcher);
+        }
+    }, 100);
+};
+
 onMounted(fetchArticle);
 
 onUnmounted(() => {
@@ -122,7 +170,7 @@ onUnmounted(() => {
                     </Message>
                 </div>
             </div>
-            <div v-else>
+            <article v-else>
                 <div class="mb-3">
                     <p class="text-3xl font-bold mb-1">
                         {{ article.meta.title }}
@@ -131,7 +179,7 @@ onUnmounted(() => {
                         {{ article.meta.description }}
                     </p>
 
-                    <p class="text-sm mb-1 text-secondary-400">
+                    <p class="text-sm mb-1 text-secondary-400 mb-1">
                         {{ article.meta.tags.map((x) => `#${x}`).join(" ") }}
                     </p>
                     <p class="text-xs text-primary-500">
@@ -143,9 +191,9 @@ onUnmounted(() => {
 
                 <div
                     class="u-stylify"
-                    v-html="Utils.getSafeHtml(article.content)"
+                    v-html="getRenderedHtml(article.content)"
                 ></div>
-            </div>
+            </article>
         </div>
     </div>
 </template>

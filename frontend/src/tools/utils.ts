@@ -53,4 +53,8 @@ export class Utils {
         );
         return Utils.getSafeHtml(styled);
     }
+
+    static getHtmlSafeId(content: string) {
+        return content.toLowerCase().replaceAll(/[^\w\d]/g, "-");
+    }
 }

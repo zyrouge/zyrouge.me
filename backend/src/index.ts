@@ -21,10 +21,12 @@ const start = async () => {
     await fs.mkdir(articlesOutputDir);
     for (let i = 0; i < articles.length; i++) {
         const x = articles[i]!;
-        await fs.writeFile(
-            path.join(articlesOutputDir, `${x.meta.slug}.json`),
-            JSON.stringify(x)
-        );
+        const xPath = path.join(articlesOutputDir, `${x.meta.slug}.json`);
+
+        await fs.mkdir(path.dirname(xPath), {
+            recursive: true,
+        });
+        await fs.writeFile(xPath, JSON.stringify(x));
     }
 };
 

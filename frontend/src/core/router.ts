@@ -18,7 +18,7 @@ export const routes: RouteRecordRaw[] = [
         component: () => import("../pages/articles/Home.vue"),
     },
     {
-        path: `${RoutePaths.articlesRead}/:slug+`,
+        path: `${RoutePaths.articlesRead}/:slug(.*)`,
         component: () => import("../pages/articles/Read.vue"),
     },
     {
