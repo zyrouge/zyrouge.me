@@ -23,11 +23,13 @@ const start = async () => {
 
     execSync("yarn run build", {
         cwd: pBackend,
+        encoding: "utf8",
     });
     console.log("backend: Build succeeded");
 
     execSync("yarn run build", {
         cwd: pFrontend,
+        encoding: "utf8",
     });
     console.log("frontend: Build succeeded");
 

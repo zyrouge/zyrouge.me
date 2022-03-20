@@ -41,11 +41,13 @@ const sortedArticles = computed(() => {
     return [
         () =>
             articles.value.sort(
-                (a, b) => new Date(a.time).getTime() - new Date(b.time)
+                (a, b) =>
+                    new Date(a.time).getTime() - new Date(b.time).getTime()
             ),
         () =>
             articles.value.sort(
-                (a, b) => new Date(b.time).getTime() - new Date(a.time)
+                (a, b) =>
+                    new Date(b.time).getTime() - new Date(a.time).getTime()
             ),
         () => articles.value.sort((a, b) => a.title.localeCompare(b.title)),
         () => articles.value.sort((a, b) => b.title.localeCompare(a.title)),
