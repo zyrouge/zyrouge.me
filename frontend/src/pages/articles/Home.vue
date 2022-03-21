@@ -39,8 +39,8 @@ type SortByType = typeof SortBy[number];
 const sortBy = ref<SortByType>(SortBy[0]);
 const sortedArticles = computed(() => {
     return [
-        () => articles.value.sort((a, b) => a.time - b.time),
-        () => articles.value.sort((a, b) => b.time - a.time),
+        () => articles.value.sort((a, b) => a.publishedAt - b.publishedAt),
+        () => articles.value.sort((a, b) => b.publishedAt - a.publishedAt),
         () => articles.value.sort((a, b) => a.title.localeCompare(b.title)),
         () => articles.value.sort((a, b) => b.title.localeCompare(a.title)),
     ][SortBy.indexOf(sortBy.value)]();
@@ -105,10 +105,13 @@ onMounted(fetchArticles);
                     v-for="x in sortedArticles"
                     :to="getArticleRouteURL(x.slug)"
                 >
-                    <p
-                        class="text-xs text-primary-500 group-hover:text-white pb-0.5"
-                    >
-                        {{ sugar.Date.relative(new Date(x.time)) }}
+                    <p class="text-xs pb-0.5">
+                        <span class="text-primary-500 group-hover:text-white">{{
+                            sugar.Date.relative(new Date(x.publishedAt))
+                        }}</span>
+                        <span class="text-secondary-400 group-hover:text-white">
+                            / {{ x.readingTime }} mins. read</span
+                        >
                     </p>
 
                     <p>{{ x.title }}</p>

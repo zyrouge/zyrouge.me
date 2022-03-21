@@ -3,7 +3,8 @@ export interface ArticleMetadata {
     title: string;
     description: string;
     tags: string[];
-    time: number;
+    publishedAt: number;
+    readingTime: number;
 }
 
 export interface Article {

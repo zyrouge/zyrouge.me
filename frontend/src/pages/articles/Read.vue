@@ -203,8 +203,17 @@ onUnmounted(() => {
                     <p class="text-sm mb-1 text-secondary-400 mb-1">
                         {{ article.meta.tags.map((x) => `#${x}`).join(" ") }}
                     </p>
-                    <p class="text-xs text-primary-500">
-                        {{ sugar.Date.relative(new Date(article.meta.time)) }}
+                    <p class="text-xs">
+                        <span class="text-primary-500">
+                            {{
+                                sugar.Date.relative(
+                                    new Date(article.meta.publishedAt)
+                                )
+                            }}
+                        </span>
+                        <span class="text-secondary-400">
+                            / {{ article.meta.readingTime }} mins. read</span
+                        >
                     </p>
                 </div>
 
