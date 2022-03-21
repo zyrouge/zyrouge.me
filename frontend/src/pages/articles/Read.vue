@@ -87,7 +87,7 @@ const getRenderedHtml = (content: string) => {
         x.id = cId;
         x.setAttribute(
             "onclick",
-            `history.pushState(null, null, "#${cId}"); this.scrollIntoView({ behavior: "smooth" });`
+            `window.highlightHeading(cId);`
         );
         toc.push({
             id: cId,
@@ -97,6 +97,12 @@ const getRenderedHtml = (content: string) => {
 
     lookOutForContent(element.id);
     return element.outerHTML;
+};
+
+window.highlightHeading = (id: string) => {
+    history.pushState(null, null, `#${id}`);
+    const element = document.getElementById(id)!;
+    element.scrollIntoView({ behaviour: "smooth" });
 };
 
 const lookOutForContent = (id: string) => {
@@ -115,6 +121,7 @@ const lookOutForContent = (id: string) => {
 onMounted(fetchArticle);
 
 onUnmounted(() => {
+    delete window.highlightHeading;
     resetHeadMeta(hMeta);
 });
 </script>
