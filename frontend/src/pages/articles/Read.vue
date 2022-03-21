@@ -100,7 +100,7 @@ const getRenderedHtml = (content: string) => {
 };
 
 (window as any).highlightHeading = (id: string) => {
-    router.push({ hash: `#${id}`, replace: true });
+    router.replace({ hash: `#${id}` });
     const element = document.getElementById(id)!;
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
