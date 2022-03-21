@@ -87,7 +87,7 @@ const getRenderedHtml = (content: string) => {
         x.id = cId;
         x.setAttribute(
             "onclick",
-            `window.highlightHeading(cId);`
+            `window.highlightHeading(this.id);`
         );
         toc.push({
             id: cId,
