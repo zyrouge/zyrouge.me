@@ -33,9 +33,7 @@ export const RenderArticle = async (
         title: pMeta.title.trim(),
         description: md.renderInline(pMeta.description).trim(),
         tags: pMeta.tags.split(",").map((x: string) => x.trim()),
-        time: pTime.toLocaleString("en-US", {
-            timeZone: "GMT",
-        }),
+        time: pTime.toUTCString(),
     };
 
     const content = md.render(rContent).trim();
