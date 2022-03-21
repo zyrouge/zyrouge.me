@@ -109,16 +109,16 @@ hr {
 }
 
 .u-stylify :is(h1, h2, h3, h4, h5, h6) {
-    @apply relative mt-8;
+    @apply mt-8;
 }
 
-.u-stylify :is(h1, h2, h3, h4, h5, h6)::before {
-    content: "#";
+.u-stylify :is(h1, h2, h3, h4, h5, h6)::after {
+    content: "§";
 
-    @apply absolute -left-7 text-transparent cursor-pointer;
+    @apply text-transparent cursor-pointer;
 }
 
-.u-stylify :is(h1, h2, h3, h4, h5, h6):hover::before {
+.u-stylify :is(h1, h2, h3, h4, h5, h6):hover::after {
     @apply text-primary-500;
 }
 
