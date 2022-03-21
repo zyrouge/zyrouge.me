@@ -12,7 +12,7 @@ This repository contains the source code of my personal website.
 
 ## Branding
 
--   Colors: [Fushia, Neutral](https://tailwindcss.com/docs/customizing-colors#default-color-palette)
+-   Colors: [Fuchsia, Neutral](https://tailwindcss.com/docs/customizing-colors#default-color-palette)
 -   Fonts: [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## License
