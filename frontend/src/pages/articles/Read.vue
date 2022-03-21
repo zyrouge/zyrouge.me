@@ -102,7 +102,9 @@ const getRenderedHtml = (content: string) => {
 (window as any).highlightHeading = (id: string) => {
     history.pushState(null, null, `#${id}`);
     const element = document.getElementById(id)!;
-    element.scrollIntoView({ behaviour: "smooth" });
+    if (element) {
+        element.scrollIntoView({ behaviour: "smooth" });
+    }
 };
 
 const lookOutForContent = (id: string) => {
