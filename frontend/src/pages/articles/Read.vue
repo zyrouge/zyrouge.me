@@ -3,7 +3,7 @@ import { computed, reactive, ref, onMounted, onUnmounted } from "vue";
 import sugar from "sugar";
 import { IArticle, Articles } from "../../core/api/articles";
 import { HeadAttrs, useHead, resetHeadMeta } from "../../core/head";
-import { RoutePaths } from "../../core/router";
+import { RoutePaths, router } from "../../core/router";
 import { SiteMetadata } from "../../tools/constants";
 import { States } from "../../tools/stated";
 import { Utils } from "../../tools/utils";
@@ -100,7 +100,7 @@ const getRenderedHtml = (content: string) => {
 };
 
 (window as any).highlightHeading = (id: string) => {
-    history.pushState(null, null, `#${id}`);
+    router.push({ hash: `#${id}` });
     const element = document.getElementById(id)!;
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
