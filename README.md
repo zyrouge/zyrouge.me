@@ -2,6 +2,8 @@
 
 This repository contains the source code of my personal website.
 
+[![Deploy](https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml)
+
 ## Technology
 
 -   Javascript/Typescript (Language)
