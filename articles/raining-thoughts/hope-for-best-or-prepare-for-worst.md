@@ -1,7 +1,7 @@
 title: Hope for the best or prepare for the worst?
 description: Should we hope for the best or prepare for the worst?
 tags: raining-thoughts
-time: 2022-03-20 14:53 GMT+5300
+time: 2022-03-20 14:53 GMT+0530
 
 ---
 
