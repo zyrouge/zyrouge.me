@@ -100,7 +100,7 @@ const getRenderedHtml = (content: string) => {
 };
 
 (window as any).highlightHeading = (id: string) => {
-    router.push({ hash: `#${id}` });
+    router.push({ hash: `#${id}`, replace: true });
     const element = document.getElementById(id)!;
     if (element) {
         element.scrollIntoView({ behavior: "smooth" });
@@ -112,6 +112,7 @@ const lookOutForContent = (id: string) => {
         const element = document.getElementById(id);
         if (element) {
             (window as any).highlightHeading(location.hash.slice(1));
+            clearInterval(watcher);
         }
     }, 100);
 };
