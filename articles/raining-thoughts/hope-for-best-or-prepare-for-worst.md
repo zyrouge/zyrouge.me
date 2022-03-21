@@ -13,7 +13,7 @@ If we think about this, both ways don't always favour us. It is also impossible 
 
 # Hoping for the best
 
-When a hope for the best, you only rely on a single possibility. For example, always expecting heads while tossing a coin. Not only that you are only "hoping" but not preparing for it. You will be devestated upon happening the worst.
+When you hope for the best, you only rely on a single outcome. It's like always expecting heads while tossing a coin. Not only that you are only "hoping" but not preparing for it. You will be devestated upon happening the worst.
 
 # Preparing for the worst
 
