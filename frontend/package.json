@@ -8,7 +8,6 @@
         "preview": "vite preview"
     },
     "dependencies": {
-        "@vueuse/head": "^0.7.5",
         "sanitize-html": "^2.7.0",
         "sugar": "^2.0.6",
         "vue": "^3.2.25",

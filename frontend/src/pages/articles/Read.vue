@@ -1,9 +1,22 @@
 <script setup lang="ts">
-import { computed, reactive, ref, onMounted, onUnmounted } from "vue";
+import {
+    computed,
+    reactive,
+    ref,
+    onMounted,
+    onUnmounted,
+    watchEffect,
+    watch,
+} from "vue";
 import sugar from "sugar";
 import { IArticle, Articles } from "../../core/api/articles";
-import { HeadAttrs, useHead, resetHeadMeta } from "../../core/head";
-import { RoutePaths, router } from "../../core/router";
+import {
+    IHeadMetaAttr,
+    setTitle,
+    setHeadMeta,
+    removeHeadMeta,
+} from "../../core/head";
+import { RoutePaths } from "../../core/router";
 import { SiteMetadata } from "../../tools/constants";
 import { States } from "../../tools/stated";
 import { Utils } from "../../tools/utils";
@@ -13,13 +26,12 @@ import Loader from "../../components/Loader.vue";
 import Message from "../../components/Message.vue";
 
 const hTitle = ref("Loading...");
-const hMeta = reactive<HeadAttrs[]>([]);
-useHead({
-    title: computed(() =>
-        SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
-    ),
-    meta: hMeta,
-});
+const hMeta = reactive<IHeadMetaAttr[]>([]);
+const pMeta: IHeadMetaAttr[] = [];
+
+setTitle(
+    SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
+);
 
 const route = useRoute();
 
@@ -50,16 +62,46 @@ const fetchArticle = async () => {
         state.value = States.done;
 
         hTitle.value = article.value.meta.title;
-        hMeta.push(
+        const nHeadAttrs: IHeadMetaAttr[] = [
+            {
+                name: "title",
+                content: article.value.meta.title,
+            },
+            {
+                name: "og:title",
+                content: article.value.meta.title,
+            },
             {
                 name: "description",
                 content: article.value.meta.description,
             },
             {
+                name: "og:description",
+                content: article.value.meta.description,
+            },
+            {
+                name: "og:type",
+                content: "article",
+            },
+            {
                 name: "keywords",
                 content: article.value.meta.tags.join(", "),
+            },
+        ];
+
+        nHeadAttrs.forEach((x) => {
+            const element = document.querySelector<HTMLMetaElement>(
+                `meta[name="${x.name}"]`
+            );
+
+            if (element?.content) {
+                pMeta.push({
+                    name: x.name,
+                    content: element.content,
+                });
             }
-        );
+        });
+        hMeta.push(...nHeadAttrs);
     } catch (_) {
         state.value = States.failed;
         hTitle.value = "500";
@@ -132,11 +174,18 @@ const onContentLoaded = (contentElementId: string) => {
     }, 100);
 };
 
+const stopTitleWatcher = watch([hTitle, hMeta], () => {
+    setTitle(hTitle.value);
+    setHeadMeta(hMeta);
+});
+
 onMounted(fetchArticle);
 
 onUnmounted(() => {
+    stopTitleWatcher();
     delete (window as any).toggleCurrentHeading;
-    resetHeadMeta(hMeta);
+    removeHeadMeta(hMeta);
+    setHeadMeta(pMeta);
 });
 </script>
 

@@ -1,13 +1,11 @@
 <script setup lang="ts">
-import { useHead } from "../core/head";
+import { setTitle } from "../core/head";
 import { SiteMetadata, StaticAssets } from "../tools/constants";
 import { Utils } from "../tools/utils";
 
 import Hero from "../components/Hero.vue";
 
-useHead({
-    title: SiteMetadata.getTitle("Home"),
-});
+setTitle(SiteMetadata.getTitle("Home"));
 
 const langs: [string, string, string][] = [
     ["Javascript", StaticAssets.javascript, "Language"],
