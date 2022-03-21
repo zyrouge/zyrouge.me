@@ -103,7 +103,7 @@ const getRenderedHtml = (content: string) => {
     history.pushState(null, null, `#${id}`);
     const element = document.getElementById(id)!;
     if (element) {
-        element.scrollIntoView({ behaviour: "smooth" });
+        element.scrollIntoView({ behavior: "smooth" });
     }
 };
 
@@ -111,11 +111,7 @@ const lookOutForContent = (id: string) => {
     const watcher = setInterval(() => {
         const element = document.getElementById(id);
         if (element) {
-            const hashElement = document.getElementById(location.hash.slice(1));
-            hashElement?.scrollIntoView({
-                behavior: "smooth",
-            });
-            clearInterval(watcher);
+            (window as any).highlightHeading(location.hash.slice(1));
         }
     }, 100);
 };
