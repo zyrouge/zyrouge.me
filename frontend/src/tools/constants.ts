@@ -29,8 +29,9 @@ export class StaticAssets {
 
 export class SiteMetadata {
     static title = "Zyrouge";
+    static infix = "/";
 
     static getTitle(title: string) {
-        return `${title} | ${SiteMetadata.title}`;
+        return `${title} ${SiteMetadata.infix} ${SiteMetadata.title}`;
     }
 }

@@ -7,7 +7,7 @@ const routes = rRoutes.filter((x) => x.name);
 
 <template>
     <nav>
-        <div class="sticky py-4 md:py-6">
+        <div class="py-4 md:py-6">
             <div
                 class="u-flex !flex-col md:!flex-row !justify-around gap-4 md:gap-8"
             >

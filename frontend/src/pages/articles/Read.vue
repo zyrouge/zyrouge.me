@@ -15,7 +15,9 @@ import Message from "../../components/Message.vue";
 const hTitle = ref("Loading...");
 const hMeta = reactive<HeadAttrs[]>([]);
 useHead({
-    title: computed(() => SiteMetadata.getTitle(`${hTitle.value} | Article`)),
+    title: computed(() =>
+        SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
+    ),
     meta: hMeta,
 });
 

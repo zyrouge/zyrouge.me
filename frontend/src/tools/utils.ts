@@ -58,3 +58,21 @@ export class Utils {
         return content.toLowerCase().replaceAll(/[^\w\d]/g, "-");
     }
 }
+
+export type StreamListener<T> = (data: T) => void;
+
+export class SingleStream<T> {
+    #listeners: StreamListener<T>[] = [];
+
+    listen(listener: StreamListener<T>) {
+        this.#listeners.push(listener);
+    }
+
+    unlisten(listener: StreamListener<T>) {
+        this.#listeners = this.#listeners.filter((x) => x !== listener);
+    }
+
+    dispatch(value: T) {
+        this.#listeners.forEach((x) => x(value));
+    }
+}

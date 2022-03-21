@@ -1,4 +1,5 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
+import { RenderTimes } from "../tools/non-constants";
 
 export class RoutePaths {
     static home = "/";
@@ -32,4 +33,13 @@ export const routesMap = Object.fromEntries(routes.map((x) => [x.path, x]));
 export const router = createRouter({
     history: createWebHistory(),
     routes: routes,
+});
+
+router.beforeEach((_, __, next) => {
+    RenderTimes.start();
+    next();
+});
+
+router.afterEach(() => {
+    RenderTimes.stop();
 });

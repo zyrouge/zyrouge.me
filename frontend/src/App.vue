@@ -3,6 +3,7 @@ import { ref, onMounted, onUnmounted } from "vue";
 
 import NavBar from "./components/NavBar.vue";
 import Fade from "./components/transitions/Fade.vue";
+import Footer from "./components/Footer.vue";
 import { router } from "./core/router";
 
 const scrollToTop = () => {
@@ -60,4 +61,6 @@ onUnmounted(() => {
             ☝️ Scroll to top
         </button>
     </div>
+
+    <Footer />
 </template>
