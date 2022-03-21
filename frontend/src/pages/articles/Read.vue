@@ -85,33 +85,46 @@ const getRenderedHtml = (content: string) => {
         const cId = `h-${Utils.getHtmlSafeId(cTitle)}`;
 
         x.id = cId;
-        x.setAttribute(
-            "onclick",
-            `window.highlightHeading(this.id);`
-        );
+        x.setAttribute("onclick", `window.toggleCurrentHeading(this.id);`);
         toc.push({
             id: cId,
             title: cTitle,
         });
     }
 
-    lookOutForContent(element.id);
+    onContentLoaded(element.id);
     return element.outerHTML;
 };
 
-(window as any).highlightHeading = (id: string) => {
-    router.replace({ hash: `#${id}` });
-    const element = document.getElementById(id)!;
-    if (element) {
-        element.scrollIntoView({ behavior: "smooth" });
+const currentHeading = ref<string | null>(null);
+
+(window as any).toggleCurrentHeading = (id: string) => {
+    const dataActiveKey = "data-active";
+
+    if (currentHeading.value) {
+        const previous = document.getElementById(currentHeading.value);
+        previous?.removeAttribute(dataActiveKey);
+
+        if (currentHeading.value === id) {
+            currentHeading.value = null;
+            return;
+        }
+    }
+
+    const current = document.getElementById(id);
+    if (current) {
+        history.replaceState(undefined, "", `#${id}`);
+        current.setAttribute(dataActiveKey, "");
+        current.scrollIntoView({ behavior: "smooth" });
+        currentHeading.value = id;
     }
 };
 
-const lookOutForContent = (id: string) => {
+const onContentLoaded = (contentElementId: string) => {
     const watcher = setInterval(() => {
-        const element = document.getElementById(id);
+        const element = document.getElementById(contentElementId);
         if (element) {
-            (window as any).highlightHeading(location.hash.slice(1));
+            (window as any).toggleCurrentHeading(location.hash.slice(1));
             clearInterval(watcher);
         }
     }, 100);
@@ -120,7 +133,7 @@ const lookOutForContent = (id: string) => {
 onMounted(fetchArticle);
 
 onUnmounted(() => {
-    delete (window as any).highlightHeading;
+    delete (window as any).toggleCurrentHeading;
     resetHeadMeta(hMeta);
 });
 </script>

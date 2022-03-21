@@ -49,7 +49,21 @@ hr {
 }
 
 .u-stylify :is(h1, h2, h3, h4, h5, h6) {
-    @apply border-b-[1px] border-secondary-900;
+    @apply border-b-[1px] border-secondary-900 mt-8;
+
+    &::after {
+        content: "§";
+
+        @apply text-transparent cursor-pointer pl-3 transition duration-150;
+    }
+
+    &:hover::after {
+        @apply text-primary-900;
+    }
+
+    &[data-active]::after {
+        @apply text-primary-500;
+    }
 }
 
 .u-stylify h1 {
@@ -106,20 +120,6 @@ hr {
 
 .u-stylify ul {
     @apply list-inside list-disc;
-}
-
-.u-stylify :is(h1, h2, h3, h4, h5, h6) {
-    @apply mt-8;
-}
-
-.u-stylify :is(h1, h2, h3, h4, h5, h6)::after {
-    content: "§";
-
-    @apply text-transparent cursor-pointer pl-4;
-}
-
-.u-stylify :is(h1, h2, h3, h4, h5, h6):hover::after {
-    @apply text-primary-500;
 }
 
 .u-stylify :is(h1, h2, h3, h4, h5, h6, p, table, hr, ol, ul, blockquote) {
