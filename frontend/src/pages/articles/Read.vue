@@ -99,7 +99,7 @@ const getRenderedHtml = (content: string) => {
     return element.outerHTML;
 };
 
-window.highlightHeading = (id: string) => {
+(window as any).highlightHeading = (id: string) => {
     history.pushState(null, null, `#${id}`);
     const element = document.getElementById(id)!;
     element.scrollIntoView({ behaviour: "smooth" });
@@ -121,7 +121,7 @@ const lookOutForContent = (id: string) => {
 onMounted(fetchArticle);
 
 onUnmounted(() => {
-    delete window.highlightHeading;
+    delete (window as any).highlightHeading;
     resetHeadMeta(hMeta);
 });
 </script>
