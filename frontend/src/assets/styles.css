@@ -115,7 +115,7 @@ hr {
 .u-stylify :is(h1, h2, h3, h4, h5, h6)::after {
     content: "§";
 
-    @apply text-transparent cursor-pointer pl-2;
+    @apply text-transparent cursor-pointer pl-10;
 }
 
 .u-stylify :is(h1, h2, h3, h4, h5, h6):hover::after {
