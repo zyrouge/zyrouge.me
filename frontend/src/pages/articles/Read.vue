@@ -1,13 +1,5 @@
 <script setup lang="ts">
-import {
-    computed,
-    reactive,
-    ref,
-    onMounted,
-    onUnmounted,
-    watchEffect,
-    watch,
-} from "vue";
+import { computed, reactive, ref, onMounted, onUnmounted, watch } from "vue";
 import sugar from "sugar";
 import { IArticle, Articles } from "../../core/api/articles";
 import {
@@ -59,7 +51,6 @@ const fetchArticle = async () => {
 
     try {
         article.value = await Articles.getArticleFromSlug(slug);
-        state.value = States.done;
 
         hTitle.value = article.value.meta.title;
         const nHeadAttrs: IHeadMetaAttr[] = [
@@ -102,6 +93,8 @@ const fetchArticle = async () => {
             }
         });
         hMeta.push(...nHeadAttrs);
+
+        state.value = States.done;
     } catch (_) {
         state.value = States.failed;
         hTitle.value = "500";
@@ -115,12 +108,14 @@ interface ITocElement {
 
 const toc = reactive<ITocElement[]>([]);
 
-const getRenderedHtml = (content: string) => {
+const renderedContent = computed(() => {
     toc.splice(0, Infinity);
+
+    if (!article.value) return "";
 
     const element = document.createElement("div");
     element.id = `ac-${Utils.random(8).join("")}`;
-    element.innerHTML = Utils.getSafeHtml(content);
+    element.innerHTML = Utils.getSafeHtml(article.value?.content);
 
     for (const x of Array.from(
         element.querySelectorAll(":is(h1, h2, h3, h4, h5, h6)")
@@ -138,11 +133,11 @@ const getRenderedHtml = (content: string) => {
 
     onContentLoaded(element.id);
     return element.outerHTML;
-};
+});
 
 const currentHeading = ref<string | null>(null);
 
-(window as any).toggleCurrentHeading = (id: string) => {
+const toggleCurrentHeading = (id: string) => {
     const dataActiveKey = "data-active";
 
     if (currentHeading.value) {
@@ -164,11 +159,13 @@ const currentHeading = ref<string | null>(null);
     }
 };
 
+(window as any).toggleCurrentHeading = toggleCurrentHeading;
+
 const onContentLoaded = (contentElementId: string) => {
     const watcher = setInterval(() => {
         const element = document.getElementById(contentElementId);
         if (element) {
-            (window as any).toggleCurrentHeading(location.hash.slice(1));
+            toggleCurrentHeading(location.hash.slice(1));
             clearInterval(watcher);
         }
     }, 100);
@@ -266,12 +263,36 @@ onUnmounted(() => {
                     </p>
                 </div>
 
-                <hr class="mb-8" />
+                <hr />
 
-                <div
-                    class="u-stylify"
-                    v-html="getRenderedHtml(article.content)"
-                ></div>
+                <div class="lg:grid lg:grid-cols-4 lg:gap-10">
+                    <aside class="mt-8 lg:col-span-1">
+                        <div class="lg:sticky lg:top-6">
+                            <p class="text-lg font-bold mb-2">
+                                Table of contents
+                            </p>
+                            <ol class="list-inside list-decimal">
+                                <li
+                                    v-for="x in toc"
+                                    :key="x.id"
+                                    :class="[
+                                        'cursor-pointer hover:text-primary-500',
+                                        currentHeading === x.id &&
+                                            'text-primary-500',
+                                    ]"
+                                    @click="toggleCurrentHeading(x.id)"
+                                >
+                                    {{ x.title }}
+                                </li>
+                            </ol>
+                        </div>
+                    </aside>
+
+                    <div
+                        class="u-stylify lg:row-start-1 lg:col-start-1 lg:col-span-3"
+                        v-html="renderedContent"
+                    ></div>
+                </div>
             </article>
         </div>
     </div>
