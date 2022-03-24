@@ -124,7 +124,7 @@ const renderedContent = computed(() => {
         const cId = `h-${Utils.getHtmlSafeId(cTitle)}`;
 
         x.id = cId;
-        x.setAttribute("onclick", `window.toggleCurrentHeading(this.id);`);
+        x.setAttribute("onclick", `window.toggleActiveHeading(this.id);`);
         toc.push({
             id: cId,
             title: cTitle,
@@ -135,17 +135,20 @@ const renderedContent = computed(() => {
     return element.outerHTML;
 });
 
-const currentHeading = ref<string | null>(null);
+const currentActiveHeading = ref<string | null>(null);
 
-const toggleCurrentHeading = (id: string) => {
+const toggleActiveHeading = (
+    id: string,
+    source: "internal" | "external" = "internal"
+) => {
     const dataActiveKey = "data-active";
 
-    if (currentHeading.value) {
-        const previous = document.getElementById(currentHeading.value);
+    if (currentActiveHeading.value) {
+        const previous = document.getElementById(currentActiveHeading.value);
         previous?.removeAttribute(dataActiveKey);
 
-        if (currentHeading.value === id) {
-            currentHeading.value = null;
+        if (source === "internal" && currentActiveHeading.value === id) {
+            currentActiveHeading.value = null;
             return;
         }
     }
@@ -155,17 +158,17 @@ const toggleCurrentHeading = (id: string) => {
         history.replaceState(undefined, "", `#${id}`);
         current.setAttribute(dataActiveKey, "");
         current.scrollIntoView({ behavior: "smooth" });
-        currentHeading.value = id;
+        currentActiveHeading.value = id;
     }
 };
 
-(window as any).toggleCurrentHeading = toggleCurrentHeading;
+(window as any).toggleActiveHeading = toggleActiveHeading;
 
 const onContentLoaded = (contentElementId: string) => {
     const watcher = setInterval(() => {
         const element = document.getElementById(contentElementId);
         if (element) {
-            toggleCurrentHeading(location.hash.slice(1));
+            toggleActiveHeading(location.hash.slice(1));
             clearInterval(watcher);
         }
     }, 100);
@@ -176,11 +179,30 @@ const stopTitleWatcher = watch([hTitle, hMeta], () => {
     setHeadMeta(hMeta);
 });
 
-onMounted(fetchArticle);
+const currentVisibleHeading = ref<string | null>(null);
+
+const onScrollListener = () => {
+    const scrollingElement = document.scrollingElement;
+    if (scrollingElement) {
+        for (const x of toc) {
+            const heading = document.getElementById(x.id)!;
+            if (scrollingElement.scrollTop < heading.offsetTop) {
+                break;
+            }
+            currentVisibleHeading.value = heading.id;
+        }
+    }
+};
+
+onMounted(() => {
+    fetchArticle();
+    document.addEventListener("scroll", onScrollListener);
+});
 
 onUnmounted(() => {
     stopTitleWatcher();
-    delete (window as any).toggleCurrentHeading;
+    delete (window as any).toggleActiveHeading;
+    document.removeEventListener("scroll", onScrollListener);
     removeHeadMeta(hMeta);
     setHeadMeta(pMeta);
 });
@@ -265,31 +287,34 @@ onUnmounted(() => {
 
                 <hr />
 
-                <div class="lg:grid lg:grid-cols-4 lg:gap-10">
+                <div class="lg:grid lg:grid-cols-4 lg:gap-12">
                     <aside class="mt-8 lg:col-span-1">
                         <div class="lg:sticky lg:top-6">
                             <p class="text-lg font-bold mb-2">
                                 Table of contents
                             </p>
-                            <ol class="list-inside list-decimal">
+                            <ul class="lg:max-h-[85vh] lg:overflow-y-auto">
                                 <li
                                     v-for="x in toc"
                                     :key="x.id"
                                     :class="[
-                                        'cursor-pointer hover:text-primary-500',
-                                        currentHeading === x.id &&
-                                            'text-primary-500',
+                                        'cursor-pointer pl-4 py-1 hover:bg-secondary-900 border-l-2 border-secondary-700',
+                                        currentVisibleHeading === x.id &&
+                                            'lg:bg-primary-500/10 lg:border-primary-500 lg:text-primary-500',
                                     ]"
-                                    @click="toggleCurrentHeading(x.id)"
+                                    @click="
+                                        toggleActiveHeading(x.id, 'external')
+                                    "
                                 >
                                     {{ x.title }}
                                 </li>
-                            </ol>
+                            </ul>
                         </div>
                     </aside>
 
                     <div
                         class="u-stylify lg:row-start-1 lg:col-start-1 lg:col-span-3"
+                        id="content"
                         v-html="renderedContent"
                     ></div>
                 </div>

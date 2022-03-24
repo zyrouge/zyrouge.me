@@ -6,6 +6,18 @@
     @apply bg-primary-700/50;
 }
 
+::-webkit-scrollbar {
+    @apply w-1;
+}
+
+::-webkit-scrollbar-thumb {
+    @apply bg-secondary-900 rounded;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    @apply bg-secondary-800;
+}
+
 body {
     @apply bg-black text-white;
 }
