@@ -16,7 +16,7 @@ const routes = rRoutes.filter((x) => x.name);
                     <span class="opacity-50">}</span>
                 </router-link>
 
-                <button class="u-flex gap-8">
+                <div class="u-flex gap-8">
                     <router-link
                         class="s-link"
                         active-class="text-primary-500 hover:text-white"
@@ -25,7 +25,7 @@ const routes = rRoutes.filter((x) => x.name);
                     >
                         {{ x.name }}
                     </router-link>
-                </button>
+                </div>
             </div>
         </div>
     </nav>
