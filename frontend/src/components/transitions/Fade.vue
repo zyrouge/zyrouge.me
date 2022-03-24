@@ -4,15 +4,14 @@
     </transition>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .fade-enter-active,
 .fade-leave-active {
-    opacity: 1;
-    transition: opacity 0.3s;
+    @apply opacity-100 transition duration-300;
 }
 
 .fade-enter-from,
 .fade-leave-to {
-    opacity: 0;
+    @apply opacity-0;
 }
 </style>

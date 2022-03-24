@@ -31,7 +31,7 @@ const routes = rRoutes.filter((x) => x.name);
     </nav>
 </template>
 
-<style scoped>
+<style scoped lang="scss">
 .s-link {
     @apply hover:bg-primary-500 px-1;
 }
