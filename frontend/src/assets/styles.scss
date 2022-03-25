@@ -60,80 +60,111 @@ hr {
     @apply py-10;
 }
 
-.u-stylify :is(h1, h2, h3, h4, h5, h6) {
-    @apply border-b-[1px] border-secondary-900 mt-8 font-normal;
+.u-stylify {
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6 {
+        @apply border-b-[1px] border-secondary-900 mt-8 font-normal;
 
-    &::after {
-        content: "§";
+        &::after {
+            content: "§";
 
-        @apply text-transparent cursor-pointer pl-3 transition duration-150;
+            @apply text-transparent cursor-pointer pl-3 transition duration-150;
+        }
+
+        &:hover::after {
+            @apply text-primary-900;
+        }
+
+        &[data-active]::after {
+            @apply text-primary-500;
+        }
     }
 
-    &:hover::after {
-        @apply text-primary-900;
+    h1 {
+        @apply text-3xl font-bold pb-2;
     }
 
-    &[data-active]::after {
-        @apply text-primary-500;
+    h2 {
+        @apply text-2xl font-bold pb-2;
     }
-}
 
-.u-stylify h1 {
-    @apply text-3xl font-bold pb-2;
-}
+    h3 {
+        @apply text-xl font-bold pb-1;
+    }
 
-.u-stylify h2 {
-    @apply text-2xl font-bold pb-2;
-}
+    h4 {
+        @apply font-bold pb-1;
+    }
 
-.u-stylify h3 {
-    @apply text-xl font-bold pb-1;
-}
+    h4,
+    h5,
+    h6 {
+        @apply text-lg pb-1;
+    }
 
-.u-stylify h4 {
-    @apply font-bold pb-1;
-}
+    a {
+        @apply text-primary-500 hover:bg-primary-500 hover:text-white;
+    }
 
-.u-stylify :is(h4, h5, h6) {
-    @apply text-lg pb-1;
-}
+    pre {
+        @apply bg-secondary-900 px-4 py-2 mb-6;
+    }
 
-.u-stylify a {
-    @apply text-primary-500 hover:bg-primary-500 hover:text-white;
-}
+    table {
+        @apply table-auto  border-collapse;
 
-.u-stylify pre {
-    @apply bg-secondary-900 px-4 py-2 mb-6;
-}
+        th,
+        td {
+            @apply border px-3 py-1;
+        }
 
-.u-stylify table {
-    @apply table-auto  border-collapse;
-}
+        th {
+            @apply bg-secondary-900 border-secondary-800;
+        }
 
-.u-stylify table :is(th, td) {
-    @apply border px-3 py-1;
-}
+        td {
+            @apply border-secondary-900;
+        }
+    }
 
-.u-stylify table th {
-    @apply bg-secondary-900 border-secondary-800;
-}
+    blockquote {
+        @apply border-l-2 border-primary-500 pl-4;
+    }
 
-.u-stylify table td {
-    @apply border-secondary-900;
-}
+    ol {
+        @apply list-inside list-decimal;
+    }
 
-.u-stylify blockquote {
-    @apply border-l-2 border-primary-500 pl-4;
-}
+    ul {
+        @apply list-inside list-disc;
+    }
 
-.u-stylify ol {
-    @apply list-inside list-decimal;
-}
+    li p {
+        @apply inline;
+    }
 
-.u-stylify ul {
-    @apply list-inside list-disc;
-}
+    sub,
+    sup {
+        @apply text-secondary-400;
+    }
 
-.u-stylify :is(h1, h2, h3, h4, h5, h6, p, table, hr, ol, ul, blockquote) {
-    @apply mb-4;
+    h1,
+    h2,
+    h3,
+    h4,
+    h5,
+    h6,
+    p,
+    table,
+    hr,
+    ol,
+    ul,
+    li,
+    blockquote {
+        @apply mb-4;
+    }
 }

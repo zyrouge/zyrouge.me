@@ -21,10 +21,6 @@ const hTitle = ref("Loading...");
 const hMeta = reactive<IHeadMetaAttr[]>([]);
 const pMeta: IHeadMetaAttr[] = [];
 
-setTitle(
-    SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
-);
-
 const route = useRoute();
 
 const state = ref(States.processing);
@@ -175,7 +171,7 @@ const onContentLoaded = (contentElementId: string) => {
 };
 
 const stopTitleWatcher = watch([hTitle, hMeta], () => {
-    setTitle(hTitle.value);
+    setTitle(`${hTitle.value} ${SiteMetadata.infix} Article`);
     setHeadMeta(hMeta);
 });
 

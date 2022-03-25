@@ -42,7 +42,14 @@ export class Utils {
         }, ${date.getDate()} ${date.getFullYear()}`;
     }
 
-    static getSafeHtml(html: string, options?: sanitizeHtml.IOptions) {
+    static getSafeHtmlDefaultOptions = {
+        allowedTags: [...sanitizeHtml.defaults.allowedTags, "sup", "sub"],
+    };
+
+    static getSafeHtml(
+        html: string,
+        options: sanitizeHtml.IOptions = Utils.getSafeHtmlDefaultOptions
+    ) {
         return sanitizeHtml(html, options);
     }
 
