@@ -1,5 +1,5 @@
-title: Experience of an introvert
-description: Thoughts and emotions of an introvert.
+title: An Introvert Experience
+description: Things an introvert experience in their life.
 tags: raining-thoughts
 time: 2022-03-25 19:09 GMT+0530
 
