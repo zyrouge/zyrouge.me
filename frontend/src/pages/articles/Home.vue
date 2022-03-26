@@ -27,8 +27,8 @@ const fetchArticles = async () => {
 };
 
 const SortBy = [
-    "Recent (Latest)",
-    "Recent (Oldest)",
+    "Latest",
+    "Oldest",
     "A-Z (Ascending)",
     "A-Z (Descending)",
 ] as const;
