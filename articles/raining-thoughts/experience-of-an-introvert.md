@@ -7,7 +7,7 @@ time: 2022-03-25 19:09 GMT+0530
 
 # Introduction
 
-It's been 4 years that I understood that I am an introvert. Since then, I have mixed emotions about being one. But how exactly do we feel about being an introvert?
+It's been 4 years that I understood I am an introvert. Since then, I have mixed emotions about being one. But how exactly do we feel about being an introvert?
 
 Note: The below points are based on my experience. It might not suit every introvert.
 
