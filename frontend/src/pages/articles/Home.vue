@@ -27,8 +27,8 @@ const fetchArticles = async () => {
 };
 
 const SortBy = [
-    "Recent (Ascending)",
-    "Recent (Descending)",
+    "Recent (Latest)",
+    "Recent (Oldest)",
     "A-Z (Ascending)",
     "A-Z (Descending)",
 ] as const;
@@ -37,8 +37,8 @@ type SortByType = typeof SortBy[number];
 const sortBy = ref<SortByType>(SortBy[0]);
 const sortedArticles = computed(() => {
     return [
-        () => articles.value.sort((a, b) => a.publishedAt - b.publishedAt),
         () => articles.value.sort((a, b) => b.publishedAt - a.publishedAt),
+        () => articles.value.sort((a, b) => a.publishedAt - b.publishedAt),
         () => articles.value.sort((a, b) => a.title.localeCompare(b.title)),
         () => articles.value.sort((a, b) => b.title.localeCompare(a.title)),
     ][SortBy.indexOf(sortBy.value)]();
