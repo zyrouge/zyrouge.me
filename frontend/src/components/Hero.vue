@@ -5,6 +5,7 @@ import { ExternalURLs, StaticAssets } from "../tools/constants";
 
 const links: [string, string][] = [
     [ExternalURLs.github, StaticAssets.github],
+    [ExternalURLs.discord, StaticAssets.discord],
     [ExternalURLs.instagram, StaticAssets.instagram],
     [ExternalURLs.twitter, StaticAssets.twitter],
 ];

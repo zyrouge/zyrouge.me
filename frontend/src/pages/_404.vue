@@ -22,8 +22,9 @@ import Message from "../components/Message.vue";
                     <router-link
                         class="text-primary-500 hover:text-secondary-500"
                         :to="RoutePaths.home"
-                        >👉 Go home</router-link
                     >
+                        👉 Go home
+                    </router-link>
                 </template>
             </Message>
         </div>

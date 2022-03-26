@@ -6,6 +6,8 @@ export class ExternalURLs {
     static github = "https://github.com/zyrouge";
     static instagram = "https://instagram.com/_zyrouge_";
     static twitter = "https://twitter.com/_zyrouge_";
+    static discord = "https://discord.gg/8KV5zCg";
+    static ghRepo = "https://github.com/zyrouge";
 }
 
 export class StaticAssets {
@@ -22,6 +24,7 @@ export class StaticAssets {
     static typescript = `${images}/typescript.png`;
     static vue = `${images}/vue.png`;
 
+    static discord = `${icons}/discord.svg`;
     static github = `${icons}/github.svg`;
     static instagram = `${icons}/instagram.svg`;
     static twitter = `${icons}/twitter.svg`;

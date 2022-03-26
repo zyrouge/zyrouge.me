@@ -5,6 +5,7 @@ export class RoutePaths {
     static home = "/";
     static articles = "/articles";
     static articlesRead = `${RoutePaths.articles}/read`;
+    static redirect = "/redirect";
 }
 
 export const routes: RouteRecordRaw[] = [
@@ -21,6 +22,10 @@ export const routes: RouteRecordRaw[] = [
     {
         path: `${RoutePaths.articlesRead}/:slug(.*)`,
         component: () => import("../pages/articles/Read.vue"),
+    },
+    {
+        path: `${RoutePaths.redirect}/:key`,
+        component: () => import("../pages/Redirect.vue"),
     },
     {
         path: "/:pathMatch(.*)*",
