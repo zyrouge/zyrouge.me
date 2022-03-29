@@ -15,7 +15,7 @@ const links: [string, string][] = [
     <div class="relative bg-gradient-to-br from-primary-500 to-primary-800">
         <div class="u-container u-flex !flex-col">
             <p class="text-xl text-center md:px-16 py-20 md:py-28">
-                A passionate full-stack && ui designer && software developer &&
+                A passionate full-stack developer && software developer &&
                 open-source lover.
             </p>
         </div>

@@ -1,10 +1,10 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
+import { router } from "./core/router";
 
 import NavBar from "./components/NavBar.vue";
 import Fade from "./components/transitions/Fade.vue";
 import Footer from "./components/Footer.vue";
-import { router } from "./core/router";
 
 const scrollToTop = () => {
     window.scrollTo({
