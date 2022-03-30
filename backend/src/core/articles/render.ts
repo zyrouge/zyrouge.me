@@ -39,7 +39,10 @@ export const RenderArticle = async (
     }
 
     const meta: ArticleMetadata = {
-        slug: path.relative(Paths.articles, file).replace(/\.md$/, ""),
+        slug: path
+            .relative(Paths.articles, file)
+            .replace(/\.md$/, "")
+            .replace(/\\/g, "/"),
         title: pMeta.title.trim(),
         description: markdown.renderInline(pMeta.description).trim(),
         tags: pMeta.tags.split(",").map((x: string) => x.trim()),

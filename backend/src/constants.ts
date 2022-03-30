@@ -6,3 +6,21 @@ export class Paths {
     static articles = path.resolve(Paths.root, "articles");
     static output = path.resolve(Paths.base, "dist");
 }
+
+export class SiteTitles {
+    static suffix = "Zyrouge";
+    static infix = "/";
+    static articlesTitle = `Article ${SiteTitles.infix} ${SiteTitles.suffix}`;
+
+    static _siteAuthor = SiteTitles.suffix;
+}
+
+export class SitePaths {
+    static base = "https://zyrouge.is-a.dev";
+    static articles = `${SitePaths.base}/articles`;
+    static articlesRss = `${SitePaths.base}/api/articles.rss`;
+
+    static getArticlePath(slug: string) {
+        return `${SitePaths.articles}/read/${slug}`;
+    }
+}

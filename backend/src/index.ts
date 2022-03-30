@@ -2,6 +2,7 @@ import { promises as fs } from "fs";
 import path from "path";
 import { GetAllArticle } from "./core/articles/exports";
 import { Paths } from "./constants";
+import { generateRSSFeed } from "./core/rss";
 
 const start = async () => {
     await fs.rm(Paths.output, {
@@ -15,6 +16,11 @@ const start = async () => {
     await fs.writeFile(
         path.join(Paths.output, "articles.json"),
         JSON.stringify(articles.map((x) => x.meta))
+    );
+
+    await fs.writeFile(
+        path.join(Paths.output, "articles.rss"),
+        generateRSSFeed(articles)
     );
 
     const articlesOutputDir = path.join(Paths.output, "articles");
