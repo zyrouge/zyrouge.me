@@ -7,6 +7,7 @@ export const generateRSSFeed = (articles: Article[]) => {
         title: SiteTitles.articlesTitle,
         site_url: SitePaths.articles,
         feed_url: SitePaths.articlesRss,
+        language: SiteTitles._siteLang,
     });
 
     articles
@@ -17,6 +18,7 @@ export const generateRSSFeed = (articles: Article[]) => {
                 title: x.meta.title,
                 description: x.meta.description,
                 url: SitePaths.getArticlePath(x.meta.slug),
+                guid: x.meta.slug,
                 date: new Date(x.meta.publishedAt),
                 author: SiteTitles._siteAuthor,
                 categories: x.meta.tags,

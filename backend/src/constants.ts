@@ -13,6 +13,7 @@ export class SiteTitles {
     static articlesTitle = `Article ${SiteTitles.infix} ${SiteTitles.suffix}`;
 
     static _siteAuthor = SiteTitles.suffix;
+    static _siteLang = "en";
 }
 
 export class SitePaths {
