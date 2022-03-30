@@ -8,6 +8,7 @@ export const generateRSSFeed = (articles: Article[]) => {
         site_url: SitePaths.articles,
         feed_url: SitePaths.articlesRss,
         language: SiteTitles._siteLang,
+        pubDate: new Date(Date.now()),
     });
 
     articles
