@@ -1,7 +1,7 @@
 import { promises as fs } from "fs";
 import path from "path";
 import { GetAllArticle } from "./core/articles/exports";
-import { Paths } from "./constants";
+import { Paths, SitePaths } from "./constants";
 import { generateRSSFeed } from "./core/rss";
 
 const start = async () => {
@@ -19,7 +19,7 @@ const start = async () => {
     );
 
     await fs.writeFile(
-        path.join(Paths.output, "articles.rss"),
+        path.join(Paths.output, SitePaths._articlesRssBasename),
         generateRSSFeed(articles)
     );
 

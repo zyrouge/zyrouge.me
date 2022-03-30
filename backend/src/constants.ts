@@ -18,7 +18,9 @@ export class SiteTitles {
 export class SitePaths {
     static base = "https://zyrouge.is-a.dev";
     static articles = `${SitePaths.base}/articles`;
-    static articlesRss = `${SitePaths.base}/api/articles.rss`;
+
+    static _articlesRssBasename = "articles.rss.xml";
+    static articlesRss = `${SitePaths.base}/api/${SitePaths._articlesRssBasename}`;
 
     static getArticlePath(slug: string) {
         return `${SitePaths.articles}/read/${slug}`;

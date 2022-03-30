@@ -11,6 +11,7 @@ export const generateRSSFeed = (articles: Article[]) => {
 
     articles
         .sort((a, b) => b.meta.publishedAt - a.meta.publishedAt)
+        .slice(0, 10)
         .forEach((x) => {
             rss.item({
                 title: x.meta.title,
