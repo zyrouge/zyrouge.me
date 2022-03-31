@@ -61,6 +61,8 @@ hr {
 }
 
 .u-stylify {
+    @apply break-words;
+
     h1,
     h2,
     h3,
