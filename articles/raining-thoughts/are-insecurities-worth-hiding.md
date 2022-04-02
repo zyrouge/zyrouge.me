@@ -51,7 +51,7 @@ So, is it worth hiding? No, it's not. But, if you are still hiding them, please 
 
 > "We can see through others only when we can see through ourselves." - Bruce Lee
 
-> "What’s on the other side of fear? Nothing." - Jamie Foxx
+> "What's on the other side of fear? Nothing." - Jamie Foxx
 
 ###### References
 
