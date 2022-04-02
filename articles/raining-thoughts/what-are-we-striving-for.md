@@ -23,7 +23,7 @@ We think that we are smart. We always tend to assume the outcome. This defines t
 
 # Conclusion
 
-The trail you leave, the impact you create, the effort you send forth is what makes a difference. You need to believe in yourself. Your self-confidence, your self-esteem and your self-motivation is what moves you forward. Keeps you making progress. We don't know how we exist. We don't know why we exist. We don't know what this realm is. We don't know how we are self-aware. But the answer resides deep inside you. No one can teach you this, you cannot learn it by reading. It comes though practice, experience and pain. If you are capable of explaining this, you have the greatest answer of the mankind.
+The trail you leave, the impact you create, the effort you send forth is what makes a difference. You need to believe in yourself. Your self-confidence, your self-esteem and your self-motivation is what moves you forward. Keeps you making progress. We don't know how we exist. We don't know why we exist. We don't know what this realm is. We don't know how we are self-aware. But the answer resides deep inside you. No one can teach you this, you cannot learn it by reading. It comes through practice, experience and pain. If you are capable of explaining this, you have the greatest answer of the mankind.
 
 ###### References
 
