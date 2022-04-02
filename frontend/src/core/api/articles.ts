@@ -1,3 +1,5 @@
+import { Api, ApiURLs } from "./base";
+
 export interface IArticleMetadata {
     slug: string;
     title: string;
@@ -13,8 +15,6 @@ export interface IArticle {
 }
 
 export class Articles {
-    static url = import.meta.env["VITE_API_URL"] ?? "/api";
-
     static cache = {
         articlesMetadata: null as IArticleMetadata[] | null,
         articles: {} as Record<string, IArticle>,
@@ -22,7 +22,7 @@ export class Articles {
 
     static async getAllArticles() {
         if (!Articles.cache.articlesMetadata) {
-            const resp = await Articles.request("/articles.json");
+            const resp = await Api.request(ApiURLs.articlesJson);
             Articles.cache.articlesMetadata =
                 (await resp.json()) as IArticleMetadata[];
         }
@@ -32,19 +32,10 @@ export class Articles {
 
     static async getArticleFromSlug(slug: string) {
         if (!Articles.cache.articles[slug]) {
-            const resp = await Articles.request(`/articles/${slug}.json`);
+            const resp = await Api.request(ApiURLs.getArticlesSlug(slug));
             Articles.cache.articles[slug] = (await resp.json()) as IArticle;
         }
 
         return Articles.cache.articles[slug];
-    }
-
-    static async request(
-        route: string,
-        options: RequestInit = {
-            method: "GET",
-        }
-    ) {
-        return fetch(`${Articles.url}${route}`, options);
     }
 }

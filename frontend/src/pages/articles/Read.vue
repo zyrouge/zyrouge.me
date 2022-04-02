@@ -171,7 +171,9 @@ const onContentLoaded = (contentElementId: string) => {
 };
 
 const stopTitleWatcher = watch([hTitle, hMeta], () => {
-    setTitle(`${hTitle.value} ${SiteMetadata.infix} Article`);
+    setTitle(
+        SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
+    );
     setHeadMeta(hMeta);
 });
 
