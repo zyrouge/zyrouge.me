@@ -1,3 +1,4 @@
+const domain = "zyrouge.is-a.dev";
 const base = "/static";
 const images = `${base}/images`;
 const icons = `${base}/icons`;
@@ -7,7 +8,8 @@ export class ExternalURLs {
     static instagram = "https://instagram.com/_zyrouge_";
     static twitter = "https://twitter.com/_zyrouge_";
     static discord = "https://discord.gg/8KV5zCg";
-    static ghRepo = "https://github.com/zyrouge";
+
+    static ghRepo = `${ExternalURLs.github}/${domain}`;
 }
 
 export class StaticAssets {
