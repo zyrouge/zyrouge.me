@@ -11,7 +11,7 @@ We all have had the times where we are scared and hopeless. Even then, we don't 
 
 # The Problem
 
-In this world, we create and things. Solve problems that we created for ourselves. We try to outperform everyone. Currently, there is little to no connection between us. We lack empathy. There is more hatred than love. The greatest of us remain the same while the smaller ones suffer. The love and hate our emotions. We only try to content ourself but not others. We praise and criticize ourself. We never really understand what we are doing.
+In this world, we create and build things. Solve problems that we created for ourselves. We try to outperform everyone. Currently, there is little to no connection between us. We lack empathy. There is more hatred than love. The greatest of us remain the same while the smaller ones suffer. The love and hate our emotions. We only try to content ourself but not others. We praise and criticize ourself. We never really understand what we are doing.
 
 # The Uncertainty
 
