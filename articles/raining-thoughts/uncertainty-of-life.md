@@ -2,6 +2,7 @@ title: Uncertainty of Life
 description: The paradox of human emotions and existence.
 tags: raining-thoughts
 time: 2022-04-02 13:48 GMT+0530
+draft: true
 
 ---
 
