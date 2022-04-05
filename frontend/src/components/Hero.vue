@@ -1,13 +1,13 @@
 <script setup lang="ts">
-import XSvg from "./XSvg.vue";
-
 import { ExternalURLs, StaticAssets } from "../tools/constants";
 
-const links: [string, string][] = [
-    [ExternalURLs.github, StaticAssets.github],
-    [ExternalURLs.discord, StaticAssets.discord],
-    [ExternalURLs.instagram, StaticAssets.instagram],
-    [ExternalURLs.twitter, StaticAssets.twitter],
+import XSvg from "./XSvg.vue";
+
+const links: [string, string, string][] = [
+    ["Github", ExternalURLs.github, StaticAssets.github],
+    ["Discord", ExternalURLs.discord, StaticAssets.discord],
+    ["Instagram", ExternalURLs.instagram, StaticAssets.instagram],
+    ["Twitter", ExternalURLs.twitter, StaticAssets.twitter],
 ];
 </script>
 
@@ -22,8 +22,13 @@ const links: [string, string][] = [
 
         <div class="absolute bottom-0 right-0">
             <div class="u-flex !justify-end gap-3 p-3">
-                <a v-for="x in links" :href="x[0]" target="_blank">
-                    <XSvg class="hero-footer-icon" :src="x[1]" />
+                <a
+                    v-for="x in links"
+                    :title="x[0]"
+                    :href="x[1]"
+                    target="_blank"
+                >
+                    <XSvg class="hero-footer-icon" :src="x[2]" />
                 </a>
             </div>
         </div>
