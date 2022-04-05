@@ -1,8 +1,10 @@
 <script setup lang="ts">
 import { onMounted, ref } from "vue";
+import { XSvgImpact, XSvgUtils } from "../tools/utils";
 
-const { src } = defineProps<{
+const { src, impact = XSvgUtils.defaultXSvgImpact } = defineProps<{
     src: string;
+    impact?: XSvgImpact;
 }>();
 
 const data = ref("");
@@ -13,7 +15,7 @@ const fetchSvg = async () => {
         const content = await resp.text();
         const parser = new DOMParser();
         const result = parser.parseFromString(content, "text/xml");
-        data.value = result.getElementsByTagName("svg")[0].outerHTML;
+        data.value = impact(result.getElementsByTagName("svg")[0]).outerHTML;
     } catch (err) {
         console.error(err);
     }

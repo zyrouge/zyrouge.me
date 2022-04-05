@@ -66,6 +66,19 @@ export class Utils {
     }
 }
 
+export type XSvgImpact = (element: Element) => Element;
+
+export class XSvgUtils {
+    static defaultXSvgImpact(element: Element) {
+        return element;
+    }
+
+    static removeTitleXSvgImpact(element: Element) {
+        element.querySelector("title")?.remove();
+        return element;
+    }
+}
+
 export type StreamListener<T> = (data: T) => void;
 
 export class SingleStream<T> {

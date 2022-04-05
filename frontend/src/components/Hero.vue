@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { ExternalURLs, StaticAssets } from "../tools/constants";
+import { XSvgUtils } from "../tools/utils";
 
 import XSvg from "./XSvg.vue";
 
@@ -22,14 +23,15 @@ const links: [string, string, string][] = [
 
         <div class="absolute bottom-0 right-0">
             <div class="u-flex !justify-end gap-3 p-3">
-                <a
-                    v-for="x in links"
-                    :title="x[0]"
-                    :href="x[1]"
-                    target="_blank"
-                >
-                    <XSvg class="hero-footer-icon" :src="x[2]" />
-                </a>
+                <p v-for="x in links" :title="`${x[0]} (${x[1]})`">
+                    <a :href="x[1]" target="_blank">
+                        <XSvg
+                            class="hero-footer-icon"
+                            :src="x[2]"
+                            :impact="XSvgUtils.removeTitleXSvgImpact"
+                        />
+                    </a>
+                </p>
             </div>
         </div>
     </div>
