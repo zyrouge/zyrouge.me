@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { setTitle } from "../core/head";
-import { SiteMetadata, StaticAssets } from "../tools/constants";
+import { ExternalAssets, SiteMetadata, StaticAssets } from "../tools/constants";
 import { Utils } from "../tools/utils";
 
 import Hero from "../components/Hero.vue";
@@ -36,14 +36,14 @@ const projects: {
         image: StaticAssets.genius,
         tags: ["typescript"],
     },
-    // {
-    //     name: "Canvacord",
-    //     href: "https://canvacord.js.org/",
-    //     description:
-    //         "Powerful image manipulation tool to manipulate images easily.",
-    //     image: "",
-    //     tags: ["typescript"],
-    // },
+    {
+        name: "UprightQuotes",
+        href: "https://github.com/zyrouge/upright-quotes",
+        description:
+            "Powerful image manipulation tool to manipulate images easily.",
+        image: ExternalAssets.uprightQuotesLogo,
+        tags: ["vue", "typescript", "rest"],
+    },
 ];
 </script>
 

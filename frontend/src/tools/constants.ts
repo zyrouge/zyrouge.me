@@ -32,6 +32,11 @@ export class StaticAssets {
     static twitter = `${icons}/twitter.svg`;
 }
 
+export class ExternalAssets {
+    static uprightQuotesLogo =
+        "https://zyrouge.github.io/upright-quotes/logo.png";
+}
+
 export class SiteMetadata {
     static title = "Zyrouge";
     static infix = "/";
