@@ -19,19 +19,19 @@ Note: Most of the below lines where too good to be modified, thus, are literally
 
 # Why shouldn't you expect much?
 
-1. **Hard work always succeed**
+- **Hard work always succeed**
 
 Most think that believing in yourself and working hard for it, will make you anything you wanted to be in life. If this is true, we'll all be astronauts, athletes, next billionaire, etc by now. There have been people who have seen their dreams come true. But everyone doesn't have this chance. Sometimes, they are blessed with great luck. They were at the right places at the right time with the right people.
 
-2. **Life is fair**
+- **Life is fair**
 
 We've been told that life isn't fair. Even then, everybody expects life to be somehow balanced out, even if we don't do anything. If you are such kind, it's time to get over it. When something "unfair" happens, don't rely on external forces to get you back on your feet. You should be capable of doing it on your own. The sooner you realize this, the sooner you take actions that'll actually make a difference.
 
-3. **Things will make me happy**
+- **Things will make me happy**
 
 Sure, things can make life more fun and comfortable in the short run, but they can't make you happy in the long run. Too many of us expect a future event to make us happy, instead of looking more deeply into the real causes of our unhappiness. If you don't fix what's going on inside, no external event or item is going to make you happy, no matter how much you want it to.
 
-4. **They can be trusted**
+- **They can be trusted**
 
 If you are someone who has suffered at the hands of betrayal, trust issues become magnified. It's hard to trust someone, especially when you know that you are replaceable and so is everyone else. It's all about give and take. Everything is a deal. If someone's with you today, it's because they might be benefiting something out of you. People have better choices so they would definitely chase the alternatives. However, sometimes we do need to trust people. Those people who deserve your trust are people one's that have better alternatives and yet they choose to be with you. You need to trust this kind of person. Not everyone has the same level of dedication. Learn to identify a bad person before they hurt you.
 
