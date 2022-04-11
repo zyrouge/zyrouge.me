@@ -39,8 +39,7 @@ const projects: {
     {
         name: "UprightQuotes",
         href: "https://github.com/zyrouge/upright-quotes",
-        description:
-            "Powerful image manipulation tool to manipulate images easily.",
+        description: "✨ Random quotes. Includes REST API.",
         image: ExternalAssets.uprightQuotesLogo,
         tags: ["vue", "typescript", "rest"],
     },
