@@ -4,7 +4,7 @@ export class Api {
     static async request(route: string, options?: RequestInit) {
         return fetch(route, {
             method: "GET",
-            cache: "reload",
+            cache: "no-cache",
             ...options,
         });
     }

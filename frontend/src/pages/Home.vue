@@ -39,7 +39,7 @@ const projects: {
     {
         name: "UprightQuotes",
         href: "https://github.com/zyrouge/upright-quotes",
-        description: "✨ Random quotes. Includes REST API.",
+        description: "✨ Curated list of deep-meaning quotes as text or image.",
         image: ExternalAssets.uprightQuotesLogo,
         tags: ["vue", "typescript", "rest"],
     },
