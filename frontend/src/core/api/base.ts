@@ -1,13 +1,12 @@
 export class Api {
     static url = import.meta.env["VITE_API_URL"] ?? "/api";
 
-    static async request(
-        route: string,
-        options: RequestInit = {
+    static async request(route: string, options?: RequestInit) {
+        return fetch(route, {
             method: "GET",
-        }
-    ) {
-        return fetch(route, options);
+            cache: "reload",
+            ...options,
+        });
     }
 }
 
