@@ -1,8 +1,24 @@
 <script setup lang="ts">
-import { RoutePaths, routes as rRoutes, routesMap } from "../core/router";
+import { onMounted, ref } from "vue";
+import ProgressBar from "./ProgressBar.vue";
+import {
+    RoutePaths,
+    routes as rRoutes,
+    routesMap,
+    progress,
+} from "../core/router";
 
 const logoLinkTo = routesMap[RoutePaths.home];
 const routes = rRoutes.filter((x) => x.name);
+
+const loadingProgress = ref(progress.value);
+
+onMounted(() => {
+    progress.onUpdate.listen((value) => {
+        loadingProgress.value = value;
+        console.log(loadingProgress.value);
+    });
+});
 </script>
 
 <template>
@@ -28,6 +44,7 @@ const routes = rRoutes.filter((x) => x.name);
                 </div>
             </div>
         </div>
+        <ProgressBar :percent="loadingProgress" />
     </nav>
 </template>
 

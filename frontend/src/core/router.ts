@@ -1,5 +1,6 @@
 import { RouteRecordRaw, createRouter, createWebHistory } from "vue-router";
 import { RenderTimes } from "../tools/non-constants";
+import { Eventer } from "../tools/utils";
 
 export class RoutePaths {
     static home = "/";
@@ -40,11 +41,40 @@ export const router = createRouter({
     routes: routes,
 });
 
+export const progress = {
+    value: 0,
+    onUpdate: new Eventer<number>(),
+    _timer: null as NodeJS.Timer | null,
+    _update: (value: number) => {
+        progress.value = value;
+        progress.onUpdate.dispatch(value);
+    },
+    start: () => {
+        progress.stop();
+        progress._timer = setInterval(() => {
+            let nValue = progress.value;
+            if (nValue < 40) nValue += 3;
+            else if (nValue < 70) nValue += 2;
+            else if (nValue < 90) nValue += 1;
+            progress._update(nValue);
+        }, 50);
+    },
+    stop: () => {
+        if (progress._timer != null) {
+            clearInterval(progress._timer);
+        }
+        progress._update(100);
+        progress._update(0);
+    },
+};
+
 router.beforeEach((_, __, next) => {
+    progress.start();
     RenderTimes.start();
     next();
 });
 
 router.afterEach(() => {
+    progress.stop();
     RenderTimes.stop();
 });

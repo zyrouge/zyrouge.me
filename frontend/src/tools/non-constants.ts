@@ -1,8 +1,8 @@
-import { SingleStream } from "./utils";
+import { Eventer } from "./utils";
 
 export class RenderTimes {
     static latest = 0;
-    static stream = new SingleStream<number>();
+    static stream = new Eventer<number>();
 
     static #startedAt?: number;
 

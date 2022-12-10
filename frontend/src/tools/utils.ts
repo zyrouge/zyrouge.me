@@ -79,16 +79,16 @@ export class XSvgUtils {
     }
 }
 
-export type StreamListener<T> = (data: T) => void;
+export type EventerListener<T> = (data: T) => void;
 
-export class SingleStream<T> {
-    #listeners: StreamListener<T>[] = [];
+export class Eventer<T> {
+    #listeners: EventerListener<T>[] = [];
 
-    listen(listener: StreamListener<T>) {
+    listen(listener: EventerListener<T>) {
         this.#listeners.push(listener);
     }
 
-    unlisten(listener: StreamListener<T>) {
+    unlisten(listener: EventerListener<T>) {
         this.#listeners = this.#listeners.filter((x) => x !== listener);
     }
 
