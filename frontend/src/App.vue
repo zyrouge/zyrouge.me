@@ -18,17 +18,6 @@ const isScrollBarVisible = ref(false);
 
 let onResize: ResizeObserver | undefined;
 onMounted(() => {
-    const redirectKey = "redirect";
-    const redirect = sessionStorage.getItem(redirectKey);
-    sessionStorage.removeItem(redirectKey);
-    if (redirect && redirect !== location.pathname) {
-        try {
-            router.replace(redirect);
-        } catch (err) {
-            console.error(`Failed to redirect to ${redirect}`);
-        }
-    }
-
     const element = document.scrollingElement!;
     onResize = new ResizeObserver(() => {
         isScrollBarVisible.value = element.scrollHeight > element.clientHeight;

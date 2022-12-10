@@ -3,6 +3,7 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
+        "deps": "yarn && yarn --cwd frontend && yarn --cwd backend",
         "build": "ts-node ./cli/commands/build.ts"
     },
     "dependencies": {
