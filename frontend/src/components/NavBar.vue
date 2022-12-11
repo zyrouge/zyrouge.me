@@ -23,6 +23,7 @@ onMounted(() => {
 
 <template>
     <nav>
+        <ProgressBar :percent="loadingProgress" />
         <div class="py-4 md:py-6">
             <div
                 class="u-flex !flex-col md:!flex-row !justify-around gap-4 md:gap-8"
@@ -44,7 +45,6 @@ onMounted(() => {
                 </div>
             </div>
         </div>
-        <ProgressBar :percent="loadingProgress" />
     </nav>
 </template>
 
