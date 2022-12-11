@@ -45,12 +45,13 @@ export const progress = {
     value: 0,
     onUpdate: new Eventer<number>(),
     _timer: null as NodeJS.Timer | null,
+    _timeout: null as NodeJS.Timeout | null,
     _update: (value: number) => {
         progress.value = value;
         progress.onUpdate.dispatch(value);
     },
     start: () => {
-        progress.stop();
+        progress.reset(0);
         progress._timer = setInterval(() => {
             let nValue = progress.value;
             if (nValue < 40) nValue += 3;
@@ -60,11 +61,21 @@ export const progress = {
         }, 50);
     },
     stop: () => {
+        progress.reset(100);
+        progress._timeout = setTimeout(() => {
+            progress.reset(0);
+        }, 750);
+    },
+    reset: (value: number) => {
         if (progress._timer != null) {
             clearInterval(progress._timer);
+            progress._timer = null;
         }
-        progress._update(100);
-        progress._update(0);
+        if (progress._timeout != null) {
+            clearInterval(progress._timeout);
+            progress._timeout = null;
+        }
+        progress._update(value);
     },
 };
 
