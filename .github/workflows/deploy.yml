@@ -15,16 +15,8 @@ jobs:
                   node-version: "17.3.0"
                   cache: yarn
 
-            - name: 🏗️ Prerequisites (Main)
-              run: yarn
-
-            - name: 🏗️ Prerequisites (Frontend)
-              working-directory: frontend
-              run: yarn
-
-            - name: 🏗️ Prerequisites (Backend)
-              working-directory: backend
-              run: yarn
+            - name: 🏗️  Prerequisites
+              run: yarn deps
 
             - name: 🔨 Build
               run: yarn build
