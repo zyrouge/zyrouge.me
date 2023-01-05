@@ -1,11 +1,11 @@
 <script setup lang="ts">
-import { setTitle } from "../core/head";
+import { setPageMeta } from "../core/head";
 import { ExternalAssets, SiteMetadata, StaticAssets } from "../tools/constants";
 import { Utils } from "../tools/utils";
 
 import Hero from "../components/Hero.vue";
 
-setTitle(SiteMetadata.getTitle("Home"));
+setPageMeta(SiteMetadata.getTitle("Home"), "Hello there!");
 
 const langs: [string, string, string][] = [
     ["Javascript", StaticAssets.javascript, "Language"],

@@ -3,7 +3,7 @@ import { computed, onMounted, ref } from "vue";
 import sugar from "sugar";
 import { RoutePaths } from "../../core/router";
 import { IArticleMetadata, Articles } from "../../core/api/articles";
-import { setTitle } from "../../core/head";
+import { setPageMeta } from "../../core/head";
 import { SiteMetadata } from "../../tools/constants";
 import { States } from "../../tools/stated";
 import { Utils } from "../../tools/utils";
@@ -11,7 +11,7 @@ import { Utils } from "../../tools/utils";
 import Loader from "../../components/Loader.vue";
 import Message from "../../components/Message.vue";
 
-setTitle(SiteMetadata.getTitle("Articles"));
+setPageMeta(SiteMetadata.getTitle("Articles"), "Articles written by me!");
 
 const state = ref(States.processing);
 const articles = ref<IArticleMetadata[]>([]);

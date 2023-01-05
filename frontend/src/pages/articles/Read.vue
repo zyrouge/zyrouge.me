@@ -4,7 +4,7 @@ import sugar from "sugar";
 import { IArticle, Articles } from "../../core/api/articles";
 import {
     IHeadMetaAttr,
-    setTitle,
+    setPageMeta,
     setHeadMeta,
     removeHeadMeta,
 } from "../../core/head";
@@ -18,6 +18,7 @@ import Loader from "../../components/Loader.vue";
 import Message from "../../components/Message.vue";
 
 const hTitle = ref("Loading...");
+const hDescription = ref("");
 const hMeta = reactive<IHeadMetaAttr[]>([]);
 const pMeta: IHeadMetaAttr[] = [];
 
@@ -31,6 +32,7 @@ const isUnknownArticle = computed(
 
 const fetchArticle = async () => {
     hTitle.value = "Loading...";
+    hDescription.value = "";
 
     const slug =
         typeof route.params.slug === "string"
@@ -38,62 +40,39 @@ const fetchArticle = async () => {
             : Array.isArray(route.params.slug) && route.params.slug.length === 1
             ? route.params.slug[0]
             : null;
-
     if (!slug) {
         state.value = States.failed;
         hTitle.value = "404";
+        hDescription.value = "Unknown article.";
         return;
     }
 
     try {
         article.value = await Articles.getArticleFromSlug(slug);
-
         hTitle.value = article.value.meta.title;
+        hDescription.value = article.value.meta.description;
         const nHeadAttrs: IHeadMetaAttr[] = [
-            {
-                name: "title",
-                content: article.value.meta.title,
-            },
-            {
-                name: "og:title",
-                content: article.value.meta.title,
-            },
-            {
-                name: "description",
-                content: article.value.meta.description,
-            },
-            {
-                name: "og:description",
-                content: article.value.meta.description,
-            },
-            {
-                name: "og:type",
-                content: "article",
-            },
-            {
-                name: "keywords",
-                content: article.value.meta.tags.join(", "),
-            },
+            ["title", article.value.meta.title],
+            ["og:title", article.value.meta.title],
+            ["description", article.value.meta.description],
+            ["og:description", article.value.meta.description],
+            ["og:type", "article"],
+            ["keywords", article.value.meta.tags.join(", ")],
         ];
-
-        nHeadAttrs.forEach((x) => {
+        nHeadAttrs.forEach(([name]) => {
             const element = document.querySelector<HTMLMetaElement>(
-                `meta[name="${x.name}"]`
+                `meta[name="${name}"]`
             );
-
             if (element?.content) {
-                pMeta.push({
-                    name: x.name,
-                    content: element.content,
-                });
+                pMeta.push([element.name, element.content]);
             }
         });
         hMeta.push(...nHeadAttrs);
-
         state.value = States.done;
     } catch (_) {
         state.value = States.failed;
         hTitle.value = "500";
+        hDescription.value = "Something went wrong!";
     }
 };
 
@@ -170,9 +149,10 @@ const onContentLoaded = (contentElementId: string) => {
     }, 100);
 };
 
-const stopTitleWatcher = watch([hTitle, hMeta], () => {
-    setTitle(
-        SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`)
+const stopTitleWatcher = watch([hTitle, hDescription, hMeta], () => {
+    setPageMeta(
+        SiteMetadata.getTitle(`${hTitle.value} ${SiteMetadata.infix} Article`),
+        hDescription.value
     );
     setHeadMeta(hMeta);
 });
@@ -266,7 +246,7 @@ onUnmounted(() => {
                         {{ article.meta.description }}
                     </p>
 
-                    <p class="text-sm mb-1 text-secondary-400 mb-1">
+                    <p class="text-sm mb-1 text-secondary-400">
                         {{ article.meta.tags.map((x) => `#${x}`).join(" ") }}
                     </p>
                     <p class="text-xs">

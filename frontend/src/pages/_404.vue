@@ -2,6 +2,9 @@
 import { RoutePaths } from "../core/router";
 
 import Message from "../components/Message.vue";
+import { setPageMeta } from "../core/head";
+
+setPageMeta("404", "Page not found.");
 </script>
 
 <template>

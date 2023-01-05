@@ -1,38 +1,30 @@
-export interface IHeadMetaAttr {
-    name: string;
-    content: string;
-}
+export type IHeadMetaAttr = [string, string];
 
-export const setTitle = (title: string) => {
+export const setPageMeta = (title: string, description: string) => {
     document.title = title;
+    setHeadMeta([
+        ["title", title],
+        ["og:title", title],
+        ["description", description],
+        ["og:description", description],
+    ]);
 };
 
 export const setHeadMeta = (attributes: IHeadMetaAttr[]) => {
-    return attributes.map((x) => {
+    return attributes.map(([name, content]) => {
         const element =
-            document.querySelector<HTMLMetaElement>(`meta[name="${x.name}"]`) ??
+            document.querySelector<HTMLMetaElement>(`meta[name="${name}"]`) ??
             document.createElement("meta");
-
-        Object.entries(x).forEach(([k, v]) => {
-            element.setAttribute(k, v);
-        });
-
-        if (!element.isConnected) {
-            document.head.appendChild(element);
-        }
-
+        element.setAttribute("name", name);
+        element.setAttribute("property", name);
+        element.setAttribute("content", content);
+        if (!element.isConnected) document.head.appendChild(element);
         return element;
     });
 };
 
 export const removeHeadMeta = (attributes: IHeadMetaAttr[]) => {
-    attributes.forEach((x) => {
-        document
-            .querySelector(
-                `meta${Object.entries(x)
-                    .map(([k, v]) => `[${k}="${v}"]`)
-                    .join("")}`
-            )
-            ?.remove();
+    attributes.forEach(([name]) => {
+        document.querySelector(`meta[name="${name}"]`)?.remove();
     });
 };

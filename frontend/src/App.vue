@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { ref, onMounted, onUnmounted } from "vue";
-import { router } from "./core/router";
 
 import NavBar from "./components/NavBar.vue";
 import Fade from "./components/transitions/Fade.vue";

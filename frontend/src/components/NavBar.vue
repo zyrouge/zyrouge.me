@@ -16,7 +16,6 @@ const loadingProgress = ref(progress.value);
 onMounted(() => {
     progress.onUpdate.listen((value) => {
         loadingProgress.value = value;
-        console.log(loadingProgress.value);
     });
 });
 </script>
@@ -50,6 +49,9 @@ onMounted(() => {
 
 <style scoped lang="scss">
 .s-link {
-    @apply hover:bg-primary-500 px-1;
+    @apply px-1 relative transition duration-150;
+    @apply after:content-[""] after:transition-all after:duration-150 after:ease-in-out;
+    @apply after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10;
+    @apply after:h-0 after:w-full hover:after:h-full;
 }
 </style>
