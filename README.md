@@ -9,7 +9,7 @@
 </h1>
 
 <p align="center">
-  This repository contains the source code of my personal website.
+  Source code of my personal website.
 </p>
 
 <p align="center">
