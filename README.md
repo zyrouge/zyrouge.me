@@ -1,13 +1,25 @@
-# [zyrouge.is-a.dev](https://zyrouge.is-a.dev/)
+<p align="center">
+  <img src="./public/icon.png" width="75">
+</p>
 
-This repository contains the source code of my personal website.
+<h1 align="center">
+  <a href="https://zyrouge.is-a.dev/">zyrouge.is-a.dev</a>
+</h1>
 
-[![Deploy](https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml/badge.svg)](https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml)
+<p align="center">
+  This repository contains the source code of my personal website.
+</p>
+
+<p align="center">
+  <a href="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml">
+    <img src="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml/badge.svg" title="Deploy">
+  </a>
+</p>
 
 ## Technology
 
--   Javascript/Typescript (Language)
--   Vue (UI Framework)
+-   JavaScript/TypeScript (Language)
+-   Astro (Framework)
 -   HTML (Language)
 -   CSS/SASS (Language)
 -   Tailwind (CSS Framework)
@@ -20,3 +32,4 @@ This repository contains the source code of my personal website.
 ## License
 
 [Apache-2.0 License](./LICENSE)
+
