@@ -1,0 +1,21 @@
+---
+import { ExternalAssets, StaticAssets } from "~/core/urls";
+import Item from "~/components/home/ProjectItem.astro";
+---
+
+<div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <Item
+        name="Genius Lyrics"
+        link="https://genius-lyrics.js.org"
+        description="Just a simple lyrics fetcher that uses Genius. Also has official API implementations."
+        image={StaticAssets.genius}
+        tags={["typescript"]}
+    />
+    <Item
+        name="UprightQuotes"
+        link="https://github.com/zyrouge/upright-quotes"
+        description="✨ Curated list of deep-meaning quotes as text or image."
+        image={ExternalAssets.uprightQuotesLogo}
+        tags={["vue", "typescript", "rest"]}
+    />
+</div>

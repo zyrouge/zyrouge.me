@@ -1,0 +1,20 @@
+---
+interface Props {
+    name: string;
+    type: string;
+    image: string;
+}
+
+const { name, type, image } = Astro.props;
+---
+
+<div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src={image} alt={`${name}'s logo`} />
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>{name}</p>
+            <p class="text-secondary-500 text-sm">{type}</p>
+        </div>
+    </div>
+</div>

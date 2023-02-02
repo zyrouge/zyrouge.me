@@ -1,0 +1,27 @@
+---
+import { ExternalUrls } from "~/core/urls";
+import { Routes } from "~/core/routes";
+import { Metadata } from "~/core/metadata";
+import FooterLink from "~/components/base/FooterLink.astro";
+---
+
+<footer>
+    <hr class="border-secondary-500/50" />
+
+    <div class="u-container py-4 text-center text-sm">
+        <p class="mb-1">
+            Made by
+            <span class="text-primary-500">{Metadata.title}</span>
+            with ❤️
+        </p>
+
+        <div class="mb-1 text-xs flex flex-wrap justify-center">
+            <FooterLink name="Source Code" link={ExternalUrls.ghRepo} />
+            <FooterLink name="Articles RSS" link={Routes.articles.rss} />
+        </div>
+
+        <div class="text-xs text-secondary-500">
+            <p>Last built at {new Date().toLocaleString()}</p>
+        </div>
+    </div>
+</footer>

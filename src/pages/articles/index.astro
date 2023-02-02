@@ -1,0 +1,62 @@
+---
+import sugar from "sugar";
+import { HeadMetadata, Metadata } from "~/core/metadata";
+import Base from "~/layouts/Base.astro";
+import { Articles } from "~/core/articles";
+import { Routes } from "~/core/routes";
+import { Utils } from "~/core/utils";
+
+const head: HeadMetadata = {
+    title: Metadata.constructTitle("Articles"),
+    description: "Articles written by me!",
+    meta: {},
+};
+
+const articles = await Articles.fetchAll();
+articles.sort((a, b) => b.data.time.valueOf() - a.data.time.valueOf());
+---
+
+<Base head={head}>
+    <div>
+        <hr />
+
+        <div class="u-container u-container-h">
+            <p class="text-lg pb-1 sm:pb-0">Recent Articles</p>
+
+            <div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+                {
+                    articles.map((x) => (
+                        <a
+                            class="group bg-secondary-900 hover:bg-primary-500 px-4 py-2"
+                            href={Routes.articles.constructRead(x.slug)}
+                        >
+                            <p class="text-xs pb-0.5">
+                                <span class="text-primary-500 group-hover:text-white">
+                                    {sugar.Date.relative(x.data.time)}
+                                </span>
+                                <span class="text-secondary-400 group-hover:text-white">
+                                    / {Articles.getReadingTime(x.body)} mins.
+                                    read
+                                </span>
+                            </p>
+
+                            <p>{x.data.title}</p>
+                            <p
+                                class="text-sm text-secondary-400 group-hover:text-white pb-0.5"
+                                set:html={Utils.renderSimpleMarkdown(
+                                    x.data.description
+                                )}
+                            />
+
+                            <p class="text-xs group-hover:text-white text-secondary-400">
+                                {[x.data.category, ...x.data.tags]
+                                    .map((x) => `#${x}`)
+                                    .join(" ")}
+                            </p>
+                        </a>
+                    ))
+                }
+            </div>
+        </div>
+    </div>
+</Base>

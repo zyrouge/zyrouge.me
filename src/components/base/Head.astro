@@ -1,0 +1,33 @@
+---
+import { HeadMetadata, Metadata } from "~/core/metadata";
+
+export interface Props {
+    head: HeadMetadata;
+}
+
+const { title, description } = Astro.props.head;
+
+const meta = {
+    title: title,
+    "og:title": title,
+    descriptiontitle: description,
+    "og:description": description,
+    ...Metadata.defaultMeta,
+    ...Astro.props.head.meta,
+};
+---
+
+<title>{title}</title>
+{
+    Object.entries(meta).map(([k, v]) => (
+        <meta name={k} property={k} content={v} />
+    ))
+}
+<meta
+    name="google-site-verification"
+    content="jL9yGYBUCR9sm_AshYC0G7yR8vmeE5mXlAcoasVGkTI"
+/>
+<link
+    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap"
+    rel="stylesheet"
+/>

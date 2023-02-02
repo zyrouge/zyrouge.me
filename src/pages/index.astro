@@ -1,0 +1,29 @@
+---
+import { HeadMetadata, Metadata } from "~/core/metadata";
+import Base from "~/layouts/Base.astro";
+import Hero from "~/components/home/Hero.astro";
+import Projects from "~/components/home/Projects.astro";
+import Technologies from "~/components/home/Technologies.astro";
+
+const head: HeadMetadata = {
+    title: Metadata.constructTitle("Home"),
+    description: "Hello there!",
+    meta: {},
+};
+---
+
+<Base head={head}>
+    <Hero />
+
+    <div class="u-container u-container-h">
+        <div class="mb-10">
+            <p class="text-lg">What do I usually use?</p>
+            <Technologies />
+        </div>
+
+        <div>
+            <p class="text-lg">Some of my projects</p>
+            <Projects />
+        </div>
+    </div>
+</Base>

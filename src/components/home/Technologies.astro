@@ -1,0 +1,22 @@
+---
+import { StaticAssets } from "~/core/urls";
+import Item from "~/components/home/TechnologyItem.astro";
+---
+
+<div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <Item name="JavaScript" image={StaticAssets.javascript} type="Language" />
+    <Item name="Typescript" image={StaticAssets.typescript} type="Language" />
+    <Item name="HTML" image={StaticAssets.html} type="Language" />
+    <Item name="CSS" image={StaticAssets.css} type="Language" />
+    <Item name="Dart" image={StaticAssets.dart} type="Language" />
+    <Item name="Electron" image={StaticAssets.electron} type="App Framework" />
+    <Item name="Flutter" image={StaticAssets.flutter} type="App Framework" />
+    <Item name="Vue" image={StaticAssets.vue} type="UI Framework" />
+    <Item
+        name="Tailwind CSS"
+        image={StaticAssets.tailwindcss}
+        type="CSS Framework"
+    />
+    <Item name="MongoDB" image={StaticAssets.mongodb} type="Database" />
+    <Item name="SQL" image={StaticAssets.sqlite} type="Database" />
+</div>

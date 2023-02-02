@@ -1,0 +1,41 @@
+---
+import { Utils } from "~/core/utils";
+
+interface Props {
+    name: string;
+    description: string;
+    link: string;
+    image: string;
+    tags: string[];
+}
+
+const { name, description, link, image, tags } = Astro.props;
+---
+
+<div>
+    <a
+        class="block group bg-secondary-900 hover:bg-primary-500"
+        href={link}
+        target="_blank"
+    >
+        <img
+            class="aspect-video w-full object-cover"
+            src={image}
+            alt={`${name}'s logo`}
+        />
+
+        <div class="px-4 py-2">
+            <p class="text-md mb-0.5">{name}</p>
+            <p
+                class="text-secondary-500 group-hover:text-white text-sm mb-0.5"
+                set:html={Utils.renderSimpleMarkdown(description)}
+            />
+
+            <div
+                class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white"
+            >
+                {tags.map((x) => <p class="mr-2">#{x}</p>)}
+            </div>
+        </div>
+    </a>
+</div>

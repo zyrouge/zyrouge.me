@@ -1,0 +1,186 @@
+---
+import { CollectionEntry, getCollection } from "astro:content";
+import sugar from "sugar";
+import { Articles } from "~/core/articles";
+import type { HeadMetadata } from "~/core/metadata";
+import Base from "~/layouts/Base.astro";
+
+interface Props {
+    article: CollectionEntry<"articles">;
+}
+
+export const getStaticPaths = async () => {
+    const blogEntries = await getCollection("articles");
+    return blogEntries.map((entry) => ({
+        params: { slug: entry.slug },
+        props: { article: entry } satisfies Props,
+    }));
+};
+
+const {
+    article: {
+        data: { title, description, category, tags, time: _time },
+        body,
+        render,
+    },
+} = Astro.props;
+const { Content, headings } = await render();
+
+const head: HeadMetadata = {
+    title,
+    description,
+    meta: {
+        "og:type": "article",
+        category: category,
+        keywords: tags.join(", "),
+    },
+};
+
+const time = new Date(_time);
+const readingTime = Articles.getReadingTime(body);
+---
+
+<Base head={head}>
+    <div>
+        <hr />
+
+        <div class="u-container u-container-h">
+            <article>
+                <div class="mb-3">
+                    <p class="text-3xl font-bold mb-1">
+                        {title}
+                    </p>
+                    <p class="mb-1">
+                        {description}
+                    </p>
+
+                    <p class="text-sm mb-1 text-secondary-400">
+                        {[category, ...tags].map((x) => `#${x}`).join(" ")}
+                    </p>
+                    <p class="text-xs">
+                        <time
+                            class="text-primary-500"
+                            datetime={time.toISOString()}
+                        >
+                            {sugar.Date.relative(time)}
+                        </time>
+                        <span class="text-secondary-400">
+                            / {readingTime} mins. read</span
+                        >
+                    </p>
+                </div>
+
+                <hr />
+
+                <div class="lg:grid lg:grid-cols-4 lg:gap-12">
+                    <aside class="mt-8 lg:col-span-1">
+                        <div class="lg:sticky lg:top-6">
+                            <p class="text-lg font-bold mb-2">
+                                Table of contents
+                            </p>
+                            <ul
+                                class="lg:max-h-[85vh] lg:overflow-y-auto"
+                                id="headings"
+                            >
+                                {
+                                    headings.map((x) => (
+                                        <li
+                                            class:list={[
+                                                "cursor-pointer pl-4 py-1 hover:bg-secondary-900 border-l-2 border-secondary-700",
+                                                "data-[active]:lg:bg-primary-500/10 data-[active]:lg:border-primary-500 data-[active]:lg:text-primary-500",
+                                            ]}
+                                            data-hid={x.slug}
+                                        >
+                                            {x.text}
+                                        </li>
+                                    ))
+                                }
+                            </ul>
+                        </div>
+                    </aside>
+
+                    <div
+                        class="u-stylify lg:row-start-1 lg:col-start-1 lg:col-span-3"
+                        id="content"
+                    >
+                        <Content />
+                    </div>
+                </div>
+            </article>
+        </div>
+    </div>
+</Base>
+
+<script is:inline>
+    const headingIdAttribute = "data-hid";
+    const activeAttribute = "data-active";
+    const headingSelector = "#headings li";
+    let currentHeading = null;
+    let isScrolling = false;
+    updateInitialHeading();
+
+    function updateInitialHeading() {
+        replaceCurrentHeading(
+            document.getElementById(location.hash.substring(1))?.id ??
+                document
+                    .querySelector(headingSelector)
+                    .getAttribute(headingIdAttribute)
+        );
+    }
+
+    function replaceCurrentHeading(id) {
+        if (currentHeading === id) return;
+        const previousHeadingElement = document.querySelector(
+            `[${headingIdAttribute}="${currentHeading}"]`
+        );
+        const previousContentHeadingElement =
+            document.getElementById(currentHeading);
+        const currentHeadingElement = document.querySelector(
+            `[${headingIdAttribute}="${id}"]`
+        );
+        const currentContentHeadingElement = document.getElementById(id);
+        previousHeadingElement?.removeAttribute(activeAttribute);
+        previousContentHeadingElement?.removeAttribute(activeAttribute);
+        currentHeadingElement.setAttribute(activeAttribute, "");
+        currentContentHeadingElement.setAttribute(activeAttribute, "");
+        currentHeading = id;
+    }
+
+    function updateCurrentHeading(id) {
+        replaceCurrentHeading(id);
+        isScrolling = true;
+        const contentElement = document.getElementById(id);
+        contentElement.scrollIntoView({ behavior: "smooth" });
+        history.replaceState(null, null, `#${id}`);
+    }
+
+    document.querySelectorAll(headingSelector).forEach((x) => {
+        const id = x.getAttribute(headingIdAttribute);
+        const heading = document.getElementById(id);
+        const onClick = () => updateCurrentHeading(id);
+        x.addEventListener("click", onClick);
+        heading.addEventListener("click", onClick);
+    });
+
+    document.addEventListener("scroll", () => {
+        const scrollingElement = document.scrollingElement;
+        if (scrollingElement) {
+            const headings = document.querySelectorAll(headingSelector);
+            let visibleHeading = currentHeading;
+            for (const x of headings) {
+                const id = x.getAttribute(headingIdAttribute);
+                const heading = document.getElementById(id);
+                if (scrollingElement.scrollTop < heading.offsetTop) {
+                    break;
+                }
+                visibleHeading = id;
+            }
+            if (isScrolling) {
+                if (visibleHeading !== currentHeading) return;
+                isScrolling = false;
+            } else {
+                replaceCurrentHeading(visibleHeading);
+            }
+        }
+    });
+</script>

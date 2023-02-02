@@ -1,0 +1,25 @@
+---
+import { Routes } from "~/core/routes";
+import NavBarLink from "~/components/base/NavBarLink.astro";
+---
+
+<nav>
+    <div class="py-4 md:py-6">
+        <div
+            class="u-flex !flex-col md:!flex-row !justify-around gap-4 md:gap-8"
+        >
+            <div class="font-bold">
+                <NavBarLink link={Routes.home}>
+                    <span class="opacity-50">&lbrace;</span>
+                    zyrouge
+                    <span class="opacity-50">&rbrace;</span>
+                </NavBarLink>
+            </div>
+
+            <div class="u-flex gap-8">
+                <NavBarLink link={Routes.home}>Home</NavBarLink>
+                <NavBarLink link={Routes.articles.home}>Articles</NavBarLink>
+            </div>
+        </div>
+    </div>
+</nav>

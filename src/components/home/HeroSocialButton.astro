@@ -1,0 +1,16 @@
+---
+interface Props {
+    name: string;
+    link: string;
+}
+
+const { name, link } = Astro.props;
+---
+
+<p title={`${name} (${link})`}>
+    <a href={link} target="_blank">
+        <div class="hero-footer-icon">
+            <slot />
+        </div>
+    </a>
+</p>

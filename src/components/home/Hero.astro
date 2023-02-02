@@ -1,0 +1,48 @@
+---
+import { ExternalUrls } from "~/core/urls";
+import SocialButton from "~/components/home/HeroSocialButton.astro";
+import DiscordIcon from "~/components/icons/Discord.astro";
+import GitHubIcon from "~/components/icons/GitHub.astro";
+import InstagramIcon from "~/components/icons/Instagram.astro";
+import TwitterIcon from "~/components/icons/Twitter.astro";
+---
+
+<div class="relative bg-gradient-to-br from-primary-500 to-primary-800">
+    <div class="u-container u-flex !flex-col">
+        <p class="text-xl text-center md:px-16 py-20 md:py-28">
+            A passionate full-stack developer && software developer &&
+            open-source lover.
+        </p>
+    </div>
+
+    <div class="absolute bottom-0 right-0">
+        <div class="u-flex !justify-end gap-3 p-3">
+            <SocialButton name="GitHub" link={ExternalUrls.github}>
+                <GitHubIcon />
+            </SocialButton>
+            <SocialButton name="Discord" link={ExternalUrls.discord}>
+                <DiscordIcon />
+            </SocialButton>
+            <SocialButton name="Instagram" link={ExternalUrls.instagram}>
+                <InstagramIcon />
+            </SocialButton>
+            <SocialButton name="Twitter" link={ExternalUrls.twitter}>
+                <TwitterIcon />
+            </SocialButton>
+        </div>
+    </div>
+</div>
+
+<style>
+    .hero-footer-icon {
+        @apply aspect-square w-5;
+    }
+
+    .hero-footer-icon path {
+        @apply fill-white opacity-60 transition duration-200;
+    }
+
+    .hero-footer-icon:hover path {
+        @apply opacity-100;
+    }
+</style>
