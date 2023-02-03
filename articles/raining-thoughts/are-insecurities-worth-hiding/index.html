@@ -8,7 +8,8 @@
 <meta name="title" property="title" content="Are insecurities worth hiding?"><meta name="og:title" property="og:title" content="Are insecurities worth hiding?"><meta name="descriptiontitle" property="descriptiontitle" content="Why one should never hide their insecurities."><meta name="og:description" property="og:description" content="Why one should never hide their insecurities."><meta name="author" property="author" content="Zyrouge, zyrouge@hotmail.com"><meta name="og:image" property="og:image" content="/banner.png"><meta name="og:type" property="og:type" content="article"><meta name="robots" property="robots" content="all"><meta name="theme-color" property="theme-color" content="#d946ef"><meta name="category" property="category" content="raining-thoughts"><meta name="keywords" property="keywords" content="philosophy, life">
 <meta name="google-site-verification" content="jL9yGYBUCR9sm_AshYC0G7yR8vmeE5mXlAcoasVGkTI">
 <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="/_astro/_...slug_.93dd0f68.css" /></head>
+    <link rel="stylesheet" href="/_astro/_...slug_.93dd0f68.css" /><script type="module">class a{headingIdAttribute="data-hid";activeAttribute="data-active";tocHeadingSelector="#headings li";currentHeading=null;headings={};onScrollEndListeners=[];initialize(){this.headings=this.getAllHeadings(),this.attachClickHandlers(),this.attachScrollHander(),this.attachOnLoadedHandler()}initializeHeading(){const t=this.headings[location.hash.substring(1)];if(t){this.highlightTocHeading(t),this.highlightContentHeading(t);return}const e=Object.keys(this.headings)[0];if(!e)return;const i=this.headings[e];this.highlightTocHeading(i)}highlightTocHeading(t){Object.values(this.headings).forEach(e=>{e.toc.removeAttribute(this.activeAttribute)}),t.toc.setAttribute(this.activeAttribute,"")}highlightContentHeading(t){Object.values(this.headings).forEach(e=>{e.content.removeAttribute(this.activeAttribute)}),t.content.setAttribute(this.activeAttribute,"")}highlightHeading(t){this.highlightTocHeading(t),this.highlightContentHeading(t)}async updateCurrentHeading(t){this.currentHeading?.id!==t.id&&(this.highlightContentHeading(t),t.content.scrollIntoView({behavior:"smooth"}),history.replaceState(null,"",`#${t.id}`),this.currentHeading=t,await this.waitForScroll(),this.highlightTocHeading(t))}attachClickHandlers(){Object.values(this.headings).forEach(t=>{const e=()=>this.updateCurrentHeading(t);t.toc.addEventListener("click",e),t.content.addEventListener("click",e)})}attachScrollHander(){let t=null;document.addEventListener("scroll",()=>{clearInterval(t??void 0);const e=document.scrollingElement;if(e){let i=this.currentHeading;for(const n of Object.values(this.headings)){if(e.scrollTop<n.content.offsetTop)break;i=n}if(!i)return;this.highlightTocHeading(i)}t=setTimeout(()=>this.emitOnScrollEnd(),50)})}attachOnLoadedHandler(){document.addEventListener("DOMContentLoaded",()=>{this.initializeHeading()})}emitOnScrollEnd(){const t=this.onScrollEndListeners;this.onScrollEndListeners=[],t.forEach(e=>e())}waitForScroll(){return new Promise(t=>{this.onScrollEndListeners.push(()=>{t()})})}getHeading(t){const e=document.querySelector(`[${this.headingIdAttribute}="${t}"]`),i=document.getElementById(t);return{id:t,toc:e,content:i}}getAllHeadings(){const t={};return document.querySelectorAll(this.tocHeadingSelector).forEach(e=>{const i=e.getAttribute(this.headingIdAttribute);i&&(t[i]=this.getHeading(i))}),t}}const s=new a;s.initialize();
+</script></head>
     <body>
         <nav>
     <div class="py-4 md:py-6">
@@ -178,82 +179,8 @@
         </div>
 
         <div class="text-xs text-secondary-500">
-            <p>Last built at 2/2/2023, 5:43:15 PM</p>
+            <p>Last built at 2/3/2023, 3:37:51 PM</p>
         </div>
     </div>
 </footer>
     </body></html>
-
-<script>
-    const headingIdAttribute = "data-hid";
-    const activeAttribute = "data-active";
-    const headingSelector = "#headings li";
-    let currentHeading = null;
-    let isScrolling = false;
-    updateInitialHeading();
-
-    function updateInitialHeading() {
-        replaceCurrentHeading(
-            document.getElementById(location.hash.substring(1))?.id ??
-                document
-                    .querySelector(headingSelector)
-                    .getAttribute(headingIdAttribute)
-        );
-    }
-
-    function replaceCurrentHeading(id) {
-        if (currentHeading === id) return;
-        const previousHeadingElement = document.querySelector(
-            `[${headingIdAttribute}="${currentHeading}"]`
-        );
-        const previousContentHeadingElement =
-            document.getElementById(currentHeading);
-        const currentHeadingElement = document.querySelector(
-            `[${headingIdAttribute}="${id}"]`
-        );
-        const currentContentHeadingElement = document.getElementById(id);
-        previousHeadingElement?.removeAttribute(activeAttribute);
-        previousContentHeadingElement?.removeAttribute(activeAttribute);
-        currentHeadingElement.setAttribute(activeAttribute, "");
-        currentContentHeadingElement.setAttribute(activeAttribute, "");
-        currentHeading = id;
-    }
-
-    function updateCurrentHeading(id) {
-        replaceCurrentHeading(id);
-        isScrolling = true;
-        const contentElement = document.getElementById(id);
-        contentElement.scrollIntoView({ behavior: "smooth" });
-        history.replaceState(null, null, `#${id}`);
-    }
-
-    document.querySelectorAll(headingSelector).forEach((x) => {
-        const id = x.getAttribute(headingIdAttribute);
-        const heading = document.getElementById(id);
-        const onClick = () => updateCurrentHeading(id);
-        x.addEventListener("click", onClick);
-        heading.addEventListener("click", onClick);
-    });
-
-    document.addEventListener("scroll", () => {
-        const scrollingElement = document.scrollingElement;
-        if (scrollingElement) {
-            const headings = document.querySelectorAll(headingSelector);
-            let visibleHeading = currentHeading;
-            for (const x of headings) {
-                const id = x.getAttribute(headingIdAttribute);
-                const heading = document.getElementById(id);
-                if (scrollingElement.scrollTop < heading.offsetTop) {
-                    break;
-                }
-                visibleHeading = id;
-            }
-            if (isScrolling) {
-                if (visibleHeading !== currentHeading) return;
-                isScrolling = false;
-            } else {
-                replaceCurrentHeading(visibleHeading);
-            }
-        }
-    });
-</script>
