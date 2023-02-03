@@ -27,7 +27,9 @@ class ArticleState {
             this.highlightContentHeading(hashHeading);
             return;
         }
-        const defaultHeading = this.headings[Object.keys(this.headings)[0]];
+        const defaultHeadingId = Object.keys(this.headings)[0];
+        if (!defaultHeadingId) return;
+        const defaultHeading = this.headings[defaultHeadingId]!!;
         this.highlightTocHeading(defaultHeading);
     }
 

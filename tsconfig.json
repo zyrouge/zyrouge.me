@@ -5,6 +5,10 @@
         "baseUrl": ".",
         "paths": {
             "~/*": ["src/*"]
-        }
+        },
+        "noUnusedLocals": true,
+        "noUncheckedIndexedAccess": true,
+        "noUnusedParameters": true,
+        "strictNullChecks": true
     }
 }
