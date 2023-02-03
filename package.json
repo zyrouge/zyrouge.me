@@ -5,10 +5,8 @@
     "private": true,
     "scripts": {
         "dev": "astro dev",
-        "start": "astro dev",
         "build": "astro build",
-        "preview": "astro preview",
-        "astro": "astro"
+        "deploy": "gh workflow run deploy.yml"
     },
     "dependencies": {
         "@astrojs/mdx": "^0.15.1",
