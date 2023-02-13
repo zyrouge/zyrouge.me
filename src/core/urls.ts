@@ -26,9 +26,19 @@ export class StaticAssets {
     static tailwindcss = `${images}/tailwindcss.png`;
     static typescript = `${images}/typescript.png`;
     static vue = `${images}/vue.png`;
+    static nodejs = `${images}/nodejs.png`;
+    static kotlin = `${images}/kotlin.png`;
+    static compose = `${images}/compose.png`;
+    static windows = `${images}/windows.png`;
+    static linux = `${images}/linux.png`;
+    static git = `${images}/git.png`;
+    static vscode = `${images}/vscode.png`;
 }
 
 export class ExternalAssets {
     static uprightQuotesLogo =
-        "https://zyrouge.github.io/upright-quotes/logo.png";
+        "https://zyrouge.github.io/upright-quotes/logo.png?raw=true";
+
+    static symphonyBanner =
+        "https://github.com/zyrouge/symphony/blob/main/media/banner-16-9.png?raw=true";
 }

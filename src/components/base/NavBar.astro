@@ -1,6 +1,8 @@
 ---
 import { Routes } from "~/core/routes";
 import NavBarLink from "~/components/base/NavBarLink.astro";
+
+const isCurrentPage = (route: string) => route === Astro.url.pathname;
 ---
 
 <nav>
@@ -17,8 +19,18 @@ import NavBarLink from "~/components/base/NavBarLink.astro";
             </div>
 
             <div class="u-flex gap-8">
-                <NavBarLink link={Routes.home}>Home</NavBarLink>
-                <NavBarLink link={Routes.articles.home}>Articles</NavBarLink>
+                <NavBarLink
+                    link={Routes.home}
+                    active={isCurrentPage(Routes.home)}
+                >
+                    Home
+                </NavBarLink>
+                <NavBarLink
+                    link={Routes.articles.home}
+                    active={isCurrentPage(Routes.articles.home)}
+                >
+                    Articles
+                </NavBarLink>
             </div>
         </div>
     </div>
