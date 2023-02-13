@@ -15,7 +15,7 @@
     <div class="py-4 md:py-6">
         <div class="u-flex !flex-col md:!flex-row !justify-around gap-4 md:gap-8">
             <div class="font-bold">
-                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full" active-class="text-primary-500 hover:text-white" href="/">
+                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full" href="/">
     <span class="opacity-50">&lbrace;</span>
                     zyrouge
                     <span class="opacity-50">&rbrace;</span>
@@ -23,11 +23,15 @@
             </div>
 
             <div class="u-flex gap-8">
-                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full" active-class="text-primary-500 hover:text-white" href="/">
-    Home
+                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full text-primary-500 hover:text-white" href="/">
+    
+                    Home
+                
 </a>
-                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full" active-class="text-primary-500 hover:text-white" href="/articles">
-    Articles
+                <a class="px-1 relative transition duration-150 after:content-[''] after:transition-all after:duration-150 after:ease-in-out after:absolute after:left-0 after:bottom-0 after:bg-primary-500 after:-z-10 after:h-0 after:w-full hover:after:h-full" href="/articles">
+    
+                    Articles
+                
 </a>
             </div>
         </div>
@@ -90,6 +94,16 @@
             <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
     <div>
     <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/nodejs.png" alt="Node.js's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Node.js</p>
+            <p class="text-secondary-500 text-sm">Language</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
         <img class="h-auto w-8" src="/static/images/javascript.png" alt="JavaScript's logo">
         <p class="h-full w-[1px] bg-secondary-800"></p>
         <div class="w-full">
@@ -140,14 +154,15 @@
 </div>
     <div>
     <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
-        <img class="h-auto w-8" src="/static/images/electron.png" alt="Electron's logo">
+        <img class="h-auto w-8" src="/static/images/kotlin.png" alt="Kotlin's logo">
         <p class="h-full w-[1px] bg-secondary-800"></p>
         <div class="w-full">
-            <p>Electron</p>
-            <p class="text-secondary-500 text-sm">App Framework</p>
+            <p>Kotlin</p>
+            <p class="text-secondary-500 text-sm">Language</p>
         </div>
     </div>
 </div>
+
     <div>
     <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
         <img class="h-auto w-8" src="/static/images/flutter.png" alt="Flutter's logo">
@@ -160,21 +175,31 @@
 </div>
     <div>
     <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
-        <img class="h-auto w-8" src="/static/images/vue.png" alt="Vue's logo">
-        <p class="h-full w-[1px] bg-secondary-800"></p>
-        <div class="w-full">
-            <p>Vue</p>
-            <p class="text-secondary-500 text-sm">UI Framework</p>
-        </div>
-    </div>
-</div>
-    <div>
-    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
         <img class="h-auto w-8" src="/static/images/tailwindcss.png" alt="Tailwind CSS's logo">
         <p class="h-full w-[1px] bg-secondary-800"></p>
         <div class="w-full">
             <p>Tailwind CSS</p>
             <p class="text-secondary-500 text-sm">CSS Framework</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/electron.png" alt="Electron's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Electron</p>
+            <p class="text-secondary-500 text-sm">App Framework</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/vue.png" alt="Vue's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Vue</p>
+            <p class="text-secondary-500 text-sm">UI Framework</p>
         </div>
     </div>
 </div>
@@ -198,12 +223,91 @@
         </div>
     </div>
 </div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/compose.png" alt="Jetpack Compose's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Jetpack Compose</p>
+            <p class="text-secondary-500 text-sm">App Framework</p>
+        </div>
+    </div>
+</div>
+
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/windows.png" alt="Windows's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Windows</p>
+            <p class="text-secondary-500 text-sm">Operating System</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/linux.png" alt="Linux's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Linux</p>
+            <p class="text-secondary-500 text-sm">Operating System</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/git.png" alt="Git's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>Git</p>
+            <p class="text-secondary-500 text-sm">Version Control</p>
+        </div>
+    </div>
+</div>
+    <div>
+    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+        <img class="h-auto w-8" src="/static/images/vscode.png" alt="VS Code's logo">
+        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <div class="w-full">
+            <p>VS Code</p>
+            <p class="text-secondary-500 text-sm">Editor</p>
+        </div>
+    </div>
+</div>
 </div>
         </div>
 
         <div>
             <p class="text-lg">Some of my projects</p>
             <div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+    <div>
+    <a class="block group bg-secondary-900 hover:bg-primary-500" href="https://zyrouge.github.io/symphony/" target="_blank">
+        <img class="aspect-video w-full object-cover" src="https://github.com/zyrouge/symphony/blob/main/media/banner-16-9.png?raw=true" alt="Symphony's logo">
+
+        <div class="px-4 py-2">
+            <p class="text-md mb-0.5">Symphony</p>
+            <p class="text-secondary-500 group-hover:text-white text-sm mb-0.5">🎵 A lightweight, elegant music player that enhances your offline music experience.</p>
+
+            <div class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white">
+                <p class="mr-2">#android</p><p class="mr-2">#kotlin</p><p class="mr-2">#compose</p><p class="mr-2">#music</p>
+            </div>
+        </div>
+    </a>
+</div>
+    <div>
+    <a class="block group bg-secondary-900 hover:bg-primary-500" href="https://github.com/zyrouge/upright-quotes" target="_blank">
+        <img class="aspect-video w-full object-cover" src="https://zyrouge.github.io/upright-quotes/logo.png?raw=true" alt="UprightQuotes's logo">
+
+        <div class="px-4 py-2">
+            <p class="text-md mb-0.5">UprightQuotes</p>
+            <p class="text-secondary-500 group-hover:text-white text-sm mb-0.5">✨ Curated list of deep-meaning quotes as text or image.</p>
+
+            <div class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white">
+                <p class="mr-2">#vue</p><p class="mr-2">#typescript</p><p class="mr-2">#rest</p>
+            </div>
+        </div>
+    </a>
+</div>
     <div>
     <a class="block group bg-secondary-900 hover:bg-primary-500" href="https://genius-lyrics.js.org" target="_blank">
         <img class="aspect-video w-full object-cover" src="/static/images/genius.png" alt="Genius Lyrics's logo">
@@ -214,20 +318,6 @@
 
             <div class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white">
                 <p class="mr-2">#typescript</p>
-            </div>
-        </div>
-    </a>
-</div>
-    <div>
-    <a class="block group bg-secondary-900 hover:bg-primary-500" href="https://github.com/zyrouge/upright-quotes" target="_blank">
-        <img class="aspect-video w-full object-cover" src="https://zyrouge.github.io/upright-quotes/logo.png" alt="UprightQuotes's logo">
-
-        <div class="px-4 py-2">
-            <p class="text-md mb-0.5">UprightQuotes</p>
-            <p class="text-secondary-500 group-hover:text-white text-sm mb-0.5">✨ Curated list of deep-meaning quotes as text or image.</p>
-
-            <div class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white">
-                <p class="mr-2">#vue</p><p class="mr-2">#typescript</p><p class="mr-2">#rest</p>
             </div>
         </div>
     </a>
@@ -259,7 +349,7 @@
         </div>
 
         <div class="text-xs text-secondary-500">
-            <p>Last built at 2/3/2023, 3:37:51 PM</p>
+            <p>Last built at 2/13/2023, 4:20:11 PM</p>
         </div>
     </div>
 </footer>
