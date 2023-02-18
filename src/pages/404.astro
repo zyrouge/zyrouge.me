@@ -1,0 +1,35 @@
+---
+import { HeadMetadata, Metadata } from "~/core/metadata";
+import { Routes } from "~/core/routes";
+import Base from "~/layouts/Base.astro";
+import Message from "~/components/common/Message.astro";
+
+const head: HeadMetadata = {
+    title: Metadata.constructTitle("404"),
+    description: "Page not found.",
+    meta: {},
+};
+---
+
+<Base head={head}>
+    <div class="u-container u-container-h u-flex py-10 min-h-[60vh]">
+        <Message>
+            <div slot="header">
+                <p>404</p>
+            </div>
+
+            <div slot="body">
+                <p>As far as I know, you shouldn't be here.</p>
+            </div>
+
+            <div slot="footer">
+                <a
+                    class="text-primary-500 hover:text-secondary-500"
+                    href={Routes.home}
+                >
+                    👉 Go home
+                </a>
+            </div>
+        </Message>
+    </div>
+</Base>
