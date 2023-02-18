@@ -2,7 +2,9 @@
 import { Routes } from "~/core/routes";
 import NavBarLink from "~/components/base/NavBarLink.astro";
 
-const isCurrentPage = (route: string) => route === Astro.url.pathname;
+const replaceSlashes = (route: string) => route.replaceAll(/^\/|\/$/g, "");
+const isCurrentPage = (route: string) =>
+    replaceSlashes(route) === replaceSlashes(Astro.url.pathname);
 ---
 
 <nav>
