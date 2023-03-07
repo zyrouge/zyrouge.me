@@ -6,7 +6,6 @@ export const ArticleSchema = z.object({
     category: z.string(),
     tags: z.array(z.string()),
     time: z.date(),
-    draft: z.boolean().default(false),
 });
 
 export type ArticleType = z.infer<typeof ArticleSchema>;
