@@ -12,7 +12,7 @@ You might have wondered "why do these people still watch cartoons?". Fun fact, a
 
 # Cartoons vs. Anime
 
-"Cartoons are generally made to make people laugh and so are more comical."^[1]^ Also, the fact that they primarily target children.
+"Cartoons are generally made to make people laugh and so are more comical."<sup>[1]</sup> Also, the fact that they primarily target children.
 
 So, what is anime and what does it specially illustrate? Anime _usually_ expresses real-life situations which are made in a way that makes you actually feel it.
 
@@ -32,7 +32,7 @@ Creators put in a lot of effort into portraying everything. Attention to detail 
 
 ## Soundtrack
 
-"LESS DRAMA, LESS PERSONIFICATION and LESS LIES. The lyrics and music can easily intertwine with people's thought processes and reality."^[2]^
+"LESS DRAMA, LESS PERSONIFICATION and LESS LIES. The lyrics and music can easily intertwine with people's thought processes and reality."<sup>[2]</sup>
 
 ## Variety / Genres
 
@@ -44,11 +44,11 @@ I don't watch anime for "pleasing visuals" (fan-service). I refuse wasting time 
 
 # Conclusion
 
-Unless you give it a try, you wouldn't know what it actually is about. "Anime is immediately stereotyped as a 'childish' or 'immature' form of entertainment which is clearly not the case."^[3]^ What you watch does also matter.
+Unless you give it a try, you wouldn't know what it actually is about. "Anime is immediately stereotyped as a 'childish' or 'immature' form of entertainment which is clearly not the case."<sup>[3]</sup> What you watch does also matter.
 
 ###### References
 
--   https://www.diffen.com/difference/Anime_vs_Cartoon^[1]^
--   https://www.quora.com/Why-are-anime-songs-so-good^[2]^
--   https://www.quora.com/Why-are-so-many-people-reluctant-to-give-anime-a-try^[3]^
+-   https://www.diffen.com/difference/Anime_vs_Cartoon<sup>[1]</sup>
+-   https://www.quora.com/Why-are-anime-songs-so-good<sup>[2]</sup>
+-   https://www.quora.com/Why-are-so-many-people-reluctant-to-give-anime-a-try<sup>[3]</sup>
 -   https://www.quora.com/Why-do-you-like-anime

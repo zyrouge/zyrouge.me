@@ -64,7 +64,7 @@ Note: The below points are based on my experience. It might not suit every intro
 
 5. **Introverts aren't fun.** Though we are not thrill seekers, it doesn't mean we aren't fun. It actually depends on the environment and the people around us.
 
-6. **Introverts can fix themselves and become extroverts.** "A world without Introverts would be a world with few scientists, musicians, artists, poets, filmmakers, doctors, mathematicians, writers, and philosophers."^[1]^ Most of the time, introversion and extroversion are influenced by genetics. Other factors like environment could also influence it.
+6. **Introverts can fix themselves and become extroverts.** "A world without Introverts would be a world with few scientists, musicians, artists, poets, filmmakers, doctors, mathematicians, writers, and philosophers."<sup>[1]</sup> Most of the time, introversion and extroversion are influenced by genetics. Other factors like environment could also influence it.
 
 7. **You speak less if you are an introvert.** It's a common misconception. We don't speak less. It's just we think a lot before speaking.
 
@@ -85,5 +85,5 @@ Overall, I think being an introvert is a 50/50 experience. Sometimes it's a bles
 ###### References
 
 -   https://www.quora.com/What-is-the-best-thing-about-being-an-introvert
--   https://www.quora.com/What-are-the-most-painful-problems-that-introverts-have-to-deal-with^[1]^
+-   https://www.quora.com/What-are-the-most-painful-problems-that-introverts-have-to-deal-with<sup>[1]</sup>
 -   https://www.quora.com/Why-are-introverts-often-misunderstood-What-are-some-tips-for-extroverts-dealing-with-introverts
