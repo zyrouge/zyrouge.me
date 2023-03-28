@@ -1,8 +1,13 @@
-import { getCollection } from "astro:content";
+import { CollectionEntry, getCollection } from "astro:content";
+
+export type ArticleCollectionEntry = CollectionEntry<"articles">;
 
 export class Articles {
     static async fetchAll() {
-        const collection = await getCollection("articles");
+        const collection = await getCollection(
+            "articles",
+            ({ data }) => !data.draft
+        );
         return collection;
     }
 

@@ -4,6 +4,7 @@ description: The uncertainty of human emotions and existence.
 category: raining-thoughts
 tags: [philosophy, life]
 time: 2022-05-05T20:15:00+05:30
+draft: true
 ---
 
 # Introduction

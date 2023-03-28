@@ -1,16 +1,15 @@
 ---
-import { CollectionEntry, getCollection } from "astro:content";
 import sugar from "sugar";
-import { Articles } from "~/core/articles";
+import { ArticleCollectionEntry, Articles } from "~/core/articles";
 import type { HeadMetadata } from "~/core/metadata";
 import Base from "~/layouts/Base.astro";
 
 interface Props {
-    article: CollectionEntry<"articles">;
+    article: ArticleCollectionEntry;
 }
 
 export const getStaticPaths = async () => {
-    const blogEntries = await getCollection("articles");
+    const blogEntries = await Articles.fetchAll();
     return blogEntries.map((entry) => ({
         params: { slug: entry.slug },
         props: { article: entry } satisfies Props,
