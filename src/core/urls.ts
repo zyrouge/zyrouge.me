@@ -33,6 +33,7 @@ export class StaticAssets {
     static linux = `${images}/linux.png`;
     static git = `${images}/git.png`;
     static vscode = `${images}/vscode.png`;
+    static figma = `${images}/figma.png`;
 }
 
 export class ExternalAssets {
@@ -40,5 +41,5 @@ export class ExternalAssets {
         "https://zyrouge.github.io/upright-quotes/logo.png?raw=true";
 
     static symphonyBanner =
-        "https://github.com/zyrouge/symphony/blob/main/media/banner-16-9.png?raw=true";
+        "https://raw.githubusercontent.com/zyrouge/symphony/main/media/banner-16-9.png";
 }
