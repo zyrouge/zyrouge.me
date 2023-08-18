@@ -1,0 +1,44 @@
+---
+import sugar from "sugar";
+import { Articles, ArticleCollectionEntry } from "~/core/articles";
+import { Routes } from "~/core/routes";
+import { Utils } from "~/core/utils";
+
+interface Props {
+    article: ArticleCollectionEntry;
+}
+
+const { article } = Astro.props;
+---
+
+<a
+    class:list={[
+        "group px-4 py-2",
+        "bg-secondary-950 hover:bg-primary-500",
+        "border border-secondary-900 hover:border-primary-500",
+    ]}
+    href={Routes.articles.constructRead(article.slug)}
+>
+    <p class="text-xs pb-1">
+        <span class="text-primary-500 group-hover:text-white">
+            {sugar.Date.relative(article.data.time)}
+        </span>
+        <span class="text-secondary-500 group-hover:text-white">
+            / {Articles.getReadingTime(article.body)} mins. read
+        </span>
+    </p>
+
+    <p class="pb-0.5">{article.data.title}</p>
+    <p
+        class="text-sm text-secondary-500 group-hover:text-white pb-1"
+        set:html={Utils.renderSimpleMarkdown(article.data.description)}
+    />
+
+    <p class="text-xs group-hover:text-white text-secondary-500">
+        {
+            [article.data.category, ...article.data.tags]
+                .map((x) => `#${x}`)
+                .join(" ")
+        }
+    </p>
+</a>

@@ -9,6 +9,10 @@ module.exports = {
                 primary: Colors.fuchsia,
                 secondary: Colors.neutral,
             },
+            fontFamily: {
+                sans: "'Inter', sans-serif",
+                mono: "'Roboto Mono', monospace",
+            },
         },
     },
     plugins: [],

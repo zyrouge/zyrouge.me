@@ -8,7 +8,11 @@ const { name, link } = Astro.props;
 ---
 
 <p
-    class="text-primary-500 hover:text-secondary-400 border-l border-secondary-500 first:border-l-0 pl-3 pr-3"
+    class:list={[
+        "px-3 text-primary-500 hover:text-primary-600",
+        "border-l border-secondary-900 first:border-l-0",
+        "transition duration-200",
+    ]}
 >
     <a href={link} target="_blank">
         {name}

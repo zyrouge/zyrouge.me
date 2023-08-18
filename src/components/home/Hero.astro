@@ -1,48 +1,50 @@
 ---
 import { ExternalUrls } from "~/core/urls";
+import { Icon } from "astro-icon";
 import SocialButton from "~/components/home/HeroSocialButton.astro";
-import DiscordIcon from "~/components/icons/Discord.astro";
-import GitHubIcon from "~/components/icons/GitHub.astro";
-import InstagramIcon from "~/components/icons/Instagram.astro";
-import TwitterIcon from "~/components/icons/Twitter.astro";
 ---
 
-<div class="relative bg-gradient-to-br from-primary-500 to-primary-800">
-    <div class="u-container u-flex !flex-col">
-        <p class="text-xl text-center md:px-16 py-20 md:py-28">
-            A passionate full-stack developer && software developer &&
-            open-source lover.
+<div class="u-container py-16 sm:py-28">
+    <div>
+        <p class="text-lg sm:text-xl pb-1 hero-tagline-def">A passionate</p>
+        <p class="hero-tagline-def hero-tagline-keyword">
+            <span class="text-primary-500">Full-stack Developer</span>,
         </p>
-    </div>
-
-    <div class="absolute bottom-0 right-0">
-        <div class="u-flex !justify-end gap-3 p-3">
-            <SocialButton name="GitHub" link={ExternalUrls.github}>
-                <GitHubIcon />
-            </SocialButton>
-            <SocialButton name="Discord" link={ExternalUrls.discord}>
-                <DiscordIcon />
-            </SocialButton>
-            <SocialButton name="Instagram" link={ExternalUrls.instagram}>
-                <InstagramIcon />
-            </SocialButton>
-            <SocialButton name="Twitter" link={ExternalUrls.twitter}>
-                <TwitterIcon />
-            </SocialButton>
-        </div>
+        <p class="hero-tagline-def hero-tagline-keyword">
+            <span class="text-primary-500">Software Developer</span>,
+        </p>
+        <p class="hero-tagline-def hero-tagline-keyword">
+            <span class="text-primary-500">Open-source Lover</span>
+            <span class="inline-block sm:hidden">&</span>
+            <span class="hidden sm:inline-block">and</span>
+        </p>
+        <p class="hero-tagline-def hero-tagline-keyword">
+            <span class="text-primary-500">Content Writer</span>.
+        </p>
     </div>
 </div>
 
+<div class="u-container pb-6 u-flex !justify-start gap-2">
+    <SocialButton name="GitHub" link={ExternalUrls.github}>
+        <Icon name="mdi:github" />
+    </SocialButton>
+    <SocialButton name="Discord" link={ExternalUrls.discord}>
+        <Icon name="ic:baseline-discord" />
+    </SocialButton>
+    <SocialButton name="Instagram" link={ExternalUrls.instagram}>
+        <Icon name="mdi:instagram" />
+    </SocialButton>
+    <SocialButton name="Twitter" link={ExternalUrls.twitter}>
+        <Icon name="mdi:twitter" />
+    </SocialButton>
+</div>
+
 <style>
-    .hero-footer-icon {
-        @apply aspect-square w-5;
+    .hero-tagline-def {
+        @apply leading-snug sm:leading-tight;
     }
 
-    .hero-footer-icon path {
-        @apply fill-white opacity-60 transition duration-200;
-    }
-
-    .hero-footer-icon:hover path {
-        @apply opacity-100;
+    .hero-tagline-keyword {
+        @apply text-3xl sm:text-5xl font-black;
     }
 </style>

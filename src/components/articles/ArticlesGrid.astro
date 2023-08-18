@@ -1,0 +1,14 @@
+---
+import type { ArticleCollectionEntry } from "~/core/articles";
+import ArticlesGridItem from "~/components/articles/ArticlesGridItem.astro";
+
+interface Props {
+    articles: ArticleCollectionEntry[];
+}
+
+const { articles } = Astro.props;
+---
+
+<div class="pt-4 grid grid-cols-1 md:grid-cols-2 gap-4">
+    {articles.map((x) => <ArticlesGridItem article={x} />)}
+</div>

@@ -19,17 +19,16 @@
 }
 
 body {
-    @apply bg-black text-white;
+    @apply bg-black text-white font-sans;
 }
 
-body,
 pre,
 code {
-    font-family: "Roboto Mono", monospace;
+    @apply font-mono;
 }
 
 hr {
-    @apply border-primary-500/50;
+    @apply border-secondary-900;
 }
 
 .c-x {
@@ -57,7 +56,7 @@ hr {
 }
 
 .u-container-h {
-    @apply py-10;
+    @apply py-8 sm:py-16;
 }
 
 .u-stylify {
@@ -105,7 +104,11 @@ hr {
     h4,
     h5,
     h6 {
-        @apply text-lg pb-1;
+        @apply font-bold text-lg pb-1;
+    }
+
+    p {
+        @apply leading-relaxed;
     }
 
     a {
@@ -151,7 +154,7 @@ hr {
 
     sub,
     sup {
-        @apply text-secondary-400;
+        @apply text-secondary-500;
     }
 
     h1,

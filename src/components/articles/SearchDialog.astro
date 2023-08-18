@@ -1,0 +1,91 @@
+---
+import Icon from "astro-icon";
+---
+
+<div
+    class:list={[
+        "hidden data-[active='true']:block fixed inset-0 bg-secondary-950/50",
+    ]}
+    id="article-search-dialog"
+>
+    <div class="u-flex w-full h-full" id="article-search-dialog-dismissable">
+        <div
+            class:list={[
+                "flex flex-col",
+                "w-[calc(100%-2rem)] md:w-3/4 xl:w-1/2 h-3/4",
+                "px-5 pt-4 bg-secondary-950 border border-secondary-900",
+            ]}
+        >
+            <div class="w-full u-flex gap-2 mb-4">
+                <div
+                    class="group p-2 u-flex border border-secondary-900"
+                    id="article-search-status"
+                    data-state="waiting"
+                >
+                    <Icon
+                        class="hidden group-data-[state='loaded']:block w-6 text-primary-500"
+                        name="ic:baseline-search"
+                    />
+                    <Icon
+                        class:list={[
+                            "hidden group-data-[state='waiting']:block group-data-[state='loading']:block",
+                            "w-6 animate-spin text-primary-500",
+                        ]}
+                        name="mdi:loading"
+                    />
+                </div>
+                <input
+                    type="text"
+                    class:list={[
+                        "w-full px-4 py-2 bg-secondary-900",
+                        "outline-none border border-secondary-800 focus:border-primary-500/50",
+                        "placeholder:text-secondary-500",
+                    ]}
+                    id="article-search-input"
+                    placeholder="Search..."
+                    autocomplete="off"
+                />
+                <button
+                    class:list={[
+                        "p-2 u-flex",
+                        "hover:bg-red-500/5",
+                        "border border-red-500/25 hover:border-red-500",
+                    ]}
+                    id="article-search-close"
+                >
+                    <Icon class="w-6 text-red-500" name="ic:baseline-close" />
+                </button>
+            </div>
+            <div class="overflow-y-auto h-full pb-4">
+                <div class="flex flex-col gap-2" id="article-search-results">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <style>
+        #article-search-item {
+            @apply px-3 py-2 hover:bg-primary-500 border border-secondary-900 hover:border-primary-500;
+        }
+
+        #article-search-item #asi-score {
+            @apply mb-1 text-xs text-green-500;
+        }
+
+        #article-search-item:hover #asi-score {
+            @apply text-white;
+        }
+
+        #article-search-item #asi-title {
+            @apply mb-0.5;
+        }
+
+        #article-search-item #asi-description {
+            @apply text-sm text-secondary-500;
+        }
+
+        #article-search-item:hover #asi-description {
+            @apply text-white;
+        }
+    </style>
+</div>

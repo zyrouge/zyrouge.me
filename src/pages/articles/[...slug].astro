@@ -45,15 +45,15 @@ const readingTime = Articles.getReadingTime(body);
 
         <div class="u-container u-container-h">
             <article>
-                <div class="mb-3">
-                    <p class="text-3xl font-bold mb-1">
+                <div class="mb-4">
+                    <p class="mb-2 text-3xl font-bold">
                         {title}
                     </p>
-                    <p class="mb-1">
+                    <p class="mb-2">
                         {description}
                     </p>
 
-                    <p class="text-sm mb-1 text-secondary-400">
+                    <p class="text-sm mb-2 text-secondary-500">
                         {[category, ...tags].map((x) => `#${x}`).join(" ")}
                     </p>
                     <p class="text-xs">
@@ -63,7 +63,7 @@ const readingTime = Articles.getReadingTime(body);
                         >
                             {sugar.Date.relative(time)}
                         </time>
-                        <span class="text-secondary-400">
+                        <span class="text-secondary-500">
                             / {readingTime} mins. read</span
                         >
                     </p>
@@ -85,7 +85,8 @@ const readingTime = Articles.getReadingTime(body);
                                     headings.map((x) => (
                                         <li
                                             class:list={[
-                                                "cursor-pointer pl-4 py-1 hover:bg-secondary-900 border-l-2 border-secondary-700",
+                                                "cursor-pointer px-4 py-2 hover:bg-secondary-950",
+                                                "border-l-2 border-secondary-900",
                                                 "data-[active]:lg:bg-primary-500/10 data-[active]:lg:border-primary-500 data-[active]:lg:text-primary-500",
                                             ]}
                                             data-hid={x.slug}
@@ -108,6 +109,6 @@ const readingTime = Articles.getReadingTime(body);
             </article>
         </div>
     </div>
-</Base>
 
-<script src="../../assets/scripts/article.ts"></script>
+    <script src="../../assets/scripts/article.ts"></script>
+</Base>

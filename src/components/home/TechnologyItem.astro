@@ -9,9 +9,11 @@ const { name, type, image } = Astro.props;
 ---
 
 <div>
-    <div class="bg-secondary-900 u-flex gap-4 px-4 py-2">
+    <div
+        class="u-flex gap-4 px-4 py-2 bg-secondary-950 border border-secondary-900"
+    >
         <img class="h-auto w-8" src={image} alt={`${name}'s logo`} />
-        <p class="h-full w-[1px] bg-secondary-800"></p>
+        <p class="self-stretch w-[1px] bg-secondary-900"></p>
         <div class="w-full">
             <p>{name}</p>
             <p class="text-secondary-500 text-sm">{type}</p>

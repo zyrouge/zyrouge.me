@@ -9,7 +9,9 @@ const { name, link } = Astro.props;
 
 <p title={`${name} (${link})`}>
     <a href={link} target="_blank">
-        <div class="hero-footer-icon">
+        <div
+            class="aspect-square w-6 sm:w-8 text-secondary-500 hover:text-primary-500 transition duration-200"
+        >
             <slot />
         </div>
     </a>
