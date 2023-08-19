@@ -63,29 +63,31 @@ import Icon from "astro-icon";
         </div>
     </div>
 
-    <style>
+    <style lang="scss">
         #article-search-item {
             @apply px-3 py-2 hover:bg-primary-500 border border-secondary-900 hover:border-primary-500;
-        }
 
-        #article-search-item #asi-score {
-            @apply mb-1 text-xs text-green-500;
-        }
+            #asi-score {
+                @apply mb-1 text-xs text-green-500;
+            }
 
-        #article-search-item:hover #asi-score {
-            @apply text-white;
-        }
+            #asi-title {
+                @apply mb-0.5;
+            }
 
-        #article-search-item #asi-title {
-            @apply mb-0.5;
-        }
+            #asi-description {
+                @apply text-sm text-secondary-500;
+            }
 
-        #article-search-item #asi-description {
-            @apply text-sm text-secondary-500;
-        }
+            &:hover {
+                #asi-score {
+                    @apply text-white;
+                }
 
-        #article-search-item:hover #asi-description {
-            @apply text-white;
+                #asi-description {
+                    @apply text-white;
+                }
+            }
         }
     </style>
 </div>

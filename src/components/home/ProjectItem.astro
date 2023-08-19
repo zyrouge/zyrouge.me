@@ -14,7 +14,7 @@ const { name, description, link, image, tags } = Astro.props;
 
 <div>
     <a
-        class:list={["block group", "bg-secondary-950 hover:bg-primary-500", ,]}
+        class:list={["block group", "bg-secondary-950 hover:bg-primary-500"]}
         href={link}
         target="_blank"
     >
@@ -29,7 +29,7 @@ const { name, description, link, image, tags } = Astro.props;
         >
             <p class="text-md mb-0.5">{name}</p>
             <p
-                class="text-secondary-500 group-hover:text-white text-sm mb-0.5"
+                class="text-secondary-500 group-hover:text-white text-sm mb-1"
                 set:html={Utils.renderSimpleMarkdown(description)}
             />
 

@@ -18,7 +18,6 @@ export class StaticAssets {
     static dart = `${images}/dart.png`;
     static electron = `${images}/electron.png`;
     static flutter = `${images}/flutter.png`;
-    static genius = `${images}/genius.png`;
     static html = `${images}/html.png`;
     static javascript = `${images}/javascript.png`;
     static mongodb = `${images}/mongodb.png`;
@@ -34,12 +33,10 @@ export class StaticAssets {
     static git = `${images}/git.png`;
     static vscode = `${images}/vscode.png`;
     static figma = `${images}/figma.png`;
+    static symphony = `${images}/symphony.png`;
+    static beize = `${images}/beize.png`;
+    static phrasey = `${images}/phrasey.png`;
+    static uprightQuotes = `${images}/upright-quotes.png`;
 }
 
-export class ExternalAssets {
-    static uprightQuotesLogo =
-        "https://zyrouge.github.io/upright-quotes/logo.png?raw=true";
-
-    static symphonyBanner =
-        "https://raw.githubusercontent.com/zyrouge/symphony/main/media/banner-16-9.png";
-}
+export class ExternalAssets {}

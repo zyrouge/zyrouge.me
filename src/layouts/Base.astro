@@ -4,6 +4,7 @@ import type { HeadMetadata } from "~/core/metadata";
 import Head from "~/components/base/Head.astro";
 import NavBar from "~/components/base/NavBar.astro";
 import Footer from "~/components/base/Footer.astro";
+import ScrollToTop from "~/components/base/ScrollToTop.astro";
 
 interface Props {
     head: HeadMetadata;
@@ -24,5 +25,6 @@ const { head } = Astro.props;
         <NavBar />
         <slot />
         <Footer />
+        <ScrollToTop />
     </body>
 </html>

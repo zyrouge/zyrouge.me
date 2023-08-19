@@ -1,0 +1,34 @@
+---
+import Icon from "astro-icon";
+---
+
+<div class="u-flex" id="scroll-to-top-container">
+    <button class="group u-flex gap-2 pl-2 pr-3" id="scroll-to-top">
+        <Icon
+            class="h-8 text-primary-500 group-hover:text-white"
+            name="mdi:caret"
+        />
+        <p>Scroll to Top</p>
+    </button>
+</div>
+
+<style lang="scss">
+    #scroll-to-top-container {
+        @apply fixed bottom-0 w-full pointer-events-none;
+    }
+
+    #scroll-to-top {
+        @apply mb-6 h-10 bg-secondary-950 border border-secondary-900;
+        @apply pointer-events-auto transition-transform translate-y-16;
+
+        &:hover {
+            @apply bg-primary-500 border-primary-500;
+        }
+
+        &[data-active="true"] {
+            @apply translate-y-0;
+        }
+    }
+</style>
+
+<script src="../../assets/scripts/scroll-to-top.ts"></script>

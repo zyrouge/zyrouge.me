@@ -1,28 +1,37 @@
 ---
-import { ExternalAssets, StaticAssets } from "~/core/urls";
+import { StaticAssets } from "~/core/urls";
 import Item from "~/components/home/ProjectItem.astro";
 ---
 
-<div class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+<div
+    class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-4"
+>
     <Item
         name="Symphony"
         link="https://zyrouge.github.io/symphony/"
         description="🎵 A lightweight, elegant music player that enhances your offline music experience."
-        image={ExternalAssets.symphonyBanner}
+        image={StaticAssets.symphony}
         tags={["android", "kotlin", "compose", "music"]}
+    />
+    <Item
+        name="Phrasey"
+        link="https://zyrouge.github.io/phrasey/"
+        description="A full-blown i18n build system."
+        image={StaticAssets.phrasey}
+        tags={["nodejs", "i18n"]}
+    />
+    <Item
+        name="Beize"
+        link="https://zyrouge.github.io/beize/"
+        description="A scripting language made for unknown reasons."
+        image={StaticAssets.beize}
+        tags={["dart", "programming-language", "interpreter"]}
     />
     <Item
         name="UprightQuotes"
         link="https://github.com/zyrouge/upright-quotes"
         description="✨ Curated list of deep-meaning quotes as text or image."
-        image={ExternalAssets.uprightQuotesLogo}
+        image={StaticAssets.uprightQuotes}
         tags={["vue", "typescript", "rest"]}
-    />
-    <Item
-        name="Genius Lyrics"
-        link="https://genius-lyrics.js.org"
-        description="Just a simple lyrics fetcher that uses Genius. Also has official API implementations."
-        image={StaticAssets.genius}
-        tags={["typescript"]}
     />
 </div>
