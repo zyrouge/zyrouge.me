@@ -1,0 +1,38 @@
+---
+import { Icon } from "astro-icon";
+---
+
+<div class="relative h-full">
+    <div class="absolute right-32 top-[25%]">
+        <div class="hidden xl:block text-primary-500" id="hero-particle">
+            <Icon name="mdi:asterisk" />
+        </div>
+    </div>
+    <div class="absolute right-0 top-[35%]">
+        <div class="hidden lg:block" id="hero-particle">
+            <Icon name="mdi:square" />
+        </div>
+    </div>
+    <div class="absolute right-52 top-[50%]">
+        <div class="hidden xl:block" id="hero-particle">
+            <Icon name="mdi:triangle" />
+        </div>
+    </div>
+    <div class="absolute right-16 top-[60%]">
+        <div class="hidden lg:block text-primary-500" id="hero-particle">
+            <Icon name="ic:baseline-plus" />
+        </div>
+    </div>
+</div>
+
+<style lang="scss">
+    #hero-particle {
+        animation-duration: 10s !important;
+
+        @apply w-16 aspect-square animate-spin transition duration-300 opacity-75;
+
+        &[data-visible="true"] {
+            @apply opacity-100;
+        }
+    }
+</style>

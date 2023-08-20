@@ -2,49 +2,51 @@
 import { ExternalUrls } from "~/core/urls";
 import { Icon } from "astro-icon";
 import SocialButton from "~/components/home/HeroSocialButton.astro";
+import HeroText from "~/components/home/HeroText.astro";
+import HeroParticles from "~/components/home/HeroParticles.astro";
 ---
 
-<div class="u-container py-16 sm:py-28">
+<div class="relative" id="hero">
+    <div
+        class:list={[
+            "absolute -z-10 left-0 right-0 top-0 bottom-0 pointer-events-none",
+            "flex justify-end items-center pr-32",
+        ]}
+    >
+        <HeroParticles />
+    </div>
     <div>
-        <p class="text-lg sm:text-xl pb-1 hero-tagline-def">A passionate</p>
-        <p class="hero-tagline-def hero-tagline-keyword">
-            <span class="text-primary-500">Full-stack Developer</span>,
-        </p>
-        <p class="hero-tagline-def hero-tagline-keyword">
-            <span class="text-primary-500">Software Developer</span>,
-        </p>
-        <p class="hero-tagline-def hero-tagline-keyword">
-            <span class="text-primary-500">Open-source Lover</span>
-            <span class="inline-block sm:hidden">&</span>
-            <span class="hidden sm:inline-block">and</span>
-        </p>
-        <p class="hero-tagline-def hero-tagline-keyword">
-            <span class="text-primary-500">Content Writer</span>.
-        </p>
+        <div class="u-container py-16 sm:py-28">
+            <HeroText type="caption" index={0}>A passionate</HeroText>
+            <HeroText type="keyword" index={1}>
+                <span class="text-primary-500">Full-stack Developer</span>,
+            </HeroText>
+            <HeroText type="keyword" index={2}>
+                <span class="text-primary-500">Software Developer</span>,
+            </HeroText>
+            <HeroText type="keyword" index={3}>
+                <span class="text-primary-500">Open-source Lover</span>
+                <span class="inline-block sm:hidden">&</span>
+                <span class="hidden sm:inline-block">and</span>
+            </HeroText>
+            <HeroText type="keyword" index={4}>
+                <span class="text-primary-500">Content Writer</span>.
+            </HeroText>
+        </div>
+
+        <div class="u-container pb-6 u-flex !justify-start gap-6">
+            <SocialButton name="GitHub" link={ExternalUrls.github}>
+                <Icon name="mdi:github" />
+            </SocialButton>
+            <SocialButton name="Discord" link={ExternalUrls.discord}>
+                <Icon name="ic:baseline-discord" />
+            </SocialButton>
+            <SocialButton name="Instagram" link={ExternalUrls.instagram}>
+                <Icon name="mdi:instagram" />
+            </SocialButton>
+            <SocialButton name="Twitter" link={ExternalUrls.twitter}>
+                <Icon name="mdi:twitter" />
+            </SocialButton>
+        </div>
     </div>
 </div>
-
-<div class="u-container pb-6 u-flex !justify-start gap-2">
-    <SocialButton name="GitHub" link={ExternalUrls.github}>
-        <Icon name="mdi:github" />
-    </SocialButton>
-    <SocialButton name="Discord" link={ExternalUrls.discord}>
-        <Icon name="ic:baseline-discord" />
-    </SocialButton>
-    <SocialButton name="Instagram" link={ExternalUrls.instagram}>
-        <Icon name="mdi:instagram" />
-    </SocialButton>
-    <SocialButton name="Twitter" link={ExternalUrls.twitter}>
-        <Icon name="mdi:twitter" />
-    </SocialButton>
-</div>
-
-<style>
-    .hero-tagline-def {
-        @apply !leading-snug sm:leading-normal;
-    }
-
-    .hero-tagline-keyword {
-        @apply text-3xl sm:text-5xl font-black;
-    }
-</style>

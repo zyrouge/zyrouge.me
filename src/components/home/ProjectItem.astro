@@ -14,9 +14,16 @@ const { name, description, link, image, tags } = Astro.props;
 
 <div>
     <a
-        class:list={["block group", "bg-secondary-950 hover:bg-primary-500"]}
+        class:list={[
+            "block group transition-opacity duration-200",
+            "bg-secondary-950 hover:bg-primary-500",
+            "data-[active='false']:opacity-75",
+            "data-[active='true']:opacity-100",
+        ]}
+        id="project-item"
         href={link}
         target="_blank"
+        data-active=""
     >
         <img
             class="aspect-video w-full object-cover"
