@@ -1,30 +1,53 @@
+interface HeroElements {
+    container: HTMLElement;
+    enabled: boolean;
+    texts: HTMLElement[];
+    particles: HTMLElement[];
+}
+
+const enableHeroElements = (heroElements: HeroElements) => {
+    if (heroElements.enabled) return;
+    heroElements.enabled = true;
+    heroElements.texts.forEach((x) => {
+        const index = parseInt(x.getAttribute("data-index")!);
+        x.style.transitionDelay = `${0.2 * index}s`;
+        x.setAttribute("data-visible", "true");
+    });
+    heroElements.particles.forEach((x) => {
+        x.setAttribute("data-visible", "true");
+    });
+};
+
+const disableHeroElements = (heroElements: HeroElements) => {
+    if (!heroElements.enabled) return;
+    heroElements.enabled = false;
+    heroElements.texts.forEach((x) => {
+        x.style.transitionDelay = "0";
+        x.setAttribute("data-visible", "");
+    });
+    heroElements.particles.forEach((x) => {
+        x.setAttribute("data-visible", "");
+    });
+};
+
 const attachHero = () => {
-    const heroElement = document.getElementById("hero")!;
-    const heroTextElements = [
-        ...document.querySelectorAll<HTMLElement>("#hero-text"),
-    ];
-    const heroParticleElements = [
-        ...document.querySelectorAll<HTMLElement>("#hero-particle"),
-    ];
-    heroElement.addEventListener("mouseenter", () => {
-        heroTextElements.forEach((x) => {
-            const index = parseInt(x.getAttribute("data-index")!);
-            x.style.transitionDelay = `${0.2 * index}s`;
-            x.setAttribute("data-visible", "true");
-        });
-        heroParticleElements.forEach((x) => {
-            x.setAttribute("data-visible", "true");
-        });
+    const heroElements: HeroElements = {
+        container: document.getElementById("hero")!,
+        enabled: false,
+        texts: [...document.querySelectorAll<HTMLElement>("#hero-text")],
+        particles: [
+            ...document.querySelectorAll<HTMLElement>("#hero-particle"),
+        ],
+    };
+    heroElements.container.addEventListener("mouseenter", () => {
+        enableHeroElements(heroElements);
     });
-    heroElement.addEventListener("mouseleave", () => {
-        heroTextElements.forEach((x) => {
-            x.style.transitionDelay = "0s";
-            x.setAttribute("data-visible", "");
-        });
-        heroParticleElements.forEach((x) => {
-            x.setAttribute("data-visible", "");
-        });
+    heroElements.container.addEventListener("mouseleave", () => {
+        disableHeroElements(heroElements);
     });
+    setTimeout(() => {
+        enableHeroElements(heroElements);
+    }, 200);
 };
 
 const attachProjects = () => {

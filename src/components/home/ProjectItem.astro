@@ -14,12 +14,7 @@ const { name, description, link, image, tags } = Astro.props;
 
 <div>
     <a
-        class:list={[
-            "block group transition-opacity duration-200",
-            "bg-secondary-950 hover:bg-primary-500",
-            "data-[active='false']:opacity-75",
-            "data-[active='true']:opacity-100",
-        ]}
+        class:list={["block group", "bg-secondary-950 hover:bg-primary-500"]}
         id="project-item"
         href={link}
         target="_blank"
@@ -48,3 +43,24 @@ const { name, description, link, image, tags } = Astro.props;
         </div>
     </a>
 </div>
+
+<style lang="scss">
+    #project-item {
+        transition: transform 200ms ease, opacity 150ms ease,
+            box-shadow 200ms ease;
+
+        &[data-active=""] {
+            @apply scale-100;
+        }
+
+        &[data-active="false"] {
+            @apply opacity-75 scale-[99%];
+        }
+
+        &[data-active="true"] {
+            @apply opacity-100 scale-100 shadow-secondary-900;
+
+            box-shadow: 0 0 10rem 0.1rem var(--tw-shadow-color);
+        }
+    }
+</style>
