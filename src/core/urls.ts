@@ -7,8 +7,8 @@ export const baseUrl = `https://${domain}`;
 export class ExternalUrls {
     static github = "https://github.com/zyrouge";
     static instagram = "https://instagram.com/_zyrouge_";
-    static twitter = "https://twitter.com/_zyrouge_";
     static discord = "https://discord.gg/8KV5zCg";
+    static mastodon = "https://mastodon.social/@zyrouge";
 
     static ghRepo = `${ExternalUrls.github}/${domain}`;
 }
