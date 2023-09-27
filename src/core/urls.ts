@@ -8,7 +8,7 @@ export class ExternalUrls {
     static github = "https://github.com/zyrouge";
     static discord = "https://discord.gg/8KV5zCg";
     static mastodon = "https://mastodon.social/@zyrouge";
-    static reddit = "https://reddit.com/_zyrouge_";
+    static reddit = "https://www.reddit.com/user/zyrouge";
 
     static ghRepo = `${ExternalUrls.github}/${domain}`;
 }
