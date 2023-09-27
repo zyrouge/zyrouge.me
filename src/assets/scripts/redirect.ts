@@ -3,9 +3,7 @@ document.addEventListener("DOMContentLoaded", () => {
         "meta[name='redirect-url']",
     )?.content;
     if (!url) return;
-    setTimeout(() => {
-        location.assign(url);
-    }, 2000);
+    location.assign(url);
 });
 
 export {};
