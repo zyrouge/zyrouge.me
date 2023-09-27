@@ -1,0 +1,46 @@
+---
+import { Metadata, type HeadMetadata } from "~/core/metadata";
+import Base from "~/layouts/Base.astro";
+import Message from "~/components/common/Message.astro";
+
+interface Props {
+    title: string;
+    url: string;
+}
+
+const { title, url } = Astro.props;
+
+const head: HeadMetadata = {
+    title: Metadata.constructTitle(title),
+    description: `Redirection to ${url}`,
+    meta: {
+        "redirect-url": url,
+    },
+};
+---
+
+<Base head={head}>
+    <hr />
+
+    <div class="u-container u-container-h u-flex py-10 min-h-[60vh]">
+        <Message>
+            <div slot="header">
+                <p>302</p>
+            </div>
+
+            <div slot="body">
+                <p>
+                    You will be redirected to
+                    <a
+                        class="text-primary-500 hover:text-primary-600 font-bold"
+                        href={url}
+                    >
+                        {url}
+                    </a> shortly.
+                </p>
+            </div>
+        </Message>
+    </div>
+
+    <script src="../../assets/scripts/redirect.ts"></script>
+</Base>
