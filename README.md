@@ -13,6 +13,9 @@
 </p>
 
 <p align="center">
+  <a href="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/lint.yml">
+    <img src="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/lint.yml/badge.svg" title="Lint">
+  </a>
   <a href="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml">
     <img src="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml/badge.svg" title="Deploy">
   </a>
