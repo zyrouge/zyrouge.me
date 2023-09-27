@@ -34,7 +34,7 @@ class ScrollToTop {
         this.setVisibility(
             scrollTop < this.lastScrollTop &&
                 scrollTop > clientHeightQuarter &&
-                scrollTop + clientHeight < scrollHeight - clientHeightQuarter
+                scrollTop + clientHeight < scrollHeight - clientHeightQuarter,
         );
         this.lastScrollTop = scrollTop;
     }

@@ -6,7 +6,8 @@
     "scripts": {
         "dev": "astro dev",
         "build": "astro check && tsc --noEmit && astro build",
-        "deploy": "gh workflow run deploy"
+        "deploy": "gh workflow run deploy",
+        "lint": "prettier . --check && astro check"
     },
     "dependencies": {
         "@astrojs/mdx": "^0.19.7",
@@ -19,5 +20,9 @@
         "sass": "^1.65.1",
         "sugar": "^2.0.6",
         "tailwindcss": "^3.3.3"
+    },
+    "devDependencies": {
+        "prettier": "^3.0.3",
+        "prettier-plugin-astro": "^0.12.0"
     }
 }

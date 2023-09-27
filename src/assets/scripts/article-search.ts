@@ -55,7 +55,7 @@ class ArticleSearch {
     search() {
         const inputElement = document.getElementById(this.dialogTextInputId);
         const resultsElement = document.getElementById(
-            this.dialogSearchResultsId
+            this.dialogSearchResultsId,
         );
         if (!inputElement || !resultsElement) {
             return;
@@ -88,7 +88,7 @@ class ArticleSearch {
             itemElement.append(
                 itemScoreElement,
                 itemTitleElement,
-                itemDescriptionElement
+                itemDescriptionElement,
             );
             resultsElement.appendChild(itemElement);
         });
@@ -123,7 +123,7 @@ class ArticleSearch {
         const element = document.getElementById(this.dialogId);
         element?.setAttribute(
             this.activeAttribute,
-            this.dialogVisible ? "true" : ""
+            this.dialogVisible ? "true" : "",
         );
         if (this.dialogVisible) {
             document.getElementById(this.dialogTextInputId)?.focus();
@@ -147,7 +147,7 @@ class ArticleSearch {
             const element = document.getElementById(this.dialogDataIsLoadingId);
             element?.setAttribute(
                 this.activeAttribute,
-                isLoading ? "true" : ""
+                isLoading ? "true" : "",
             );
         }
     }

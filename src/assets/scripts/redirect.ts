@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", () => {
     const url = document.querySelector<HTMLMetaElement>(
-        "meta[name='redirect-url']"
+        "meta[name='redirect-url']",
     )?.content;
     if (!url) return;
     setTimeout(() => {

@@ -43,7 +43,7 @@ export class Utils {
     static renderSimpleMarkdown(content: string) {
         const styled = content.replaceAll(
             /\*\*(.*?)\*\*/g,
-            (x) => `<b>${x.slice(2, -2)}</b>`
+            (x) => `<b>${x.slice(2, -2)}</b>`,
         );
         return styled;
     }

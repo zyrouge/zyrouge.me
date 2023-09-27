@@ -112,7 +112,7 @@ class ArticleState {
 
     getHeading(id: string) {
         const toc = document.querySelector<HTMLElement>(
-            `[${this.headingIdAttribute}="${id}"]`
+            `[${this.headingIdAttribute}="${id}"]`,
         )!!;
         const content = document.getElementById(id)!!;
         return { id, toc, content } satisfies ArticleHeading;

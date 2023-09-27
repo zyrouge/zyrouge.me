@@ -6,7 +6,7 @@ export class Articles {
     static async fetchAll(): Promise<ArticleCollectionEntry[]> {
         const collection = await getCollection(
             "articles",
-            ({ data }) => !data.draft
+            ({ data }) => !data.draft,
         );
         return collection;
     }
