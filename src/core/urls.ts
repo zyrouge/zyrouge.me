@@ -40,6 +40,7 @@ export class StaticAssets {
     static go = `${images}/go.png`;
     static bash = `${images}/bash.png`;
     static podman = `${images}/podman.png`;
+    static pho = `${images}/pho.png`;
 }
 
 export class ExternalAssets {}
