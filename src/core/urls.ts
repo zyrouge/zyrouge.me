@@ -37,6 +37,9 @@ export class StaticAssets {
     static beize = `${images}/beize.png`;
     static phrasey = `${images}/phrasey.png`;
     static uprightQuotes = `${images}/upright-quotes.png`;
+    static go = `${images}/go.png`;
+    static bash = `${images}/bash.png`;
+    static podman = `${images}/podman.png`;
 }
 
 export class ExternalAssets {}
