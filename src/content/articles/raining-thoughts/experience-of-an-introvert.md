@@ -3,7 +3,7 @@ title: An Introvert Experience
 description: Things an introvert experience in their life.
 category: raining-thoughts
 tags: [philosophy, life]
-time: 2022-03-25T19:09:00+05:30
+time: 2022-03-25T13:39:00.000Z
 ---
 
 # Introduction

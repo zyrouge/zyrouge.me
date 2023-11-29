@@ -3,7 +3,7 @@ title: Unrealistic Expectations
 description: Why having higher expectations lead to disappointment.
 category: raining-thoughts
 tags: [philosophy, life]
-time: 2022-04-02T13:48:00+05:30
+time: 2022-04-02T08:18:00.000Z
 ---
 
 # Introduction

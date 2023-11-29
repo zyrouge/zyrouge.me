@@ -3,7 +3,7 @@ title: Are insecurities worth hiding?
 description: Why one should never hide their insecurities.
 category: raining-thoughts
 tags: [philosophy, life]
-time: 2022-03-30T18:41:00+05:30
+time: 2022-03-30T13:11:00.000Z
 ---
 
 # Introduction

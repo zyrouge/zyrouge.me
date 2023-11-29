@@ -3,7 +3,7 @@ title: Anime over others
 description: Why I preferred Anime over TV shows and movies.
 category: raining-thoughts
 tags: [philosophy, life]
-time: 2022-06-02T19:25:00+05:30
+time: 2022-06-02T13:55:00.000Z
 ---
 
 # Introduction
