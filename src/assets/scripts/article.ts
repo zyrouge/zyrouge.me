@@ -74,19 +74,30 @@ class ArticleState {
         let onScrollEndInterval: ReturnType<typeof setTimeout> | null = null;
         document.addEventListener("scroll", () => {
             clearInterval(onScrollEndInterval ?? undefined);
-            const scrollingElement = document.scrollingElement;
-            if (scrollingElement) {
-                let visibleHeading = this.currentHeading;
-                for (const x of Object.values(this.headings)) {
-                    if (scrollingElement.scrollTop < x.content.offsetTop) {
-                        break;
-                    }
-                    visibleHeading = x;
-                }
-                if (!visibleHeading) return;
-                this.highlightTocHeading(visibleHeading);
-            }
             onScrollEndInterval = setTimeout(() => this.emitOnScrollEnd(), 50);
+            const scrollingElement = document.scrollingElement;
+            if (!scrollingElement) return;
+            const visibleHeight = document.documentElement.clientHeight;
+            const scrollBottom = scrollingElement.scrollTop + visibleHeight;
+            if (scrollBottom === document.body.clientHeight) {
+                const headings = Object.values(this.headings);
+                const lastHeading =
+                    headings[headings.length - 1] ?? this.currentHeading;
+                if (!lastHeading) return;
+                this.highlightTocHeading(lastHeading);
+                return;
+            }
+            let visibleHeading = this.currentHeading;
+            const scrollOffsetMid =
+                scrollingElement.scrollTop + visibleHeight / 3;
+            for (const x of Object.values(this.headings)) {
+                if (scrollOffsetMid < x.content.offsetTop) {
+                    break;
+                }
+                visibleHeading = x;
+            }
+            if (!visibleHeading) return;
+            this.highlightTocHeading(visibleHeading);
         });
     }
 
