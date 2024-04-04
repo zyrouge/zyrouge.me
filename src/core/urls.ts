@@ -11,6 +11,8 @@ export class ExternalUrls {
     static reddit = "https://www.reddit.com/user/zyrouge";
 
     static ghRepo = `${ExternalUrls.github}/${domain}`;
+    static ghRepoLicense = `${ExternalUrls.ghRepo}/blob/main/LICENSE`;
+    static ghRepoContentLicense = `${ExternalUrls.ghRepo}/blob/main/src/content/articles/LICENSE`;
 }
 
 export class StaticAssets {

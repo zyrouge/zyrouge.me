@@ -1,8 +1,10 @@
 ---
+import sugar from "sugar";
 import { ExternalUrls } from "~/core/urls";
 import { Routes } from "~/core/routes";
 import { Metadata } from "~/core/metadata";
 import FooterLink from "~/components/base/FooterLink.astro";
+import FooterSecondaryLink from "~/components/base/FooterSecondaryLink.astro";
 ---
 
 <footer>
@@ -21,7 +23,19 @@ import FooterLink from "~/components/base/FooterLink.astro";
         </div>
 
         <div class="text-secondary-500">
-            <p>Last built at {new Date().toLocaleString()}</p>
+            <p class="mb-1">
+                Licensed under
+                <FooterSecondaryLink
+                    name="Apache 2.0"
+                    link={ExternalUrls.ghRepoLicense}
+                />
+                and
+                <FooterSecondaryLink
+                    name="CC BY 4.0"
+                    link={ExternalUrls.ghRepoContentLicense}
+                />
+            </p>
+            <p>Last built at {sugar.Date.format(new Date())}</p>
         </div>
     </div>
 </footer>
