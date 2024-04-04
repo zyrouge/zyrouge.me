@@ -46,7 +46,9 @@ const { name, description, link, image, tags } = Astro.props;
 
 <style lang="scss">
     #project-item {
-        transition: transform 200ms ease, opacity 150ms ease,
+        transition:
+            transform 200ms ease,
+            opacity 150ms ease,
             box-shadow 200ms ease;
 
         &[data-active=""] {
