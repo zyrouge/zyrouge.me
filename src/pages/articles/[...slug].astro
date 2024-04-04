@@ -60,9 +60,11 @@ const readingTime = Articles.getReadingTime(body);
                     <p class="text-xs">
                         <time
                             class="text-primary-500"
+                            id="article-time"
                             datetime={time.toISOString()}
+                            title={sugar.Date.full(time)}
                         >
-                            {sugar.Date.relative(time)}
+                            {sugar.Date.format(time)}
                         </time>
                         <span class="text-secondary-500">
                             / {readingTime} mins. read</span
@@ -113,3 +115,15 @@ const readingTime = Articles.getReadingTime(body);
 
     <script src="../../assets/scripts/article.ts"></script>
 </Base>
+
+<script>
+    import sugar from "sugar";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("time#article-time").forEach((x) => {
+            const iso = x.getAttribute("datetime")!;
+            const date = new Date(iso);
+            x.innerHTML = sugar.Date.relative(date);
+        });
+    });
+</script>
