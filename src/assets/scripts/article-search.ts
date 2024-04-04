@@ -1,5 +1,6 @@
 import Fuse from "fuse.js";
 import { Routes } from "~/core/routes";
+import { Utils } from "~/core/utils";
 
 interface ArticleMinifiedData {
     title: string;
@@ -60,31 +61,28 @@ class ArticleSearch {
         if (!inputElement || !resultsElement) {
             return;
         }
-        const astroId =
-            [...resultsElement.classList].find((x) => x.startsWith("astro-")) ??
-            "";
+        const astroId = Utils.extractAstroId(resultsElement);
         resultsElement.innerHTML = "";
         const text = (inputElement as HTMLInputElement).value;
         const matches = this.searcher.search(text);
-        matches.reverse();
         matches.forEach(({ score, item }) => {
             const itemElement = document.createElement("a");
             itemElement.href = item.url;
             itemElement.id = "article-search-item";
-            itemElement.classList.add(astroId);
+            itemElement.setAttribute(astroId, "");
             const itemScoreElement = document.createElement("p");
             itemScoreElement.id = "asi-score";
-            const scorePercent = Math.floor(score! * 100);
+            const scorePercent = Math.floor((1 - score!) * 100);
             itemScoreElement.textContent = `${scorePercent}% Match`;
-            itemScoreElement.classList.add(astroId);
+            itemScoreElement.setAttribute(astroId, "");
             const itemTitleElement = document.createElement("p");
             itemTitleElement.id = "asi-title";
             itemTitleElement.textContent = item.title;
-            itemTitleElement.classList.add(astroId);
+            itemTitleElement.setAttribute(astroId, "");
             const itemDescriptionElement = document.createElement("p");
             itemDescriptionElement.id = "asi-description";
             itemDescriptionElement.textContent = item.description;
-            itemDescriptionElement.classList.add(astroId);
+            itemDescriptionElement.setAttribute(astroId, "");
             itemElement.append(
                 itemScoreElement,
                 itemTitleElement,

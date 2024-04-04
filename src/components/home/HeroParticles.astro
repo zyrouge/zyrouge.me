@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <div class="relative h-full">
@@ -20,7 +20,7 @@ import { Icon } from "astro-icon";
     </div>
     <div class="absolute right-16 top-[60%]">
         <div class="hidden lg:block text-primary-500" id="hero-particle">
-            <Icon name="ic:baseline-plus" />
+            <Icon name="mdi:plus" />
         </div>
     </div>
 </div>
@@ -29,7 +29,7 @@ import { Icon } from "astro-icon";
     #hero-particle {
         animation-duration: 10s !important;
 
-        @apply w-16 aspect-square animate-spin transition duration-300 opacity-75;
+        @apply text-[4rem] aspect-square animate-spin transition duration-300 opacity-75;
 
         &[data-visible="true"] {
             @apply opacity-100;

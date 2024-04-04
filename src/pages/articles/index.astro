@@ -1,6 +1,7 @@
 ---
-import Icon from "astro-icon";
-import { HeadMetadata, Metadata } from "~/core/metadata";
+import { Icon } from "astro-icon/components";
+import type { HeadMetadata } from "~/core/metadata";
+import { Metadata } from "~/core/metadata";
 import Base from "~/layouts/Base.astro";
 import { Articles } from "~/core/articles";
 import SearchDialog from "~/components/articles/SearchDialog.astro";
@@ -34,7 +35,7 @@ articles.sort((a, b) => b.data.time.valueOf() - a.data.time.valueOf());
                     id="article-search-dialog-button"
                 >
                     <p class="pr-2">
-                        <Icon class="w-5" name="ic:baseline-search" />
+                        <Icon class="text-[1.25rem]" name="mdi:search" />
                     </p>
                     <p>Search...</p>
                 </div>

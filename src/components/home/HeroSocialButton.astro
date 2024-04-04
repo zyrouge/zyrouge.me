@@ -5,13 +5,17 @@ interface Props {
 }
 
 const { name, link } = Astro.props;
+
+const label = `${name} (${link})`;
 ---
 
-<p title={`${name} (${link})`}>
+<p title={label}>
     <a
-        class="inline-block aspect-square w-6 sm:w-8 text-white/50 hover:text-primary-500 transition duration-200"
+        class="u-flex inline-block aspect-square text-[1.5rem] sm:text-[2rem] text-white/50 hover:text-primary-500 transition duration-200"
         href={link}
         target="_blank"
+        title={label}
+        aria-label={label}
     >
         <slot />
     </a>

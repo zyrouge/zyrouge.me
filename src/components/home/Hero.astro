@@ -1,5 +1,5 @@
 ---
-import { Icon } from "astro-icon";
+import { Icon } from "astro-icon/components";
 import { ExternalUrls } from "~/core/urls";
 import SocialButton from "~/components/home/HeroSocialButton.astro";
 import HeroText from "~/components/home/HeroText.astro";
@@ -36,16 +36,16 @@ import HeroParticles from "~/components/home/HeroParticles.astro";
 
         <div class="u-container pb-6 u-flex !justify-start gap-6">
             <SocialButton name="GitHub" link={ExternalUrls.github}>
-                <Icon name="mdi:github" />
+                <Icon name="fa-brands:github" />
             </SocialButton>
             <SocialButton name="Discord" link={ExternalUrls.discord}>
-                <Icon name="ic:baseline-discord" />
+                <Icon name="fa-brands:discord" />
             </SocialButton>
             <SocialButton name="Mastodon" link={ExternalUrls.mastodon}>
-                <Icon name="mdi:mastodon" />
+                <Icon name="fa-brands:mastodon" />
             </SocialButton>
             <SocialButton name="Reddit" link={ExternalUrls.reddit}>
-                <Icon name="fa:reddit-alien" />
+                <Icon name="fa-brands:reddit-alien" />
             </SocialButton>
         </div>
     </div>

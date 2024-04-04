@@ -1,6 +1,7 @@
 import mdx from "@astrojs/mdx";
 import sitemap from "@astrojs/sitemap";
 import tailwind from "@astrojs/tailwind";
+import icon from "astro-icon";
 import { defineConfig } from "astro/config";
 import path from "node:path";
 
@@ -15,6 +16,7 @@ export default defineConfig({
         }),
         mdx(),
         sitemap(),
+        icon(),
     ],
     output: "static",
     vite: {

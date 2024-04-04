@@ -1,6 +1,7 @@
 ---
 import sugar from "sugar";
-import { Articles, ArticleCollectionEntry } from "~/core/articles";
+import type { ArticleCollectionEntry } from "~/core/articles";
+import { Articles } from "~/core/articles";
 import { Routes } from "~/core/routes";
 import { Utils } from "~/core/utils";
 
@@ -20,8 +21,12 @@ const { article } = Astro.props;
     href={Routes.articles.constructRead(article.slug)}
 >
     <p class="text-xs pb-1">
-        <span class="text-primary-500 group-hover:text-white">
-            {sugar.Date.relative(article.data.time)}
+        <span
+            id="article-item-time"
+            class="text-primary-500 group-hover:text-white"
+            data-iso-date={article.data.time.toISOString()}
+        >
+            {sugar.Date.format(article.data.time)}
         </span>
         <span class="text-secondary-500 group-hover:text-white">
             / {Articles.getReadingTime(article.body)} mins. read
@@ -42,3 +47,15 @@ const { article } = Astro.props;
         }
     </p>
 </a>
+
+<script>
+    import sugar from "sugar";
+
+    document.addEventListener("DOMContentLoaded", () => {
+        document.querySelectorAll("#article-item-time").forEach((x) => {
+            const iso = x.getAttribute("data-iso-date")!;
+            const date = new Date(iso);
+            x.innerHTML = sugar.Date.relative(date);
+        });
+    });
+</script>

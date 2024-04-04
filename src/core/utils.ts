@@ -51,4 +51,14 @@ export class Utils {
     static getHtmlSafeId(content: string) {
         return content.toLowerCase().replaceAll(/[^\w\d]/g, "-");
     }
+
+    static extractAstroId(element: HTMLElement) {
+        const prefix = "data-astro-cid-";
+        for (const x of element.attributes) {
+            if (x.name.startsWith(prefix)) {
+                return x.name;
+            }
+        }
+        throw new Error("Unable to find astro content id");
+    }
 }

@@ -1,5 +1,5 @@
 ---
-import Icon from "astro-icon";
+import { Icon } from "astro-icon/components";
 ---
 
 <div
@@ -18,13 +18,13 @@ import Icon from "astro-icon";
         >
             <div class="w-full u-flex gap-2 mb-4">
                 <div
-                    class="group p-2 u-flex border border-secondary-900"
+                    class="group p-2 u-flex border border-secondary-900 text-[1.5rem]"
                     id="article-search-status"
                     data-state="waiting"
                 >
                     <Icon
-                        class="hidden group-data-[state='loaded']:block w-6 text-primary-500"
-                        name="ic:baseline-search"
+                        class="hidden group-data-[state='loaded']:block text-primary-500"
+                        name="mdi:search"
                     />
                     <Icon
                         class:list={[
@@ -53,7 +53,7 @@ import Icon from "astro-icon";
                     ]}
                     id="article-search-close"
                 >
-                    <Icon class="w-6 text-red-500" name="ic:baseline-close" />
+                    <Icon class="text-[1.5rem] text-red-500" name="mdi:close" />
                 </button>
             </div>
             <div class="overflow-y-auto h-full pb-4">
