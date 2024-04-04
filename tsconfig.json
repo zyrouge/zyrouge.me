@@ -10,5 +10,6 @@
         "noUncheckedIndexedAccess": true,
         "noUnusedParameters": true,
         "strictNullChecks": true
-    }
+    },
+    "include": ["src"]
 }

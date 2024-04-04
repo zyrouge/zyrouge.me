@@ -5,7 +5,7 @@ import { Metadata } from "~/core/metadata";
 import { Routes } from "~/core/routes";
 import { baseUrl } from "~/core/urls";
 
-export const get = async (_: APIContext) => {
+export const GET = async (_: APIContext) => {
     const articles = await Articles.fetchAll();
     return rss({
         title: Metadata.constructTitle("Articles"),
