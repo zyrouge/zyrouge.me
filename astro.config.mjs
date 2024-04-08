@@ -7,7 +7,7 @@ import path from "node:path";
 
 // https://astro.build/config
 export default defineConfig({
-    site: "https://zyrouge.is-a.dev",
+    site: "https://zyrouge.me",
     integrations: [
         tailwind({
             config: {

@@ -1,4 +1,4 @@
-const domain = "zyrouge.is-a.dev";
+const domain = "zyrouge.me";
 const base = "/static";
 const images = `${base}/images`;
 

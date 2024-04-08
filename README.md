@@ -5,7 +5,7 @@
 </p>
 
 <h1 align="center">
-  <a href="https://zyrouge.is-a.dev/">zyrouge.is-a.dev</a>
+  <a href="https://zyrouge.me/">zyrouge.me</a>
 </h1>
 
 <p align="center">
@@ -13,11 +13,11 @@
 </p>
 
 <p align="center">
-  <a href="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/lint.yml">
-    <img src="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/lint.yml/badge.svg" title="Lint">
+  <a href="https://github.com/zyrouge/zyrouge.me/actions/workflows/lint.yml">
+    <img src="https://github.com/zyrouge/zyrouge.me/actions/workflows/lint.yml/badge.svg" title="Lint">
   </a>
-  <a href="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml">
-    <img src="https://github.com/zyrouge/zyrouge.is-a.dev/actions/workflows/deploy.yml/badge.svg" title="Deploy">
+  <a href="https://github.com/zyrouge/zyrouge.me/actions/workflows/deploy.yml">
+    <img src="https://github.com/zyrouge/zyrouge.me/actions/workflows/deploy.yml/badge.svg" title="Deploy">
   </a>
 </p>
 
