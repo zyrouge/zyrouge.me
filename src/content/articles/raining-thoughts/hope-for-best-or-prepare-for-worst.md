@@ -28,4 +28,4 @@ You should also note that the situation affects this. If you are going on a tour
 
 ###### References
 
--   https://www.quora.com/Is-it-better-to-hope-for-the-best-or-prepare-for-the-worst
+- https://www.quora.com/Is-it-better-to-hope-for-the-best-or-prepare-for-the-worst

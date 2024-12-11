@@ -48,7 +48,7 @@ Unless you give it a try, you wouldn't know what it actually is about. "Anime is
 
 ###### References
 
--   https://www.diffen.com/difference/Anime_vs_Cartoon<sup>[1]</sup>
--   https://www.quora.com/Why-are-anime-songs-so-good<sup>[2]</sup>
--   https://www.quora.com/Why-are-so-many-people-reluctant-to-give-anime-a-try<sup>[3]</sup>
--   https://www.quora.com/Why-do-you-like-anime
+- https://www.diffen.com/difference/Anime_vs_Cartoon<sup>[1]</sup>
+- https://www.quora.com/Why-are-anime-songs-so-good<sup>[2]</sup>
+- https://www.quora.com/Why-are-so-many-people-reluctant-to-give-anime-a-try<sup>[3]</sup>
+- https://www.quora.com/Why-do-you-like-anime

@@ -33,6 +33,6 @@ The trail you leave, the impact you create, the effort you send forth is what ma
 
 ###### References
 
--   https://medium.com/the-ascent/what-are-we-striving-for-as-individuals-and-as-a-human-collective-658a242c2e14
--   https://theconversation.com/life-is-full-of-uncertainty-weve-just-got-to-learn-to-live-with-it-30092
--   https://www.quora.com/What-is-your-take-on-the-uncertainty-of-life
+- https://medium.com/the-ascent/what-are-we-striving-for-as-individuals-and-as-a-human-collective-658a242c2e14
+- https://theconversation.com/life-is-full-of-uncertainty-weve-just-got-to-learn-to-live-with-it-30092
+- https://www.quora.com/What-is-your-take-on-the-uncertainty-of-life

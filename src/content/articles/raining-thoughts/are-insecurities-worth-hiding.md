@@ -56,11 +56,11 @@ So, is it worth hiding? No, it's not. But, if you are still hiding them, please 
 
 ###### References
 
--   https://www.choosingtherapy.com/insecurity/
--   https://www.psychalive.org/how-to-overcome-insecurity/
--   https://www.quora.com/How-do-very-insecure-people-attempt-to-hide-their-insecurities
--   https://www.rd.com/list/signs-youre-actually-insecure/
--   https://www.healthline.com/health/how-to-stop-being-insecure
--   https://www.tikvahlake.com/blog/the-3-most-common-causes-of-insecurity-and-how-to-beat-them/
--   https://www.mindbodygreen.com/0-24601/11-signs-that-insecurity-is-ruining-your-life-how-to-change-the-pattern.html
--   https://www.tonyrobbins.com/building-confidence/how-to-overcome-insecurity/
+- https://www.choosingtherapy.com/insecurity/
+- https://www.psychalive.org/how-to-overcome-insecurity/
+- https://www.quora.com/How-do-very-insecure-people-attempt-to-hide-their-insecurities
+- https://www.rd.com/list/signs-youre-actually-insecure/
+- https://www.healthline.com/health/how-to-stop-being-insecure
+- https://www.tikvahlake.com/blog/the-3-most-common-causes-of-insecurity-and-how-to-beat-them/
+- https://www.mindbodygreen.com/0-24601/11-signs-that-insecurity-is-ruining-your-life-how-to-change-the-pattern.html
+- https://www.tonyrobbins.com/building-confidence/how-to-overcome-insecurity/

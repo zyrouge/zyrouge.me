@@ -84,6 +84,6 @@ Overall, I think being an introvert is a 50/50 experience. Sometimes it's a bles
 
 ###### References
 
--   https://www.quora.com/What-is-the-best-thing-about-being-an-introvert
--   https://www.quora.com/What-are-the-most-painful-problems-that-introverts-have-to-deal-with<sup>[1]</sup>
--   https://www.quora.com/Why-are-introverts-often-misunderstood-What-are-some-tips-for-extroverts-dealing-with-introverts
+- https://www.quora.com/What-is-the-best-thing-about-being-an-introvert
+- https://www.quora.com/What-are-the-most-painful-problems-that-introverts-have-to-deal-with<sup>[1]</sup>
+- https://www.quora.com/Why-are-introverts-often-misunderstood-What-are-some-tips-for-extroverts-dealing-with-introverts

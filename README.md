@@ -23,16 +23,16 @@
 
 ## Technology
 
--   JavaScript/TypeScript (Language)
--   Astro (Framework)
--   HTML (Language)
--   CSS/SASS (Language)
--   Tailwind (CSS Framework)
+- JavaScript/TypeScript (Language)
+- Astro (Framework)
+- HTML (Language)
+- CSS/SASS (Language)
+- Tailwind (CSS Framework)
 
 ## Branding
 
--   Colors: [Fuchsia, Neutral](https://tailwindcss.com/docs/customizing-colors#default-color-palette)
--   Fonts: [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
+- Colors: [Fuchsia, Neutral](https://tailwindcss.com/docs/customizing-colors#default-color-palette)
+- Fonts: [Roboto Mono](https://fonts.google.com/specimen/Roboto+Mono)
 
 ## License
 
