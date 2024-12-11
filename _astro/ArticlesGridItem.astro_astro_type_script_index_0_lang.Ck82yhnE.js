@@ -1,0 +1,1 @@
+import{s as n}from"./index.Bl7nAVnU.js";document.addEventListener("DOMContentLoaded",()=>{document.querySelectorAll("time#article-time").forEach(e=>{const t=e.getAttribute("datetime"),a=new Date(t);e.innerHTML=n.Date.relative(a)})});
