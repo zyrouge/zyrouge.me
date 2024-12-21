@@ -42,6 +42,8 @@ export class StaticAssets {
     static bash = `${images}/bash.png`;
     static podman = `${images}/podman.png`;
     static pho = `${images}/pho.svg`;
+    static androidStudio = `${images}/android-studio.png`;
+    static java = `${images}/java.png`;
 }
 
 export class ExternalAssets {}

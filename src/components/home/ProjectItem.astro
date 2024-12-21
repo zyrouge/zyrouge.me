@@ -25,6 +25,7 @@ const { name, description, link, image, tags, backgroundColor } = Astro.props;
         class="max-h-[40%] max-w-[60%] sm:max-w-[40%]"
         src={image}
         alt={`${name}'s logo`}
+        loading="lazy"
     />
     <p
         class="pt-24 text-lg text-center"
