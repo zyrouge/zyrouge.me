@@ -35,14 +35,13 @@ export class StaticAssets {
     static git = `${images}/git.png`;
     static vscode = `${images}/vscode.png`;
     static figma = `${images}/figma.png`;
-    static symphony = `${images}/symphony.png`;
-    static beize = `${images}/beize.png`;
-    static phrasey = `${images}/phrasey.png`;
-    static uprightQuotes = `${images}/upright-quotes.png`;
+    static symphony = `${images}/symphony.svg`;
+    static beize = `${images}/beize.svg`;
+    static phrasey = `${images}/phrasey.svg`;
     static go = `${images}/go.png`;
     static bash = `${images}/bash.png`;
     static podman = `${images}/podman.png`;
-    static pho = `${images}/pho.png`;
+    static pho = `${images}/pho.svg`;
 }
 
 export class ExternalAssets {}

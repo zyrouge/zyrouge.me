@@ -1,4 +1,5 @@
 ---
+import { Icon } from "astro-icon/components";
 import { Utils } from "~/core/utils";
 
 interface Props {
@@ -7,62 +8,42 @@ interface Props {
     link: string;
     image: string;
     tags: string[];
+    backgroundColor: string;
 }
 
-const { name, description, link, image, tags } = Astro.props;
+const { name, description, link, image, tags, backgroundColor } = Astro.props;
 ---
 
-<div>
+<div
+    class:list={[
+        "u-container min-h-screen u-flex py-32 u-flex !flex-col",
+        backgroundColor,
+    ]}
+    id="project-item"
+>
+    <img
+        class="max-h-[40%] max-w-[60%] sm:max-w-[40%]"
+        src={image}
+        alt={`${name}'s logo`}
+    />
+    <p
+        class="pt-24 text-lg text-center"
+        set:html={Utils.renderSimpleMarkdown(description)}
+    />
     <a
-        class:list={["block group", "bg-secondary-950 hover:bg-primary-500"]}
-        id="project-item"
+        class="group mt-1 border-b border-white/30 hover:border-white transition duration-200"
         href={link}
         target="_blank"
-        data-active=""
     >
-        <img
-            class="aspect-video w-full object-cover"
-            src={image}
-            alt={`${name}'s logo`}
+        {link}
+        <Icon
+            class="inline-block text-white/30 group-hover:text-white transition duration-200"
+            name="mdi:arrow-top-right"
         />
-
-        <div
-            class="px-4 py-2 border border-secondary-900 group-hover:border-primary-500"
-        >
-            <p class="text-md mb-0.5">{name}</p>
-            <p
-                class="text-secondary-500 group-hover:text-white text-sm mb-1"
-                set:html={Utils.renderSimpleMarkdown(description)}
-            />
-
-            <div
-                class="u-flex flex-wrap !justify-start text-xs text-primary-500 group-hover:text-white"
-            >
-                {tags.map((x) => <p class="mr-2">#{x}</p>)}
-            </div>
-        </div>
     </a>
+    <div
+        class="u-flex flex-wrap mt-2 gap-2 text-xs text-white/50 hover:text-white transition duration-200"
+    >
+        {tags.map((x) => <p>#{x}</p>)}
+    </div>
 </div>
-
-<style lang="scss">
-    #project-item {
-        transition:
-            transform 200ms ease,
-            opacity 150ms ease,
-            box-shadow 200ms ease;
-
-        &[data-active=""] {
-            @apply scale-100;
-        }
-
-        &[data-active="false"] {
-            @apply opacity-75 scale-[99%];
-        }
-
-        &[data-active="true"] {
-            @apply opacity-100 scale-100 shadow-secondary-900;
-
-            box-shadow: 0 0 10rem 0.1rem var(--tw-shadow-color);
-        }
-    }
-</style>

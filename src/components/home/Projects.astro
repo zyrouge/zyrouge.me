@@ -3,30 +3,30 @@ import { StaticAssets } from "~/core/urls";
 import Item from "~/components/home/ProjectItem.astro";
 ---
 
-<div
-    class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 justify-items-center gap-4"
-    id="projects"
->
+<div class="pt-4" id="projects">
     <Item
         name="Symphony"
-        link="https://zyrouge.github.io/symphony/"
+        link="https://zyrouge.github.io/symphony"
         description="🎵 A lightweight, elegant music player that enhances your offline music experience."
         image={StaticAssets.symphony}
         tags={["android", "kotlin", "compose", "music"]}
+        backgroundColor="bg-purple-400"
     />
     <Item
         name="Phrasey"
-        link="https://zyrouge.github.io/phrasey/"
+        link="https://zyrouge.github.io/phrasey"
         description="A full-blown i18n build system."
         image={StaticAssets.phrasey}
         tags={["nodejs", "i18n"]}
+        backgroundColor="bg-neutral-900"
     />
     <Item
         name="Beize"
-        link="https://zyrouge.github.io/beize/"
+        link="https://zyrouge.github.io/beize"
         description="A highly dynamic embeddable scripting language."
         image={StaticAssets.beize}
         tags={["dart", "programming-language", "interpreter"]}
+        backgroundColor="bg-emerald-400"
     />
     <Item
         name="Pho"
@@ -34,12 +34,6 @@ import Item from "~/components/home/ProjectItem.astro";
         description="An AppImage Manager for Linux."
         image={StaticAssets.pho}
         tags={["go", "linux"]}
-    />
-    <Item
-        name="UprightQuotes"
-        link="https://github.com/zyrouge/upright-quotes"
-        description="✨ Curated list of deep-meaning quotes as text or image."
-        image={StaticAssets.uprightQuotes}
-        tags={["vue", "typescript", "rest"]}
+        backgroundColor="bg-blue-300"
     />
 </div>
