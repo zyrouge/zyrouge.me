@@ -1,6 +1,7 @@
 ---
 import "~/assets/styles.scss";
 import type { HeadMetadata } from "~/core/metadata";
+import { StaticAssets } from "~/core/urls";
 import Head from "~/components/base/Head.astro";
 import NavBar from "~/components/base/NavBar.astro";
 import Footer from "~/components/base/Footer.astro";
@@ -17,7 +18,7 @@ const { head } = Astro.props;
 <html lang="en">
     <head>
         <meta charset="UTF-8" />
-        <link rel="icon" type="image/png" href="/icon.png" />
+        <link rel="icon" type="image/png" href={StaticAssets.icon} />
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <Head head={head} />
     </head>

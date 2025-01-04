@@ -1,6 +1,5 @@
 const domain = "zyrouge.me";
-const base = "/static";
-const images = `${base}/images`;
+const images = "/static/images";
 
 export const baseUrl = `https://${domain}`;
 
@@ -9,6 +8,8 @@ export class ExternalUrls {
     static discord = "https://discord.gg/8KV5zCg";
     static mastodon = "https://mastodon.social/@zyrouge";
     static reddit = "https://www.reddit.com/user/zyrouge";
+    static bsky = "https://bsky.app/profile/zyrouge.me";
+    static mail = "mailto:hello@zyrouge.me";
 
     static ghRepo = `${ExternalUrls.github}/${domain}`;
     static ghRepoLicense = `${ExternalUrls.ghRepo}/blob/main/LICENSE`;
@@ -16,6 +17,7 @@ export class ExternalUrls {
 }
 
 export class StaticAssets {
+    static icon = "/icon.png";
     static css = `${images}/css.png`;
     static dart = `${images}/dart.png`;
     static electron = `${images}/electron.png`;

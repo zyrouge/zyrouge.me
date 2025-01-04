@@ -28,7 +28,9 @@ class ScrollToTop {
 
     onScroll() {
         const { scrollingElement } = document;
-        if (!scrollingElement) return;
+        if (!scrollingElement) {
+            return;
+        }
         const { clientHeight, scrollTop, scrollHeight } = scrollingElement;
         const clientHeightQuarter = clientHeight * 0.25;
         this.setVisibility(
@@ -40,7 +42,9 @@ class ScrollToTop {
     }
 
     setVisibility(visible: boolean) {
-        if (this.isVisible === visible) return;
+        if (this.isVisible === visible) {
+            return;
+        }
         this.isVisible = visible;
         const element = document.getElementById(this.scrollToTopId);
         element?.setAttribute(this.activeAttribute, visible ? "true" : "");

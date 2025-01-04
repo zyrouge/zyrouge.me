@@ -1,4 +1,6 @@
 export class Utils {
+    static BREAKPOINT_MD = 768;
+
     static random(length: number) {
         const chars = "ABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890-=&".split("");
         return Array(length)
@@ -60,5 +62,44 @@ export class Utils {
             }
         }
         throw new Error("Unable to find astro content id");
+    }
+}
+
+export class CancellableTimeout {
+    _promiseWithResolvers: PromiseWithResolvers<void> | undefined;
+    _timeout: ReturnType<typeof setTimeout> | undefined;
+    started = false;
+    ended = false;
+    cancelled = false;
+
+    constructor(public readonly ms: number) {}
+
+    start() {
+        if (this.started) {
+            throw new Error("Timeout was already started");
+        }
+        if (this.ended) {
+            throw new Error("Timeout has already ended");
+        }
+        const promiseWithResolvers = Promise.withResolvers<void>();
+        this._promiseWithResolvers = promiseWithResolvers;
+        this.started = true;
+        this._timeout = setTimeout(() => {
+            delete this._timeout;
+            delete this._promiseWithResolvers;
+            this.ended = true;
+            promiseWithResolvers.resolve();
+        }, this.ms);
+        return this._promiseWithResolvers.promise;
+    }
+
+    cancel() {
+        if (!this._promiseWithResolvers) {
+            throw new Error("Timeout is not active");
+        }
+        this.ended = true;
+        this.cancelled = true;
+        clearTimeout(this._timeout);
+        this._promiseWithResolvers!.reject(new Error("Timeout interrupted"));
     }
 }

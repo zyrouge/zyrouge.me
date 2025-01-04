@@ -28,7 +28,9 @@ class ArticleState {
             return;
         }
         const defaultHeadingId = Object.keys(this.headings)[0];
-        if (!defaultHeadingId) return;
+        if (!defaultHeadingId) {
+            return;
+        }
         const defaultHeading = this.headings[defaultHeadingId]!!;
         this.highlightTocHeading(defaultHeading);
     }
@@ -53,7 +55,9 @@ class ArticleState {
     }
 
     async updateCurrentHeading(heading: ArticleHeading) {
-        if (this.currentHeading?.id === heading.id) return;
+        if (this.currentHeading?.id === heading.id) {
+            return;
+        }
         this.highlightContentHeading(heading);
         heading.content.scrollIntoView({ behavior: "smooth" });
         history.replaceState(null, "", `#${heading.id}`);
@@ -76,14 +80,18 @@ class ArticleState {
             clearInterval(onScrollEndInterval ?? undefined);
             onScrollEndInterval = setTimeout(() => this.emitOnScrollEnd(), 50);
             const scrollingElement = document.scrollingElement;
-            if (!scrollingElement) return;
+            if (!scrollingElement) {
+                return;
+            }
             const visibleHeight = document.documentElement.clientHeight;
             const scrollBottom = scrollingElement.scrollTop + visibleHeight;
             if (scrollBottom === document.body.clientHeight) {
                 const headings = Object.values(this.headings);
                 const lastHeading =
                     headings[headings.length - 1] ?? this.currentHeading;
-                if (!lastHeading) return;
+                if (!lastHeading) {
+                    return;
+                }
                 this.highlightTocHeading(lastHeading);
                 return;
             }
@@ -96,7 +104,9 @@ class ArticleState {
                 }
                 visibleHeading = x;
             }
-            if (!visibleHeading) return;
+            if (!visibleHeading) {
+                return;
+            }
             this.highlightTocHeading(visibleHeading);
         });
     }
@@ -133,7 +143,9 @@ class ArticleState {
         const headings: Record<string, ArticleHeading> = {};
         document.querySelectorAll(this.tocHeadingSelector).forEach((x) => {
             const id = x.getAttribute(this.headingIdAttribute);
-            if (!id) return;
+            if (!id) {
+                return;
+            }
             headings[id] = this.getHeading(id);
         });
         return headings;

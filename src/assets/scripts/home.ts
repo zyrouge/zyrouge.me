@@ -1,3 +1,5 @@
+import { CancellableTimeout, Utils } from "~/core/utils";
+
 interface HeroElements {
     container: HTMLElement;
     enabled: boolean;
@@ -54,13 +56,28 @@ const attachHero = () => {
     }, 200);
 };
 
-const onProjectsScroll = (
+let onProjectsScrollScrollTimeout: CancellableTimeout | undefined;
+
+const onProjectsScroll = async (
     projectElement: HTMLElement,
     projectItemElements: HTMLElement[],
     scrollingElement: Element,
 ) => {
+    if (document.body.clientWidth < Utils.BREAKPOINT_MD) {
+        return;
+    }
+    onProjectsScrollScrollTimeout?.cancel();
+    const timeout = new CancellableTimeout(500);
+    onProjectsScrollScrollTimeout = timeout;
+    try {
+        await timeout.start();
+    } catch (err) {}
+    if (timeout.cancelled) {
+        return;
+    }
+    onProjectsScrollScrollTimeout = undefined;
     const snapIndexAttribute = "data-snapped-index";
-    const snapThreshold = scrollingElement.clientHeight * 0.15;
+    const snapThreshold = scrollingElement.clientHeight * 0.2;
     const { scrollTop } = scrollingElement;
     if (
         scrollTop < projectItemElements[0]!!.offsetTop - snapThreshold ||
