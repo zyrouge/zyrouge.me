@@ -17,7 +17,7 @@
         "@astrojs/tailwind": "^5.1.4",
         "@iconify-json/mdi": "^1.2.2",
         "@iconify-json/simple-icons": "^1.2.18",
-        "astro": "^5.1.1",
+        "astro": "^5.5.2",
         "astro-icon": "^1.1.4",
         "fuse.js": "^7.0.0",
         "sass": "^1.83.0",
