@@ -4,6 +4,7 @@ description: Why I preferred Anime over TV shows and movies.
 category: raining-thoughts
 tags: [philosophy, life]
 time: 2022-06-02T13:55:00.000Z
+keywords: []
 ---
 
 # Introduction

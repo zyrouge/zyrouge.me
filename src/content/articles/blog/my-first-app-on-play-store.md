@@ -4,6 +4,7 @@ description: My experience on developing and publishing my first app on Play Sto
 category: blog
 tags: [first-app, play-store]
 time: 2023-11-29T14:10:08.701Z
+keywords: []
 ---
 
 # Firstly, thank you all!

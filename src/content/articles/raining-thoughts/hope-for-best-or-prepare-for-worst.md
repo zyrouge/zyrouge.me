@@ -4,6 +4,7 @@ description: Should we hope for the best or prepare for the worst?
 category: raining-thoughts
 tags: [philosophy, life]
 time: 2022-03-20T09:23:00.000Z
+keywords: []
 ---
 
 # Introduction

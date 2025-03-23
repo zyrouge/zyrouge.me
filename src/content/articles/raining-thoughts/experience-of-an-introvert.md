@@ -4,6 +4,7 @@ description: Things an introvert experience in their life.
 category: raining-thoughts
 tags: [philosophy, life]
 time: 2022-03-25T13:39:00.000Z
+keywords: []
 ---
 
 # Introduction
