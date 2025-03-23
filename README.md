@@ -26,7 +26,7 @@
 - JavaScript/TypeScript (Language)
 - Astro (Framework)
 - HTML (Language)
-- CSS/SASS (Language)
+- CSS (Language)
 - Tailwind (CSS Framework)
 
 ## Branding

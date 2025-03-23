@@ -19,7 +19,9 @@ const { index, type } = Astro.props;
     <slot />
 </p>
 
-<style lang="scss">
+<style>
+    @reference "~/assets/styles.css";
+
     .hero-anim {
         @apply transition duration-300 opacity-75 scale-[0.99];
 
