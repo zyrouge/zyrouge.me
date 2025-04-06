@@ -1,5 +1,6 @@
 ---
 import sugar from "sugar";
+import { ExternalUrls } from "~/core/urls";
 import type { ArticleCollectionEntry } from "~/core/articles";
 import { Articles } from "~/core/articles";
 import type { HeadMetadata } from "~/core/metadata";
@@ -22,6 +23,7 @@ const {
         data: { title, description, category, tags, time: _time, keywords },
         body,
         render,
+        filePath,
     },
 } = Astro.props;
 const { Content, headings } = await render();
@@ -38,6 +40,7 @@ const head: HeadMetadata = {
 
 const time = new Date(_time);
 const readingTime = Articles.getReadingTime(body);
+const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
 ---
 
 <Base head={head}>
@@ -57,15 +60,17 @@ const readingTime = Articles.getReadingTime(body);
                     <p class="text-sm mb-2 text-secondary-500">
                         {[category, ...tags].map((x) => `#${x}`).join(" ")}
                     </p>
-                    <p class="text-xs">
-                        <time
-                            class="text-primary-500"
-                            id="article-time"
-                            datetime={time.toISOString()}
-                            title={sugar.Date.full(time)}
+                    <p class="text-xs mb-2">
+                        <a href={fileHistoryUrl}>
+                            <time
+                                class="text-primary-500"
+                                id="article-time"
+                                datetime={time.toISOString()}
+                                title={sugar.Date.full(time)}
+                            >
+                                {sugar.Date.format(time)}
+                            </time></a
                         >
-                            {sugar.Date.format(time)}
-                        </time>
                         <span class="text-secondary-500">
                             / {readingTime} mins. read</span
                         >
@@ -112,7 +117,6 @@ const readingTime = Articles.getReadingTime(body);
             </article>
         </div>
     </div>
-
     <script src="../../assets/scripts/article.ts"></script>
 </Base>
 

@@ -12,8 +12,17 @@ export class ExternalUrls {
     static mail = "mailto:hello@zyrouge.me";
 
     static ghRepo = `${ExternalUrls.github}/${domain}`;
+    static ghRepoMainBranch = `${ExternalUrls.ghRepo}/blob/main`;
     static ghRepoLicense = `${ExternalUrls.ghRepo}/blob/main/LICENSE`;
     static ghRepoContentLicense = `${ExternalUrls.ghRepo}/blob/main/src/content/articles/LICENSE`;
+
+    static ghRepoFileUrl(filepath: string) {
+        return `${ExternalUrls.ghRepoMainBranch}/blob/main/${filepath}`;
+    }
+
+    static ghRepoFileHistoryUrl(filepath: string) {
+        return `${ExternalUrls.ghRepo}/commits/main/${filepath}`;
+    }
 }
 
 export class StaticAssets {
