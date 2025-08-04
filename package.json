@@ -22,7 +22,7 @@
         "fuse.js": "^7.1.0",
         "sugar": "^2.0.6",
         "tailwindcss": "^4.0.15",
-        "typescript": "^5.8.2"
+        "typescript": "^5.9.2"
     },
     "devDependencies": {
         "prettier": "^3.5.3",
