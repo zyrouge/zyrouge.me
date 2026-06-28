@@ -1,11 +1,11 @@
 ---
 import { Icon } from "astro-icon/components";
-import type { HeadMetadata } from "~/core/metadata";
-import { Metadata } from "~/core/metadata";
-import Base from "~/layouts/Base.astro";
-import { Articles } from "~/core/articles";
-import SearchDialog from "~/components/articles/SearchDialog.astro";
-import ArticlesGrid from "~/components/articles/ArticlesGrid.astro";
+import type { HeadMetadata } from "@/core/metadata";
+import { Metadata } from "@/core/metadata";
+import Base from "@/layouts/Base.astro";
+import { Article } from "@/core/article";
+import SearchDialog from "@/components/articles/SearchDialog.astro";
+import ArticlesGrid from "@/components/articles/ArticlesGrid.astro";
 
 const head: HeadMetadata = {
     title: Metadata.constructTitle("Articles"),
@@ -13,7 +13,7 @@ const head: HeadMetadata = {
     meta: {},
 };
 
-const articles = await Articles.fetchAll();
+const articles = await Article.getAllEntries();
 articles.sort((a, b) => b.data.time.valueOf() - a.data.time.valueOf());
 ---
 

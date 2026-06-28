@@ -1,9 +1,9 @@
 ---
 import { Icon } from "astro-icon/components";
-import { ExternalUrls } from "~/core/urls";
-import SocialButton from "~/components/home/HeroSocialButton.astro";
-import HeroText from "~/components/home/HeroText.astro";
-import HeroParticles from "~/components/home/HeroParticles.astro";
+import { ExternalUrls } from "@/core/urls";
+import SocialButton from "@/components/home/HeroSocialButton.astro";
+import HeroText from "@/components/home/HeroText.astro";
+import HeroParticles from "@/components/home/HeroParticles.astro";
 ---
 
 <div class="relative" id="hero">
@@ -34,7 +34,7 @@ import HeroParticles from "~/components/home/HeroParticles.astro";
             </HeroText>
         </div>
 
-        <div class="u-container pb-6 u-flex !justify-start gap-6">
+        <div class="u-container pb-6 u-flex justify-start! gap-6">
             <SocialButton name="GitHub" link={ExternalUrls.github}>
                 <Icon name="simple-icons:github" />
             </SocialButton>

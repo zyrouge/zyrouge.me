@@ -1,6 +1,6 @@
 import Fuse from "fuse.js";
-import { Routes } from "~/core/routes";
-import { Utils } from "~/core/utils";
+import { Routes } from "@/core/routes";
+import { Utils } from "@/core/utils";
 
 interface ArticleMinifiedData {
     title: string;
@@ -70,24 +70,27 @@ class ArticleSearch {
             itemElement.href = item.url;
             itemElement.id = "article-search-item";
             itemElement.setAttribute(astroId, "");
-            const itemScoreElement = document.createElement("p");
-            itemScoreElement.id = "asi-score";
-            const scorePercent = Math.floor((1 - score!) * 100);
-            itemScoreElement.textContent = `${scorePercent}% Match`;
-            itemScoreElement.setAttribute(astroId, "");
+            if (typeof score === "number") {
+                const itemScoreElement = document.createElement("p");
+                itemScoreElement.id = "asi-score";
+                const scorePercent =
+                    typeof score === "number"
+                        ? Math.floor((1 - score) * 100)
+                        : 0;
+                itemScoreElement.textContent = `${scorePercent}% Match`;
+                itemScoreElement.setAttribute(astroId, "");
+                itemElement.append(itemScoreElement);
+            }
             const itemTitleElement = document.createElement("p");
             itemTitleElement.id = "asi-title";
             itemTitleElement.textContent = item.title;
             itemTitleElement.setAttribute(astroId, "");
+            itemElement.append(itemTitleElement);
             const itemDescriptionElement = document.createElement("p");
             itemDescriptionElement.id = "asi-description";
             itemDescriptionElement.textContent = item.description;
             itemDescriptionElement.setAttribute(astroId, "");
-            itemElement.append(
-                itemScoreElement,
-                itemTitleElement,
-                itemDescriptionElement,
-            );
+            itemElement.append(itemDescriptionElement);
             resultsElement.appendChild(itemElement);
         });
     }

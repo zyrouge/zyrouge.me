@@ -1,32 +1,31 @@
 ---
 import sugar from "sugar";
-import { ExternalUrls } from "~/core/urls";
-import type { ArticleCollectionEntry } from "~/core/articles";
-import { Articles } from "~/core/articles";
-import type { HeadMetadata } from "~/core/metadata";
-import Base from "~/layouts/Base.astro";
+import { ExternalUrls } from "@/core/urls";
+import { Article } from "@/core/article";
+import type { HeadMetadata } from "@/core/metadata";
+import Base from "@/layouts/Base.astro";
+import { render } from "astro:content";
 
 interface Props {
-    article: ArticleCollectionEntry;
+    slug: string;
 }
 
 export const getStaticPaths = async () => {
-    const blogEntries = await Articles.fetchAll();
-    return blogEntries.map((entry) => ({
-        params: { slug: entry.slug },
-        props: { article: entry } satisfies Props,
+    const entries = await Article.getAllEntries();
+    return entries.map((x) => ({
+        params: { slug: x.id },
     }));
 };
 
+const { slug } = Astro.params;
+
+const article = (await Article.getEntry(slug))!;
 const {
-    article: {
-        data: { title, description, category, tags, time: _time, keywords },
-        body,
-        render,
-        filePath,
-    },
-} = Astro.props;
-const { Content, headings } = await render();
+    data: { title, description, category, tags, time: _time, keywords },
+    body,
+    filePath,
+} = article;
+const { Content, headings } = await render(article);
 
 const head: HeadMetadata = {
     title,
@@ -39,7 +38,7 @@ const head: HeadMetadata = {
 };
 
 const time = new Date(_time);
-const readingTime = Articles.getReadingTime(body);
+const readingTime = Article.getReadingTime(body ?? "");
 const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
 ---
 
@@ -95,7 +94,7 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
                                             class:list={[
                                                 "cursor-pointer px-4 py-2 hover:bg-secondary-950",
                                                 "border-l-2 border-secondary-900",
-                                                "data-[active]:lg:bg-primary-500/10 data-[active]:lg:border-primary-500 data-[active]:lg:text-primary-500",
+                                                "data-active:lg:bg-primary-500/10 data-active:lg:border-primary-500 data-active:lg:text-primary-500",
                                             ]}
                                             data-hid={x.slug}
                                         >

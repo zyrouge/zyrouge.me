@@ -5,6 +5,6 @@ export const Routes = {
         read: "/articles",
         rss: "/articles/rss.xml",
         searchJson: "/articles/search.json",
-        constructRead: (slug: string) => `${Routes.articles.read}/${slug}`,
+        constructRead: (id: string) => `${Routes.articles.read}/${id}`,
     },
 };

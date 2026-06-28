@@ -9,7 +9,7 @@ const { index, type } = Astro.props;
 
 <p
     class:list={[
-        "hero-anim !leading-snug sm:leading-normal",
+        "hero-anim leading-snug! sm:leading-normal",
         type === "caption" && "text-lg sm:text-xl pb-1",
         type === "keyword" && "text-3xl sm:text-5xl font-black",
     ]}

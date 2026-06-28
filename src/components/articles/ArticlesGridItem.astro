@@ -1,9 +1,9 @@
 ---
 import sugar from "sugar";
-import type { ArticleCollectionEntry } from "~/core/articles";
-import { Articles } from "~/core/articles";
-import { Routes } from "~/core/routes";
-import { Utils } from "~/core/utils";
+import type { ArticleCollectionEntry } from "@/core/article";
+import { Article } from "@/core/article";
+import { Routes } from "@/core/routes";
+import { Utils } from "@/core/utils";
 
 interface Props {
     article: ArticleCollectionEntry;
@@ -18,7 +18,7 @@ const { article } = Astro.props;
         "bg-secondary-950 hover:bg-primary-500",
         "border border-secondary-900 hover:border-primary-500",
     ]}
-    href={Routes.articles.constructRead(article.slug)}
+    href={Routes.articles.constructRead(article.id)}
 >
     <p class="text-xs pb-1">
         <time
@@ -30,7 +30,7 @@ const { article } = Astro.props;
             {sugar.Date.format(article.data.time)}
         </time>
         <span class="text-secondary-500 group-hover:text-white">
-            / {Articles.getReadingTime(article.body)} mins. read
+            / {Article.getReadingTime(article.body ?? "")} mins. read
         </span>
     </p>
 

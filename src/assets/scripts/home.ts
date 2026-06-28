@@ -1,4 +1,4 @@
-import { CancellableTimeout, Utils } from "~/core/utils";
+import { CancellableTimeout, Utils } from "@/core/utils";
 
 interface HeroElements {
     container: HTMLElement;
