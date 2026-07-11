@@ -1,4 +1,5 @@
 ---
+import { Font } from "astro:assets";
 import type { HeadMetadata } from "@/core/metadata";
 import { Metadata } from "@/core/metadata";
 
@@ -24,11 +25,5 @@ const meta = {
         <meta name={k} property={k} content={v} />
     ))
 }
-<meta
-    name="google-site-verification"
-    content="jL9yGYBUCR9sm_AshYC0G7yR8vmeE5mXlAcoasVGkTI"
-/>
-<link
-    href="https://fonts.googleapis.com/css2?family=Roboto+Mono:wght@400;700&family=Inter:wght@400;700;900&display=swap"
-    rel="stylesheet"
-/>
+<Font cssVariable="--font-roboto-mono" />
+<Font cssVariable="--font-inter" />

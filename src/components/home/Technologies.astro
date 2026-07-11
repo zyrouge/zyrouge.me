@@ -7,7 +7,7 @@ import Item from "@/components/home/TechnologyItem.astro";
     <Item name="Node.js" image={StaticAssets.nodejs} type="Language" />
     <Item name="JavaScript" image={StaticAssets.javascript} type="Language" />
     <Item name="Typescript" image={StaticAssets.typescript} type="Language" />
-    <Item name="Go" image={StaticAssets.go} type="Language" />
+    <Item name="Go" image={StaticAssets.golang} type="Language" />
     <Item name="Dart" image={StaticAssets.dart} type="Language" />
     <Item name="Kotlin" image={StaticAssets.kotlin} type="Language" />
     <Item name="Java" image={StaticAssets.java} type="Language" />
@@ -18,7 +18,7 @@ import Item from "@/components/home/TechnologyItem.astro";
     <Item name="Flutter" image={StaticAssets.flutter} type="App Framework" />
     <Item
         name="Jetpack Compose"
-        image={StaticAssets.compose}
+        image={StaticAssets.jetpackCompose}
         type="App Framework"
     />
     <Item name="Electron" image={StaticAssets.electron} type="App Framework" />
@@ -28,14 +28,18 @@ import Item from "@/components/home/TechnologyItem.astro";
         image={StaticAssets.tailwindcss}
         type="CSS Framework"
     />
-    <Item name="MongoDB" image={StaticAssets.mongodb} type="Database" />
-    <Item name="SQL" image={StaticAssets.sqlite} type="Database" />
+    <Item name="SQLite" image={StaticAssets.sqlite} type="Database" />
 
     <Item name="Windows" image={StaticAssets.windows} type="Operating System" />
     <Item name="Linux" image={StaticAssets.linux} type="Operating System" />
     <Item name="Git" image={StaticAssets.git} type="Version Control" />
     <Item name="VS Code" image={StaticAssets.vscode} type="Editor" />
     <Item name="Android Studio" image={StaticAssets.androidStudio} type="IDE" />
-    <Item name="Figma" image={StaticAssets.figma} type="Graphic Design" />
+    <Item
+        name="Figma"
+        image={StaticAssets.figma}
+        type="Graphic Design"
+        shrinkImage={true}
+    />
     <Item name="Podman" image={StaticAssets.podman} type="Containerization" />
 </div>

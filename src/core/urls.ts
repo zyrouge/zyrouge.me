@@ -27,34 +27,34 @@ export class ExternalUrls {
 
 export class StaticAssets {
     static icon = "/icon.png";
-    static css = `${images}/css.png`;
-    static dart = `${images}/dart.png`;
-    static electron = `${images}/electron.png`;
-    static flutter = `${images}/flutter.png`;
-    static html = `${images}/html.png`;
-    static javascript = `${images}/javascript.png`;
-    static mongodb = `${images}/mongodb.png`;
+    static css = `${images}/css.svg`;
+    static dart = `${images}/dart.svg`;
+    static electron = `${images}/electron.svg`;
+    static flutter = `${images}/flutter.svg`;
+    static html = `${images}/html.svg`;
+    static javascript = `${images}/javascript.svg`;
+    static mongodb = `${images}/mongodb.svg`;
     static sqlite = `${images}/sqlite.png`;
-    static tailwindcss = `${images}/tailwindcss.png`;
-    static typescript = `${images}/typescript.png`;
-    static vue = `${images}/vue.png`;
-    static nodejs = `${images}/nodejs.png`;
-    static kotlin = `${images}/kotlin.png`;
-    static compose = `${images}/compose.png`;
-    static windows = `${images}/windows.png`;
-    static linux = `${images}/linux.png`;
-    static git = `${images}/git.png`;
-    static vscode = `${images}/vscode.png`;
-    static figma = `${images}/figma.png`;
+    static tailwindcss = `${images}/tailwindcss.svg`;
+    static typescript = `${images}/typescript.svg`;
+    static vue = `${images}/vue.svg`;
+    static nodejs = `${images}/nodejs.svg`;
+    static kotlin = `${images}/kotlin.svg`;
+    static jetpackCompose = `${images}/jetpack-compose.png`;
+    static windows = `${images}/windows.svg`;
+    static linux = `${images}/linux.svg`;
+    static git = `${images}/git.svg`;
+    static vscode = `${images}/vscode.svg`;
+    static figma = `${images}/figma.svg`;
     static symphony = `${images}/symphony.svg`;
     static beize = `${images}/beize.svg`;
     static phrasey = `${images}/phrasey.svg`;
-    static go = `${images}/go.png`;
-    static bash = `${images}/bash.png`;
-    static podman = `${images}/podman.png`;
+    static golang = `${images}/golang.svg`;
+    static bash = `${images}/bash.svg`;
+    static podman = `${images}/podman.svg`;
     static pho = `${images}/pho.svg`;
     static androidStudio = `${images}/android-studio.png`;
-    static java = `${images}/java.png`;
+    static java = `${images}/java.svg`;
 }
 
 export class ExternalAssets {}

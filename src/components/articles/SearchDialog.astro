@@ -18,7 +18,7 @@ import { Icon } from "astro-icon/components";
         >
             <div class="w-full u-flex gap-2 mb-4">
                 <div
-                    class="group p-2 u-flex border border-secondary-900 text-[1.5rem]"
+                    class="group p-2 u-flex border border-secondary-800 text-[1.5rem]"
                     id="article-search-status"
                     data-state="waiting"
                 >
@@ -39,7 +39,7 @@ import { Icon } from "astro-icon/components";
                     class:list={[
                         "w-full px-4 py-2 bg-secondary-900",
                         "outline-none border border-secondary-800 focus:border-primary-500/50",
-                        "placeholder:text-secondary-500",
+                        "placeholder:text-secondary-400",
                     ]}
                     id="article-search-input"
                     placeholder="Search..."
@@ -49,7 +49,7 @@ import { Icon } from "astro-icon/components";
                     class:list={[
                         "p-2 u-flex",
                         "hover:bg-red-500/5",
-                        "border border-red-500/25 hover:border-red-500",
+                        "border border-red-500/50 hover:border-red-500",
                     ]}
                     id="article-search-close"
                 >
@@ -78,7 +78,7 @@ import { Icon } from "astro-icon/components";
             }
 
             #asi-description {
-                @apply text-sm text-secondary-500;
+                @apply text-sm text-secondary-400;
             }
 
             &:hover {

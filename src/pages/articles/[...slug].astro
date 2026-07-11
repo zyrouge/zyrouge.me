@@ -56,7 +56,7 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
                         {description}
                     </p>
 
-                    <p class="text-sm mb-2 text-secondary-500">
+                    <p class="text-sm mb-2 text-secondary-400">
                         {[category, ...tags].map((x) => `#${x}`).join(" ")}
                     </p>
                     <p class="text-xs mb-2">
@@ -70,7 +70,7 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
                                 {sugar.Date.format(time)}
                             </time></a
                         >
-                        <span class="text-secondary-500">
+                        <span class="text-secondary-400">
                             / {readingTime} mins. read</span
                         >
                     </p>

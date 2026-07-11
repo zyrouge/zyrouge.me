@@ -87,7 +87,7 @@ hr {
 }
 
 .u-stylify {
-    @apply break-words;
+    @apply wrap-break-word;
 
     h1,
     h2,
@@ -95,7 +95,7 @@ hr {
     h4,
     h5,
     h6 {
-        @apply border-b-[1px] border-secondary-900 mt-8 font-normal;
+        @apply border-b border-secondary-900 mt-8 font-normal;
 
         &::after {
             content: "§";

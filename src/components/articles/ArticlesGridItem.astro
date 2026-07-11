@@ -29,18 +29,18 @@ const { article } = Astro.props;
         >
             {sugar.Date.format(article.data.time)}
         </time>
-        <span class="text-secondary-500 group-hover:text-white">
+        <span class="text-secondary-400 group-hover:text-white">
             / {Article.getReadingTime(article.body ?? "")} mins. read
         </span>
     </p>
 
     <p class="pb-0.5">{article.data.title}</p>
     <p
-        class="text-sm text-secondary-500 group-hover:text-white pb-1"
+        class="text-sm text-secondary-400 group-hover:text-white pb-1"
         set:html={Utils.renderSimpleMarkdown(article.data.description)}
     />
 
-    <p class="text-xs group-hover:text-white text-secondary-500">
+    <p class="text-xs group-hover:text-white text-secondary-400">
         {
             [article.data.category, ...article.data.tags]
                 .map((x) => `#${x}`)

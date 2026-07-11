@@ -3,9 +3,10 @@ interface Props {
     name: string;
     type: string;
     image: string;
+    shrinkImage?: boolean;
 }
 
-const { name, type, image } = Astro.props;
+const { name, type, image, shrinkImage } = Astro.props;
 ---
 
 <div>
@@ -13,7 +14,7 @@ const { name, type, image } = Astro.props;
         class="u-flex gap-4 px-4 py-2 bg-secondary-950 border border-secondary-900"
     >
         <img
-            class="h-auto w-8"
+            class={`h-auto ${shrinkImage ? "w-6" : "w-8"}`}
             src={image}
             alt={`${name}'s logo`}
             loading="lazy"
@@ -21,7 +22,7 @@ const { name, type, image } = Astro.props;
         <p class="self-stretch w-px bg-secondary-900"></p>
         <div class="w-full">
             <p>{name}</p>
-            <p class="text-secondary-500 text-sm">{type}</p>
+            <p class="text-secondary-400 text-sm">{type}</p>
         </div>
     </div>
 </div>
