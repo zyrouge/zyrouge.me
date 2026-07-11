@@ -25,8 +25,8 @@
     --color-secondary-900: var(--color-neutral-900);
     --color-secondary-950: var(--color-neutral-950);
 
-    --font-sans: "Inter", sans-serif;
-    --font-mono: "Roboto Mono", monospace;
+    --font-sans: var(--font-inter);
+    --font-mono: var(--font-roboto-mono);
 }
 
 ::selection {
