@@ -34,7 +34,7 @@ export class StaticAssets {
     static html = `${images}/html.svg`;
     static javascript = `${images}/javascript.svg`;
     static mongodb = `${images}/mongodb.svg`;
-    static sqlite = `${images}/sqlite.png`;
+    static sqlite = `${images}/sqlite.svg`;
     static tailwindcss = `${images}/tailwindcss.svg`;
     static typescript = `${images}/typescript.svg`;
     static vue = `${images}/vue.svg`;
@@ -55,6 +55,9 @@ export class StaticAssets {
     static pho = `${images}/pho.svg`;
     static androidStudio = `${images}/android-studio.png`;
     static java = `${images}/java.svg`;
+    static postgresql = `${images}/postgresql.svg`;
+    static intellijIdea = `${images}/intellij-idea.svg`;
+    static dbeaver = `${images}/dbeaver.svg`;
 }
 
 export class ExternalAssets {}
