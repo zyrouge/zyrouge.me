@@ -11,7 +11,7 @@
     },
     "dependencies": {
         "@astrojs/check": "^0.9.9",
-        "@astrojs/mdx": "^7.0.2",
+        "@astrojs/mdx": "^7.0.3",
         "@astrojs/rss": "^4.0.19",
         "@astrojs/sitemap": "^3.7.3",
         "@iconify-json/mdi": "^1.2.3",
