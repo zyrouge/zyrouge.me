@@ -21,7 +21,7 @@
         "astro-icon": "^1.1.5",
         "fuse.js": "^7.4.2",
         "sugar": "^2.0.6",
-        "tailwindcss": "^4.3.2"
+        "tailwindcss": "^4.3.3"
     },
     "devDependencies": {
         "prettier": "^3.9.5",
