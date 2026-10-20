@@ -49,12 +49,8 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
         <div class="u-container u-container-h">
             <article>
                 <div class="mb-4">
-                    <p class="mb-2 text-3xl font-bold">
-                        {title}
-                    </p>
-                    <p class="mb-2">
-                        {description}
-                    </p>
+                    <p class="mb-2 text-3xl font-bold">{title}</p>
+                    <p class="mb-2">{description}</p>
 
                     <p class="text-sm mb-2 text-secondary-400">
                         {[category, ...tags].map((x) => `#${x}`).join(" ")}
@@ -68,11 +64,11 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
                                 title={sugar.Date.full(time)}
                             >
                                 {sugar.Date.format(time)}
-                            </time></a
-                        >
+                            </time>
+                        </a>
                         <span class="text-secondary-400">
-                            / {readingTime} mins. read</span
-                        >
+                            / {readingTime} mins. read
+                        </span>
                     </p>
                 </div>
 
@@ -88,20 +84,18 @@ const fileHistoryUrl = ExternalUrls.ghRepoFileHistoryUrl(filePath ?? "");
                                 class="lg:max-h-[85vh] lg:overflow-y-auto"
                                 id="headings"
                             >
-                                {
-                                    headings.map((x) => (
-                                        <li
-                                            class:list={[
-                                                "cursor-pointer px-4 py-2 hover:bg-secondary-950",
-                                                "border-l-2 border-secondary-900",
-                                                "data-active:lg:bg-primary-500/10 data-active:lg:border-primary-500 data-active:lg:text-primary-500",
-                                            ]}
-                                            data-hid={x.slug}
-                                        >
-                                            {x.text}
-                                        </li>
-                                    ))
-                                }
+                                {headings.map((x) => (
+                                    <li
+                                        class:list={[
+                                            "cursor-pointer px-4 py-2 hover:bg-secondary-950",
+                                            "border-l-2 border-secondary-900",
+                                            "data-active:lg:bg-primary-500/10 data-active:lg:border-primary-500 data-active:lg:text-primary-500",
+                                        ]}
+                                        data-hid={x.slug}
+                                    >
+                                        {x.text}
+                                    </li>
+                                ))}
                             </ul>
                         </div>
                     </aside>

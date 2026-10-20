@@ -4,10 +4,16 @@
     "version": "0.0.0",
     "private": true,
     "scripts": {
-        "dev": "astro dev",
-        "build": "astro check && tsc --noEmit && astro build",
+        "dev": "npm run astro:dev",
+        "build": "npm run astro:check && npm run typescript:check && npm run astro:build",
         "deploy": "gh workflow run deploy",
-        "lint": "prettier . --check && astro check"
+        "lint": "npm run prettier:check && npm run astro:check && npm run typescript:check",
+        "typescript:check": "tsc --noEmit",
+        "astro:check": "astro check",
+        "astro:dev": "astro dev",
+        "astro:build": "astro build",
+        "prettier:check": "prettier . --check",
+        "prettier:format": "prettier . --write"
     },
     "dependencies": {
         "@astrojs/check": "^0.9.11",

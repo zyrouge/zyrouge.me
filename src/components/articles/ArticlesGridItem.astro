@@ -41,11 +41,9 @@ const { article } = Astro.props;
     />
 
     <p class="text-xs group-hover:text-white text-secondary-400">
-        {
-            [article.data.category, ...article.data.tags]
-                .map((x) => `#${x}`)
-                .join(" ")
-        }
+        {[article.data.category, ...article.data.tags]
+            .map((x) => `#${x}`)
+            .join(" ")}
     </p>
 </a>
 

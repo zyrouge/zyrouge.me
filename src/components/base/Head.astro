@@ -20,10 +20,8 @@ const meta = {
 ---
 
 <title>{title}</title>
-{
-    Object.entries(meta).map(([k, v]) => (
-        <meta name={k} property={k} content={v} />
-    ))
-}
+{Object.entries(meta).map(([k, v]) => (
+    <meta name={k} property={k} content={v} />
+))}
 <Font cssVariable="--font-roboto-mono" />
 <Font cssVariable="--font-inter" />

@@ -42,9 +42,9 @@ const { name, description, link, image, tags, backgroundColor } = Astro.props;
             name="mdi:arrow-top-right"
         />
     </a>
-    <div
-        class="u-flex flex-wrap mt-1.5 gap-2 text-white/75 hover:text-white transition duration-200"
-    >
-        {tags.map((x) => <p>#{x}</p>)}
+    <div class="u-flex flex-wrap mt-1.5 gap-2 text-white/75 hover:text-white transition duration-200">
+        {tags.map((x) => (
+            <p>#{x}</p>
+        ))}
     </div>
 </div>
