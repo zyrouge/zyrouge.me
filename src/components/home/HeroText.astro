@@ -9,7 +9,7 @@ const { index, type } = Astro.props;
 
 <p
     class:list={[
-        "hero-anim leading-snug! sm:leading-normal",
+        "leading-snug! sm:leading-normal",
         type === "caption" && "text-lg sm:text-xl pb-1",
         type === "keyword" && "text-3xl sm:text-5xl font-black",
     ]}
@@ -18,15 +18,3 @@ const { index, type } = Astro.props;
 >
     <slot />
 </p>
-
-<style>
-    @reference "~/assets/styles.css";
-
-    .hero-anim {
-        @apply transition duration-300 opacity-75 scale-[0.99];
-
-        &[data-visible="true"] {
-            @apply opacity-100 scale-100;
-        }
-    }
-</style>

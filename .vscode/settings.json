@@ -23,5 +23,7 @@
         "editor.formatOnSave": true,
         "editor.defaultFormatter": "esbenp.prettier-vscode"
     },
-    "chat.disableAIFeatures": false
+    "files.associations": {
+        "*.css": "tailwindcss"
+    }
 }

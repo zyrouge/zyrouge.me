@@ -1,59 +1,46 @@
+import gsap from "gsap";
 import { CancellableTimeout, Utils } from "@/core/utils";
-
-interface HeroElements {
-    container: HTMLElement;
-    enabled: boolean;
-    texts: HTMLElement[];
-    particles: HTMLElement[];
-}
-
-const enableHeroElements = (heroElements: HeroElements) => {
-    if (heroElements.enabled) {
-        return;
-    }
-    heroElements.enabled = true;
-    heroElements.texts.forEach((x) => {
-        const index = parseInt(x.getAttribute("data-index")!);
-        x.style.transitionDelay = `${0.2 * index}s`;
-        x.setAttribute("data-visible", "true");
-    });
-    heroElements.particles.forEach((x) => {
-        x.setAttribute("data-visible", "true");
-    });
-};
-
-const disableHeroElements = (heroElements: HeroElements) => {
-    if (!heroElements.enabled) {
-        return;
-    }
-    heroElements.enabled = false;
-    heroElements.texts.forEach((x) => {
-        x.style.transitionDelay = "0";
-        x.setAttribute("data-visible", "");
-    });
-    heroElements.particles.forEach((x) => {
-        x.setAttribute("data-visible", "");
-    });
-};
+import { ScrollTrigger } from "gsap/all";
 
 const attachHero = () => {
-    const heroElements: HeroElements = {
-        container: document.getElementById("hero")!,
-        enabled: false,
-        texts: [...document.querySelectorAll<HTMLElement>("#hero-text")],
-        particles: [
-            ...document.querySelectorAll<HTMLElement>("#hero-particle"),
-        ],
-    };
-    heroElements.container.addEventListener("mouseenter", () => {
-        enableHeroElements(heroElements);
+    gsap.fromTo(
+        "#hero #hero-text",
+        { opacity: 0.5, scale: 0.99 },
+        {
+            opacity: 1,
+            scale: 1,
+            delay: 0.2,
+            duration: 0.3,
+            stagger: 0.2,
+            scrollTrigger: {
+                trigger: "#hero",
+                start: "bottom bottom",
+                end: "top top",
+                toggleActions: "play reverse play reverse",
+            },
+        },
+    );
+    gsap.fromTo(
+        "#hero #hero-particle",
+        { opacity: 0.5, scale: 0.99 },
+        {
+            opacity: 1,
+            scale: 1,
+            duration: 0.3,
+            scrollTrigger: {
+                trigger: "#hero",
+                start: "bottom bottom",
+                end: "top top",
+                toggleActions: "play reverse play reverse",
+            },
+        },
+    );
+    gsap.to("#hero #hero-particle", {
+        rotation: 360,
+        repeat: -1,
+        duration: 10,
+        ease: "linear",
     });
-    heroElements.container.addEventListener("mouseleave", () => {
-        disableHeroElements(heroElements);
-    });
-    setTimeout(() => {
-        enableHeroElements(heroElements);
-    }, 200);
 };
 
 let onProjectsScrollScrollTimeout: CancellableTimeout | undefined;
@@ -120,6 +107,8 @@ const attachProjects = () => {
         onProjectsScroll(projectElement, projectItemElements, scrollingElement);
     });
 };
+
+gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
     attachHero();
