@@ -3,34 +3,29 @@ import { CancellableTimeout, Utils } from "@/core/utils";
 import { ScrollTrigger } from "gsap/all";
 
 const attachHero = () => {
-    gsap.fromTo(
+    gsap.to(
         "#hero #hero-text",
-        { opacity: 0.5, scale: 0.99 },
         {
-            opacity: 1,
-            scale: 1,
+            opacity: 0.5, scale: 0.99,
             delay: 0.2,
             duration: 0.3,
             stagger: 0.2,
             scrollTrigger: {
                 trigger: "#hero",
-                start: "bottom bottom",
-                end: "top top",
+                start: "top top",
                 toggleActions: "play reverse play reverse",
             },
         },
     );
-    gsap.fromTo(
+    gsap.to(
         "#hero #hero-particle",
-        { opacity: 0.5, scale: 0.99 },
         {
-            opacity: 1,
-            scale: 1,
+            opacity: 0.75,
+            scale: 0.99,
             duration: 0.3,
             scrollTrigger: {
                 trigger: "#hero",
-                start: "bottom bottom",
-                end: "top top",
+                start: "top top",
                 toggleActions: "play reverse play reverse",
             },
         },
