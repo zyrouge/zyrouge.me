@@ -1,6 +1,7 @@
 ---
 import { Icon } from "astro-icon/components";
 import { Utils } from "@/core/utils";
+import sugar from "sugar";
 
 interface Props {
     name: string;
@@ -9,9 +10,11 @@ interface Props {
     image: string;
     tags: string[];
     backgroundColor: string;
+    stars?: number;
 }
 
-const { name, description, link, image, tags, backgroundColor } = Astro.props;
+const { name, description, link, image, tags, backgroundColor, stars } =
+    Astro.props;
 ---
 
 <div
@@ -23,28 +26,41 @@ const { name, description, link, image, tags, backgroundColor } = Astro.props;
 >
     <img
         class="max-h-[40%] max-w-[60%] sm:max-w-[40%]"
+        id="project-item-logo"
         src={image}
         alt={`${name}'s logo`}
         loading="lazy"
     />
+    <div class="block h-10" id="project-item-spacer"></div>
     <p
-        class="pt-24 text-lg text-center"
+        class="text-lg text-center"
+        id="project-item-description"
         set:html={Utils.renderSimpleMarkdown(description)}
     />
-    <a
-        class="group mt-1 border-b border-white/30 hover:border-white transition duration-200"
-        href={link}
-        target="_blank"
-    >
-        {link}
-        <Icon
-            class="inline-block text-white/30 group-hover:text-white transition duration-200"
-            name="mdi:arrow-top-right"
-        />
-    </a>
-    <div class="u-flex flex-wrap mt-1.5 gap-2 text-white/75 hover:text-white transition duration-200">
-        {tags.map((x) => (
-            <p>#{x}</p>
-        ))}
+    <div class="mt-1 u-flex gap-2" id="project-item-link-container">
+        <a
+            class="group border-b border-white/30 hover:border-white transition duration-200"
+            href={link}
+            target="_blank"
+        >
+            {link}
+            <Icon
+                class="inline-block text-white/30 group-hover:text-white transition duration-200"
+                name="mdi:arrow-top-right"
+            />
+        </a>
+        {stars && (
+            <p class="text-center text-yellow-400">
+                <Icon name="mdi:star" class="inline-block -translate-y-0.5" />
+                {sugar.Number.abbr(stars, 1)}+
+            </p>
+        )}
+    </div>
+    <div class="mt-1.5" id="project-item-tags-container">
+        <div class="u-flex flex-wrap gap-2 text-white/75 hover:text-white transition duration-200">
+            {tags.map((x) => (
+                <p>#{x}</p>
+            ))}
+        </div>
     </div>
 </div>
