@@ -1,6 +1,65 @@
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/all";
 
+const animateSplash = () => {
+    const splashElement = document.querySelector("#splash")! as HTMLElement;
+    const titleElement = splashElement.querySelector("#splash-title")!;
+    const hiElement = splashElement.querySelector("#splash-hi")!;
+    document.body.classList.add("overflow-hidden");
+    const timeline = gsap.timeline({
+        defaults: {
+            duration: 0.3,
+        },
+        onComplete: () => {
+            splashElement.style.display = "none";
+            document.body.classList.remove("overflow-hidden");
+        },
+    });
+    timeline.fromTo(
+        titleElement,
+        {
+            scale: 1.25,
+            opacity: 0,
+            letterSpacing: "1.5rem",
+        },
+        {
+            scale: 1,
+            opacity: 1,
+            letterSpacing: "0.25rem",
+            ease: "power1.out",
+            duration: 0.75,
+        },
+    );
+    timeline.to(titleElement, {
+        scale: 0.9,
+        opacity: 0,
+    });
+    timeline.fromTo(
+        hiElement,
+        {
+            scale: 1.1,
+        },
+        {
+            scale: 1,
+            opacity: 1,
+            rotation: -10,
+            transformOrigin: "bottom right",
+        },
+    );
+    timeline.to(hiElement, {
+        rotation: 10,
+        transformOrigin: "bottom right",
+    });
+    timeline.to(hiElement, {
+        rotation: 0,
+        transformOrigin: "bottom right",
+    });
+    timeline.to(splashElement, {
+        translateY: "-100%",
+        ease: "power1.inOut",
+    });
+};
+
 const animateHero = () => {
     gsap.to("#hero #hero-text", {
         opacity: 0.5,
@@ -10,7 +69,8 @@ const animateHero = () => {
         scrollTrigger: {
             trigger: "#hero",
             start: "top top",
-            toggleActions: "play reverse play reverse",
+            end: "bottom +25%",
+            scrub: true,
         },
     });
     const particleRotation = gsap.to("#hero #hero-particle", {
@@ -21,12 +81,13 @@ const animateHero = () => {
     });
     gsap.to("#hero #hero-particle", {
         opacity: 0.75,
-        scale: 0.99,
+        scale: 0.95,
         duration: 0.3,
         scrollTrigger: {
             trigger: "#hero",
             start: "top top",
-            toggleActions: "play reverse play reverse",
+            end: "center top",
+            scrub: true,
             onEnter: () => particleRotation.timeScale(0.75),
             onLeave: () => particleRotation.timeScale(1),
             onEnterBack: () => particleRotation.timeScale(0.75),
@@ -128,6 +189,7 @@ const animateProjects = () => {
 gsap.registerPlugin(ScrollTrigger);
 
 document.addEventListener("DOMContentLoaded", () => {
+    animateSplash();
     animateHero();
     animateProjects();
 });

@@ -9,7 +9,7 @@ const { name, link } = Astro.props;
 const label = `${name} (${link})`;
 ---
 
-<p title={label}>
+<p id="hero-social-button-item" title={label}>
     <a
         class="u-flex inline-block aspect-square text-[1.5rem] sm:text-[2rem] text-white/75 hover:text-primary-500 transition duration-200"
         href={link}

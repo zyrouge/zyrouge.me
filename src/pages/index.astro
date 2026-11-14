@@ -2,6 +2,7 @@
 import type { HeadMetadata } from "@/core/metadata";
 import { Metadata } from "@/core/metadata";
 import Base from "@/layouts/Base.astro";
+import Splash from "@/components/home/Splash.astro";
 import Hero from "@/components/home/Hero.astro";
 import Projects from "@/components/home/Projects.astro";
 import Technologies from "@/components/home/Technologies.astro";
@@ -32,5 +33,6 @@ const head: HeadMetadata = {
         <span class="text-white/40">🎉</span> Whoo Hoo! You scrolled to the end!
     </p>
 
+    <Splash />
     <script src="../assets/scripts/home.ts"></script>
 </Base>
