@@ -37,7 +37,10 @@ const { name, description, link, image, tags, backgroundColor, stars } =
         id="project-item-description"
         set:html={Utils.renderSimpleMarkdown(description)}
     />
-    <div class="mt-1 u-flex flex-wrap gap-2" id="project-item-link-container">
+    <div
+        class="mt-1 u-flex flex-wrap gap-x-2 gap-y-1"
+        id="project-item-link-container"
+    >
         <a
             class="group border-b border-white/30 hover:border-white transition duration-200"
             href={link}
@@ -57,7 +60,7 @@ const { name, description, link, image, tags, backgroundColor, stars } =
         )}
     </div>
     <div class="mt-1.5" id="project-item-tags-container">
-        <div class="u-flex flex-wrap gap-2 text-white hover:text-white transition duration-200">
+        <div class="u-flex flex-wrap gap-x-2 gap-y-1 text-white hover:text-white transition duration-200">
             {tags.map((x) => (
                 <p>#{x}</p>
             ))}

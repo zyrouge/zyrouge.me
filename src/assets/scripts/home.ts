@@ -96,6 +96,32 @@ const animateHero = () => {
     });
 };
 
+const animateTechnologies = () => {
+    const technologyItemElements = document.querySelectorAll(
+        "#technologies #technology-item",
+    )!;
+    technologyItemElements.forEach((itemElement) => {
+        gsap.fromTo(
+            itemElement,
+            {
+                opacity: 0.25,
+                translateY: "2rem",
+            },
+            {
+                opacity: 1,
+                translateY: 0,
+                duration: 0.3,
+                scrollTrigger: {
+                    trigger: itemElement,
+                    start: "top bottom",
+                    end: "bottom +=80%",
+                    scrub: true,
+                },
+            },
+        );
+    });
+};
+
 const animateProjects = () => {
     const projectItemElements = document.querySelectorAll("#project-item");
     projectItemElements.forEach((itemElement) => {
@@ -191,6 +217,7 @@ gsap.registerPlugin(ScrollTrigger);
 document.addEventListener("DOMContentLoaded", () => {
     animateSplash();
     animateHero();
+    animateTechnologies();
     animateProjects();
 });
 

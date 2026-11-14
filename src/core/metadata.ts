@@ -8,7 +8,7 @@ export class Metadata {
     static title = "Zyrouge";
     static infix = "/";
     static author = "Zyrouge";
-    static mail = "zyrouge@hotmail.com";
+    static mail = "hello@zyrouge.me";
 
     static defaultMeta = {
         author: `${Metadata.author}, ${Metadata.mail}`,

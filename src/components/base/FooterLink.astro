@@ -2,19 +2,16 @@
 interface Props {
     name: string;
     link: string;
+    external: boolean;
 }
 
-const { name, link } = Astro.props;
+const { name, link, external } = Astro.props;
 ---
 
-<p
-    class:list={[
-        "px-3 text-primary-500 hover:text-primary-600",
-        "border-l border-secondary-900 first:border-l-0",
-        "transition duration-200",
-    ]}
+<a
+    class="hover:text-primary-600 transition duration-200"
+    href={link}
+    target={external ? "_blank" : undefined}
 >
-    <a href={link} target="_blank">
-        {name}
-    </a>
-</p>
+    {name}
+</a>

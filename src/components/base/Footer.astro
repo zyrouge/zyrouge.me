@@ -1,40 +1,75 @@
 ---
 import sugar from "sugar";
-import { ExternalUrls } from "@/core/urls";
+import { ExternalUrls, StaticAssets } from "@/core/urls";
 import { Routes } from "@/core/routes";
 import { Metadata } from "@/core/metadata";
 import FooterLink from "@/components/base/FooterLink.astro";
 import FooterSecondaryLink from "@/components/base/FooterSecondaryLink.astro";
+
+const links = [
+    {
+        title: "Other Links",
+        links: [
+            ["Home", Routes.home, false],
+            ["Articles", Routes.articles.home, false],
+            ["Articles RSS", Routes.articles.rss, true],
+            ["Source Code", ExternalUrls.ghRepo, true],
+        ],
+    },
+    {
+        title: "Socials",
+        links: [
+            ["GitHub", ExternalUrls.github, true],
+            ["Discord", ExternalUrls.discord, true],
+            ["Mastodon", ExternalUrls.mastodon, true],
+            ["Reddit", ExternalUrls.reddit, true],
+            ["Blusky", ExternalUrls.bsky, true],
+            ["Mail", ExternalUrls.mail, true],
+        ],
+    },
+] satisfies { title: string; links: [string, string, boolean][] }[];
 ---
 
 <footer>
     <hr />
-
-    <div class="u-container py-6 text-center text-sm">
-        <p class="mb-1">
-            Made by
-            <span class="text-primary-500">{Metadata.title}</span>
-        </p>
-
-        <div class="mb-1 flex flex-wrap justify-center">
-            <FooterLink name="Source Code" link={ExternalUrls.ghRepo} />
-            <FooterLink name="Articles RSS" link={Routes.articles.rss} />
-        </div>
-
-        <div class="text-secondary-400">
-            <p class="mb-1">
-                Licensed under
-                <FooterSecondaryLink
-                    name="Apache 2.0"
-                    link={ExternalUrls.ghRepoLicense}
+    <div class="u-container py-16 lg:py-20">
+        <div class="grid lg:grid-cols-7 gap-x-4 gap-y-8">
+            <div class="col-span-3">
+                <img
+                    class="h-8 w-auto"
+                    src={StaticAssets.icon}
+                    alt={Metadata.title}
                 />
-                and
-                <FooterSecondaryLink
-                    name="CC BY 4.0"
-                    link={ExternalUrls.ghRepoContentLicense}
-                />
-            </p>
-            <p>Last built at {sugar.Date.format(new Date())}</p>
+                <p class="mt-4">
+                    Licensed under
+                    <FooterSecondaryLink
+                        name="Apache 2.0"
+                        link={ExternalUrls.ghRepoLicense}
+                    />
+                    and
+                    <FooterSecondaryLink
+                        name="CC BY 4.0"
+                        link={ExternalUrls.ghRepoContentLicense}
+                    />
+                </p>
+                <p class="mt-1">
+                    Last built at {sugar.Date.format(new Date())}
+                </p>
+            </div>
+            {links.map((group) => (
+                <div class="col-span-2">
+                    <p class="text-secondary-400">{group.title}</p>
+                    {group.links.map(([name, link, external]) => (
+                        <p class="mt-1">
+                            <FooterLink
+                                name={name}
+                                link={link}
+                                external={external}
+                            />
+                        </p>
+                    ))}
+                </div>
+            ))}
         </div>
     </div>
 </footer>
