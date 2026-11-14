@@ -37,7 +37,7 @@ const animateHero = () => {
 
 const animateProjects = () => {
     const projectItemElements = document.querySelectorAll("#project-item");
-    projectItemElements.forEach((itemElement, i) => {
+    projectItemElements.forEach((itemElement) => {
         const spacerElement = itemElement.querySelector(
             "#project-item-spacer",
         )!;
