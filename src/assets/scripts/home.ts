@@ -3,6 +3,11 @@ import { ScrollTrigger } from "gsap/all";
 
 const animateSplash = () => {
     const splashElement = document.querySelector("#splash")! as HTMLElement;
+    if (document.documentElement.scrollTop !== 0) {
+        splashElement.style.display = "none";
+        document.body.classList.remove("overflow-hidden");
+        return;
+    }
     const titleElement = splashElement.querySelector("#splash-title")!;
     const hiElement = splashElement.querySelector("#splash-hi")!;
     document.body.classList.add("overflow-hidden");
