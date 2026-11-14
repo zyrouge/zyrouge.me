@@ -19,7 +19,7 @@ const { name, description, link, image, tags, backgroundColor, stars } =
 
 <div
     class:list={[
-        "u-container md:min-h-screen u-flex pt-28 md:pt-32 pb-16 md:pb-32 u-flex flex-col!",
+        "u-container min-h-screen u-flex pt-28 md:pt-32 pb-16 md:pb-32 u-flex flex-col!",
         backgroundColor,
     ]}
     id="project-item"
@@ -45,7 +45,7 @@ const { name, description, link, image, tags, backgroundColor, stars } =
         >
             {link}
             <Icon
-                class="inline-block text-white/30 group-hover:text-white transition duration-200"
+                class="inline-block text-white/75 group-hover:text-white transition duration-200"
                 name="mdi:arrow-top-right"
             />
         </a>
@@ -57,7 +57,7 @@ const { name, description, link, image, tags, backgroundColor, stars } =
         )}
     </div>
     <div class="mt-1.5" id="project-item-tags-container">
-        <div class="u-flex flex-wrap gap-2 text-white/75 hover:text-white transition duration-200">
+        <div class="u-flex flex-wrap gap-2 text-white hover:text-white transition duration-200">
             {tags.map((x) => (
                 <p>#{x}</p>
             ))}

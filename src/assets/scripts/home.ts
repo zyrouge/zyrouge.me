@@ -37,19 +37,18 @@ const animateHero = () => {
 
 const animateProjects = () => {
     const projectItemElements = document.querySelectorAll("#project-item");
-    for (const projectItemElement of projectItemElements) {
-        const spacerElement = projectItemElement.querySelector(
+    projectItemElements.forEach((itemElement, i) => {
+        const spacerElement = itemElement.querySelector(
             "#project-item-spacer",
         )!;
-        const logoElement =
-            projectItemElement.querySelector("#project-item-logo")!;
-        const descriptionElement = projectItemElement.querySelector(
+        const logoElement = itemElement.querySelector("#project-item-logo")!;
+        const descriptionElement = itemElement.querySelector(
             "#project-item-description",
         )!;
-        const linkElementContainer = projectItemElement.querySelector(
+        const linkElementContainer = itemElement.querySelector(
             "#project-item-link-container",
         )!;
-        const tagsElementContainer = projectItemElement.querySelector(
+        const tagsElementContainer = itemElement.querySelector(
             "#project-item-tags-container",
         )!;
         const timeline = gsap.timeline({
@@ -57,7 +56,7 @@ const animateProjects = () => {
                 duration: 0.3,
             },
             scrollTrigger: {
-                trigger: projectItemElement,
+                trigger: itemElement,
                 start: "top top",
                 toggleActions: "play reverse play reverse",
                 pin: true,
@@ -75,39 +74,55 @@ const animateProjects = () => {
                     linkElementContainer.clientHeight +
                     tagsElementContainer.clientHeight,
             },
-            { scale: 1, translateY: 0 },
+            {
+                scale: 1,
+                translateY: 0,
+            },
             "start",
         );
         timeline.fromTo(
             descriptionElement,
             {
                 scale: 1.05,
-                opacity: 0,
+                autoAlpha: 0,
                 translateY: descriptionElement.clientHeight,
             },
-            { scale: 1, opacity: 1, translateY: 0, delay: 0.1 },
+            {
+                scale: 1,
+                autoAlpha: 1,
+                translateY: 0,
+                delay: 0.1,
+            },
             "start",
         );
         timeline.fromTo(
             linkElementContainer,
             {
                 scale: 1.05,
-                opacity: 0,
+                autoAlpha: 0,
                 translateY: linkElementContainer.clientHeight,
             },
-            { scale: 1, opacity: 1, translateY: 0 },
+            {
+                scale: 1,
+                autoAlpha: 1,
+                translateY: 0,
+            },
         );
         timeline.fromTo(
             tagsElementContainer,
             {
                 scale: 1.05,
-                opacity: 0,
+                autoAlpha: 0,
                 translateY: tagsElementContainer.clientHeight,
             },
-            { scale: 1, opacity: 1, translateY: 0 },
+            {
+                scale: 1,
+                autoAlpha: 1,
+                translateY: 0,
+            },
         );
         timeline.add(() => {}, "+=0.5");
-    }
+    });
 };
 
 gsap.registerPlugin(ScrollTrigger);
