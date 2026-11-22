@@ -23,7 +23,7 @@
         "@iconify-json/mdi": "^1.2.3",
         "@iconify-json/simple-icons": "^1.2.102",
         "@tailwindcss/vite": "^4.3.5",
-        "astro": "^7.4.11",
+        "astro": "^7.4.13",
         "astro-icon": "^1.2.0",
         "fuse.js": "^7.5.0",
         "gsap": "^3.15.1",
