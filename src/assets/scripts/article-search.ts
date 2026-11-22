@@ -1,4 +1,5 @@
 import Fuse from "fuse.js";
+import gsap from "gsap";
 import { Routes } from "@/core/routes";
 import { Utils } from "@/core/utils";
 
@@ -127,7 +128,20 @@ class ArticleSearch {
             this.dialogVisible ? "true" : "",
         );
         if (this.dialogVisible) {
+            gsap.fromTo(
+                `#${this.dialogId}`,
+                { display: "none", autoAlpha: 0, translateY: 10 },
+                {
+                    display: "block",
+                    autoAlpha: 1,
+                    translateY: 0,
+                    duration: 0.2,
+                    ease: "power1.out",
+                },
+            );
             document.getElementById(this.dialogTextInputId)?.focus();
+        } else {
+            gsap.to(`#${this.dialogId}`, { display: "none", duration: 0 });
         }
     }
 

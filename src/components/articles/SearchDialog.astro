@@ -3,9 +3,7 @@ import { Icon } from "astro-icon/components";
 ---
 
 <div
-    class:list={[
-        "hidden data-[active='true']:block fixed inset-0 bg-secondary-950/50",
-    ]}
+    class="hidden fixed inset-0 bg-secondary-950/50"
     id="article-search-dialog"
 >
     <div class="u-flex w-full h-full" id="article-search-dialog-dismissable">
@@ -47,7 +45,7 @@ import { Icon } from "astro-icon/components";
                 />
                 <button
                     class:list={[
-                        "p-2 u-flex",
+                        "p-2 u-flex cursor-pointer",
                         "hover:bg-red-500/5",
                         "border border-red-500/50 hover:border-red-500",
                     ]}
