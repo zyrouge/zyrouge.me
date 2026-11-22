@@ -158,7 +158,7 @@ const animateProjects = () => {
         timeline.fromTo(
             logoElement,
             {
-                scale: 1.5,
+                scale: () => (document.body.clientWidth < 640 ? 1.1 : 1.5),
                 translateY:
                     spacerElement.clientHeight +
                     descriptionElement.clientHeight +
