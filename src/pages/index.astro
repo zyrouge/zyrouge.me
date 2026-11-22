@@ -24,21 +24,33 @@ const head: HeadMetadata = {
         <Technologies />
     </div>
     <hr />
-    <div class="u-container-h">
+    <div class="u-container-h pb-0!">
         <div class="u-container">
             <p class="text-lg">Some of my projects</p>
         </div>
         <Projects />
     </div>
-    <div class="u-container u-container-h pt-0! my-10">
-        <p class="pb-0.5">I'm open for various oppurtunities!</p>
-        <p class="pb-4">Feel free to reach out to me via</p>
-        <a
-            href={ExternalUrls.mail}
-            class="text-primary-500 text-5xl font-bold hover:underline"
-        >
-            {ExternalUrls.mail.replace(/^mailto:/, "")}
-        </a>
+    <div class="u-container w-full u-flex justify-between!">
+        <div class="py-24 sm:py-32">
+            <p class="pb-0.5">I'm open for various oppurtunities!</p>
+            <p class="pb-4">Feel free to reach out to me via</p>
+            <a
+                href={ExternalUrls.mail}
+                class="text-primary-500 text-2xl sm:text-5xl font-bold hover:underline"
+            >
+                {ExternalUrls.mail.replace(/^mailto:/, "")}
+            </a>
+        </div>
+        <div class="hidden lg:block">
+            <div class="[clip-path:circle()]">
+                <a href={ExternalUrls.github}>
+                    <img
+                        src="https://avatars.githubusercontent.com/u/50770114"
+                        class="h-56 w-auto"
+                    />
+                </a>
+            </div>
+        </div>
     </div>
 
     <Splash />
