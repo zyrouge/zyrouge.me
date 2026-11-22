@@ -1,51 +1,103 @@
 ---
 import { StaticAssets } from "@/core/urls";
-import Item from "@/components/home/TechnologyItem.astro";
+import TechnologyItem from "@/components/home/TechnologyItem.astro";
 ---
 
 <div
     class="pt-4 grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4"
     id="technologies"
 >
-    <Item name="Node.js" image={StaticAssets.nodejs} type="Language" />
-    <Item name="JavaScript" image={StaticAssets.javascript} type="Language" />
-    <Item name="Typescript" image={StaticAssets.typescript} type="Language" />
-    <Item name="Go" image={StaticAssets.golang} type="Language" />
-    <Item name="Dart" image={StaticAssets.dart} type="Language" />
-    <Item name="Kotlin" image={StaticAssets.kotlin} type="Language" />
-    <Item name="Java" image={StaticAssets.java} type="Language" />
-    <Item name="HTML" image={StaticAssets.html} type="Language" />
-    <Item name="CSS" image={StaticAssets.css} type="Language" />
-    <Item name="Bash" image={StaticAssets.bash} type="Language" />
+    <TechnologyItem
+        name="Node.js"
+        image={StaticAssets.nodejs}
+        type="Language"
+    />
+    <TechnologyItem
+        name="JavaScript"
+        image={StaticAssets.javascript}
+        type="Language"
+    />
+    <TechnologyItem
+        name="Typescript"
+        image={StaticAssets.typescript}
+        type="Language"
+    />
+    <TechnologyItem name="Go" image={StaticAssets.golang} type="Language" />
+    <TechnologyItem name="Dart" image={StaticAssets.dart} type="Language" />
+    <TechnologyItem name="Kotlin" image={StaticAssets.kotlin} type="Language" />
+    <TechnologyItem name="Java" image={StaticAssets.java} type="Language" />
+    <TechnologyItem name="HTML" image={StaticAssets.html} type="Language" />
+    <TechnologyItem name="CSS" image={StaticAssets.css} type="Language" />
+    <TechnologyItem name="Bash" image={StaticAssets.bash} type="Language" />
 
-    <Item name="Flutter" image={StaticAssets.flutter} type="App Framework" />
-    <Item
+    <TechnologyItem
+        name="Flutter"
+        image={StaticAssets.flutter}
+        type="App Framework"
+    />
+    <TechnologyItem
         name="Jetpack Compose"
         image={StaticAssets.jetpackCompose}
         type="App Framework"
     />
-    <Item name="Electron" image={StaticAssets.electron} type="App Framework" />
-    <Item name="Vue" image={StaticAssets.vue} type="UI Framework" />
-    <Item
+    <TechnologyItem
+        name="Electron"
+        image={StaticAssets.electron}
+        type="App Framework"
+    />
+    <TechnologyItem name="Vue" image={StaticAssets.vue} type="UI Framework" />
+    <TechnologyItem
         name="Tailwind CSS"
         image={StaticAssets.tailwindcss}
         type="CSS Framework"
     />
-    <Item name="PostgreSQL" image={StaticAssets.postgresql} type="Database" />
-    <Item name="SQLite" image={StaticAssets.sqlite} type="Database" />
+    <TechnologyItem
+        name="PostgreSQL"
+        image={StaticAssets.postgresql}
+        type="Database"
+    />
+    <TechnologyItem name="SQLite" image={StaticAssets.sqlite} type="Database" />
 
-    <Item name="Windows" image={StaticAssets.windows} type="Operating System" />
-    <Item name="Linux" image={StaticAssets.linux} type="Operating System" />
-    <Item name="Git" image={StaticAssets.git} type="Version Control" />
-    <Item name="VS Code" image={StaticAssets.vscode} type="Editor" />
-    <Item name="IntelliJ IDEA" image={StaticAssets.intellijIdea} type="IDE" />
-    <Item name="Android Studio" image={StaticAssets.androidStudio} type="IDE" />
-    <Item
+    <TechnologyItem
+        name="Windows"
+        image={StaticAssets.windows}
+        type="Operating System"
+    />
+    <TechnologyItem
+        name="Linux"
+        image={StaticAssets.linux}
+        type="Operating System"
+    />
+    <TechnologyItem
+        name="Git"
+        image={StaticAssets.git}
+        type="Version Control"
+    />
+    <TechnologyItem name="VS Code" image={StaticAssets.vscode} type="Editor" />
+    <TechnologyItem
+        name="IntelliJ IDEA"
+        image={StaticAssets.intellijIdea}
+        type="IDE"
+    />
+    <TechnologyItem
+        name="Android Studio"
+        image={StaticAssets.androidStudio}
+        type="IDE"
+    />
+    <TechnologyItem
         name="Figma"
         image={StaticAssets.figma}
         type="Graphic Design"
         shrinkImage={true}
     />
-    <Item name="Podman" image={StaticAssets.podman} type="Containerization" />
-    <Item name="DBeaver" image={StaticAssets.dbeaver} type="Database Tool" />
+    <TechnologyItem
+        name="Podman"
+        image={StaticAssets.podman}
+        type="Containerization"
+    />
+    <TechnologyItem
+        name="DBeaver"
+        image={StaticAssets.dbeaver}
+        type="Database Tool"
+    />
 </div>

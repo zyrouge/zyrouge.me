@@ -128,7 +128,7 @@ const animateTechnologies = () => {
 };
 
 const animateProjects = () => {
-    const projectItemElements = document.querySelectorAll("#project-item");
+    const projectItemElements = [...document.querySelectorAll("#project-item")];
     projectItemElements.forEach((itemElement) => {
         const spacerElement = itemElement.querySelector(
             "#project-item-spacer",
@@ -151,11 +151,10 @@ const animateProjects = () => {
                 trigger: itemElement,
                 start: "top top",
                 toggleActions: "play reverse play reverse",
-                pin: true,
                 scrub: true,
+                pin: true,
             },
         });
-        timeline.addLabel("start", 0);
         timeline.fromTo(
             logoElement,
             {
@@ -170,14 +169,13 @@ const animateProjects = () => {
                 scale: 1,
                 translateY: 0,
             },
-            "start",
         );
         timeline.fromTo(
             descriptionElement,
             {
                 scale: 1.05,
                 autoAlpha: 0,
-                translateY: descriptionElement.clientHeight,
+                translateY: descriptionElement.clientHeight / 2,
             },
             {
                 scale: 1,
@@ -185,14 +183,13 @@ const animateProjects = () => {
                 translateY: 0,
                 delay: 0.1,
             },
-            "start",
         );
         timeline.fromTo(
             linkElementContainer,
             {
                 scale: 1.05,
                 autoAlpha: 0,
-                translateY: linkElementContainer.clientHeight,
+                translateY: linkElementContainer.clientHeight / 2,
             },
             {
                 scale: 1,
@@ -205,7 +202,7 @@ const animateProjects = () => {
             {
                 scale: 1.05,
                 autoAlpha: 0,
-                translateY: tagsElementContainer.clientHeight,
+                translateY: tagsElementContainer.clientHeight / 2,
             },
             {
                 scale: 1,

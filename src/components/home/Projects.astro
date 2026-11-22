@@ -1,10 +1,10 @@
 ---
 import { StaticAssets } from "@/core/urls";
-import Item from "@/components/home/ProjectItem.astro";
+import ProjectItem from "@/components/home/ProjectItem.astro";
 ---
 
 <div class="pt-4" id="projects">
-    <Item
+    <ProjectItem
         name="Symphony"
         link="https://zyrouge.github.io/symphony"
         description="🎵 A lightweight, elegant music player that enhances your offline music experience."
@@ -13,7 +13,7 @@ import Item from "@/components/home/ProjectItem.astro";
         backgroundColor="bg-purple-400"
         stars={1700}
     />
-    <Item
+    <ProjectItem
         name="Phrasey"
         link="https://zyrouge.github.io/phrasey"
         description="A full-blown i18n build system."
@@ -21,7 +21,7 @@ import Item from "@/components/home/ProjectItem.astro";
         tags={["nodejs", "i18n"]}
         backgroundColor="bg-neutral-900"
     />
-    <Item
+    <ProjectItem
         name="Beize"
         link="https://zyrouge.github.io/beize"
         description="A highly dynamic embeddable scripting language."
@@ -29,7 +29,7 @@ import Item from "@/components/home/ProjectItem.astro";
         tags={["dart", "programming-language", "interpreter"]}
         backgroundColor="bg-emerald-400"
     />
-    <Item
+    <ProjectItem
         name="Pho"
         link="https://github.com/zyrouge/pho"
         description="An AppImage Manager for Linux."
