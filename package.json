@@ -21,7 +21,7 @@
         "@astrojs/rss": "^4.0.19",
         "@astrojs/sitemap": "^3.7.4",
         "@iconify-json/mdi": "^1.2.3",
-        "@iconify-json/simple-icons": "^1.2.102",
+        "@iconify-json/simple-icons": "^1.2.103",
         "@tailwindcss/vite": "^4.3.5",
         "astro": "^7.4.13",
         "astro-icon": "^1.2.0",
