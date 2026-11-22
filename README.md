@@ -36,4 +36,4 @@
 
 ## License
 
-[Apache-2.0 License](./LICENSE)
+[Apache-2.0 License](./LICENSE) & [CC BY 4.0](./content/LICENSE)
