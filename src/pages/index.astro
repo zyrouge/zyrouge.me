@@ -6,6 +6,7 @@ import Splash from "@/components/home/Splash.astro";
 import Hero from "@/components/home/Hero.astro";
 import Projects from "@/components/home/Projects.astro";
 import Technologies from "@/components/home/Technologies.astro";
+import { ExternalUrls } from "@/core/urls";
 
 const head: HeadMetadata = {
     title: Metadata.constructTitle("Home"),
@@ -29,9 +30,16 @@ const head: HeadMetadata = {
         </div>
         <Projects />
     </div>
-    <p class="u-container pb-2 text-white/25 text-xs text-right">
-        <span class="text-white/40">🎉</span> Whoo Hoo! You scrolled to the end!
-    </p>
+    <div class="u-container u-container-h pt-0! my-10">
+        <p class="pb-0.5">I'm open for various oppurtunities!</p>
+        <p class="pb-4">Feel free to reach out to me via</p>
+        <a
+            href={ExternalUrls.mail}
+            class="text-primary-500 text-5xl font-bold hover:underline"
+        >
+            {ExternalUrls.mail.replace(/^mailto:/, "")}
+        </a>
+    </div>
 
     <Splash />
     <script src="../assets/scripts/home.ts"></script>
