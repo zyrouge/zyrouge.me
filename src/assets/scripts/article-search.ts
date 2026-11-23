@@ -9,11 +9,11 @@ interface ArticleMinifiedData {
     url: string;
 }
 
-type ArticleSeatchDataState = "waiting" | "loading" | "loaded";
+type ArticleSearchDataState = "waiting" | "loading" | "loaded";
 
 class ArticleSearch {
     dialogId = "article-search-dialog";
-    dialogDismissableId = "article-search-dialog-dismissable";
+    dialogDismissibleId = "article-search-dialog-dismissible";
     activeAttribute = "data-active";
     stateAttribute = "data-state";
     dialogTextInputId = "article-search-input";
@@ -24,7 +24,7 @@ class ArticleSearch {
     dialogSearchCloseId = "article-search-close";
 
     dialogVisible = false;
-    articlesState: ArticleSeatchDataState = "waiting";
+    articlesState: ArticleSearchDataState = "waiting";
     articles = new Map<string, ArticleMinifiedData>();
     searcher = new Fuse<ArticleMinifiedData>([], {
         keys: ["title", "description"],
@@ -34,7 +34,7 @@ class ArticleSearch {
     initialize() {
         this.attachDialogTextInput();
         this.attachDialogToggleButton();
-        this.attachDialogDismissable();
+        this.attachDialogDismissible();
         this.attachDialogCloseButton();
         this.attachEscapeKeypress();
     }
@@ -103,8 +103,8 @@ class ArticleSearch {
         });
     }
 
-    attachDialogDismissable() {
-        const element = document.getElementById(this.dialogDismissableId);
+    attachDialogDismissible() {
+        const element = document.getElementById(this.dialogDismissibleId);
         element?.addEventListener("click", (e) => {
             if (e.target === element) {
                 this.toggleDialog();
@@ -153,7 +153,7 @@ class ArticleSearch {
         }
     }
 
-    setArticlesState(state: ArticleSeatchDataState) {
+    setArticlesState(state: ArticleSearchDataState) {
         this.articlesState = state;
         const element = document.getElementById(this.dialogSearchStatusId);
         element?.setAttribute(this.stateAttribute, state);

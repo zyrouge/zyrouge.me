@@ -16,7 +16,7 @@ class ArticleState {
     initialize() {
         this.headings = this.getAllHeadings();
         this.attachClickHandlers();
-        this.attachScrollHander();
+        this.attachScrollHandler();
         this.attachOnLoadedHandler();
     }
 
@@ -74,7 +74,7 @@ class ArticleState {
         });
     }
 
-    attachScrollHander() {
+    attachScrollHandler() {
         let onScrollEndInterval: ReturnType<typeof setTimeout> | null = null;
         document.addEventListener("scroll", () => {
             clearInterval(onScrollEndInterval ?? undefined);

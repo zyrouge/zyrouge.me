@@ -25,5 +25,18 @@
     },
     "files.associations": {
         "*.css": "tailwindcss"
-    }
+    },
+    "cSpell.words": [
+        "Beize",
+        "Blusky",
+        "bsky",
+        "DBeaver",
+        "gsap",
+        "Jetpack",
+        "Phrasey",
+        "Roboto",
+        "stylify",
+        "xmlify",
+        "Zyrouge"
+    ]
 }
